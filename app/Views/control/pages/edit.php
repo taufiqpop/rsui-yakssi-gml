@@ -1,27 +1,38 @@
-<?= $this->extend('templates/index'); ?>
+<?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<!-- Edit Pages -->
 <?php $i = 1; ?>
 <?php foreach ($pages as $pages) : ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
                 <h1 class="h3 mb-4 text-gray-800">Form Edit Data Pages</h1>
+
+                <!-- Forms -->
                 <form action="<?= base_url(); ?>pages/update/<?= $pages['id']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <input type="hidden" name="imgPagesLama" value="<?= $pages['images']; ?>">
+
+                    <!-- Judul -->
                     <div class="form-group row">
                         <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="judul" value="<?= $pages['judul']; ?>" autofocus required>
                         </div>
                     </div>
+
+                    <!-- Content -->
                     <div class="form-group row">
                         <label for="content" class="col-sm-2 col-form-label">Content</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="content" value="<?= $pages['content']; ?>" required>
+                            <textarea class="tinymce" name="content">
+                                <?= $pages['content']; ?>
+                            </textarea>
                         </div>
                     </div>
+
+                    <!-- Images -->
                     <div class="form-group row">
                         <label for="images" class="col-sm-2 col-form-label">Images</label>
                         <div class="col-sm-2">
@@ -38,13 +49,15 @@
                         </div>
                     </div>
 
+                    <!-- Button -->
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <a href="<?= base_url(); ?>control/pages/details/<?= $pages['id']; ?>" class="btn btn-dark">Back</a>
+                            <a href="<?= base_url(); ?>control/pages/detail/<?= $pages['id']; ?>" class="btn btn-dark">Back</a>
                             <button type="submit" class="btn btn-primary">Confirm Changes</button>
                         </div>
                     </div>
                 </form>
+                <!-- End Forms -->
             </div>
         </div>
     </div>

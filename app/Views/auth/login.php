@@ -1,6 +1,7 @@
 <?= $this->extend('auth/templates/index'); ?>
 <?= $this->section('content'); ?>
 
+<!-- Login Page -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-10 col-lg-12 col-md-9">

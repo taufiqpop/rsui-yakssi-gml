@@ -93,7 +93,6 @@
             <?= $this->renderSection('page-content'); ?>
 
         </div>
-        <!-- End of Main Content -->
 
         <!-- Footer -->
         <footer id="footer">
@@ -103,7 +102,6 @@
                 </div>
             </div>
         </footer>
-        <!-- End Footer -->
     <?php endforeach; ?>
 
     <!-- JavaScript -->

@@ -1,20 +1,22 @@
-<?= $this->extend('templates/index'); ?>
+<?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<!-- Settings -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <h1 class="h3 mb-4 text-gray-800">Settings</h1>
 
+            <!-- Messages -->
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->getFlashdata('pesan') ?>
                 </div>
             <?php endif; ?>
 
-            <!-- Table -->
+            <!-- Forms -->
             <?php foreach ($settings as $settings) : ?>
-                <form action="/settings/update/<?= $settings['id']; ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url(); ?>settings/update/<?= $settings['id']; ?>" method="post" enctype="multipart/form-data">
                     <div class="row card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -70,6 +72,8 @@
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <!-- Button -->
                                 <div class="col-sm-10">
                                     <button type="submit" class="btn btn-primary">Confirm Changes</button>
                                 </div>

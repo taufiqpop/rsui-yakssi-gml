@@ -2,11 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Models\PagesModel;
-
 class Pages extends BaseController
 {
     protected $pagesModel;
+
     public function __construct()
     {
         $this->pagesModel = new \App\Models\PagesModel();
@@ -37,13 +36,11 @@ class Pages extends BaseController
     }
 
     // Detail Pages
-    public function details($id)
+    public function detail($id)
     {
-        $pagesMod = $this->pagesModel->find($id);
-
         $data = [
             'title' => 'RSUI YAKSSI | Detail Pages',
-            'pages' => $pagesMod,
+            'pages' => $this->pagesModel->find($id),
         ];
 
         $db      = \Config\Database::connect();
@@ -54,7 +51,7 @@ class Pages extends BaseController
 
         $data['pages'] = $query->getResultArray();
 
-        return view('control/pages/details', $data);
+        return view('control/pages/detail', $data);
     }
 
     // Create Data
@@ -67,7 +64,7 @@ class Pages extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('pages');
-        $builder->select('id, judul, content, images, created_at, updated_at, deleted_at');
+        $builder->select('id, judul, content, images');
         $query   = $builder->get();
 
         $data['pages'] = $query->getResultArray();
@@ -75,8 +72,8 @@ class Pages extends BaseController
         return view('control/pages/form', $data);
     }
 
-    // Save Data
-    public function save()
+    // Insert Data
+    public function insert($id = '')
     {
         // Validasi Input
         if (!$this->validate([
@@ -101,11 +98,11 @@ class Pages extends BaseController
         if ($gambarPages->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
-            // Pindahkan File Ke Folder Img
-            $gambarPages->move('img');
+            // Generate Nama File Random
+            $namaGambar = $gambarPages->getRandomName();
 
-            // Ambil Nama File
-            $namaGambar = $gambarPages->getName();
+            // Pindahkan Gambar
+            $gambarPages->move('img', $namaGambar);
         }
 
         $this->pagesModel->save([
@@ -115,29 +112,28 @@ class Pages extends BaseController
         ]);
 
         session()->setFlashdata('pesan', 'Data Pages Berhasil Ditambahkan!');
-        return redirect('control/pages/index');
+
+        return redirect('control/pages');
     }
 
     // Edit Data
-    public function formEdit($id)
+    public function edit($id)
     {
-        $pagesMod = $this->pagesModel->find($id);
-
         $data = [
-            'title'      => 'RSUI YAKKSI | Form Edit Data Pages',
-            'pages'      => $pagesMod,
+            'title'      => 'RSUI YAKKSI | Edit Data Pages',
+            'pages'      => $this->pagesModel->find($id),
             'validation' => \Config\Services::validation()
         ];
 
         $db      = \Config\Database::connect();
         $builder = $db->table('pages');
-        $builder->select('id, judul, content, images, created_at, updated_at, deleted_at');
+        $builder->select('id, judul, content, images');
         $builder->where('id', $id);
         $query   = $builder->get();
 
         $data['pages'] = $query->getResultArray();
 
-        return view('control/pages/formEdit', $data);
+        return view('control/pages/edit', $data);
     }
 
     // Update Data
@@ -158,17 +154,17 @@ class Pages extends BaseController
             return redirect()->to('control/pages/formEdit')->withInput()->with('validation', $validation);
         }
 
-        $fileImgPages = $this->request->getFile('images');
+        $gambarPages = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($fileImgPages->getError() == 4) {
-            $namaImgPages = $this->request->getVar('imgPagesLama');
+        if ($gambarPages->getError() == 4) {
+            $namaGambar = $this->request->getVar('imgPagesLama');
         } else {
             // Generate Nama File Random
-            $namaImgPages = $fileImgPages->getRandomName();
+            $namaGambar = $gambarPages->getRandomName();
 
             // Pindahkan Gambar
-            $fileImgPages->move('img', $namaImgPages);
+            $gambarPages->move('img', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/' . $this->request->getVar('imgPagesLama'));
@@ -178,28 +174,29 @@ class Pages extends BaseController
             'id'      => $id,
             'judul'   => $this->request->getVar('judul'),
             'content' => $this->request->getVar('content'),
-            'images'  => $namaImgPages,
+            'images'  => $namaGambar,
         ]);
 
         session()->setFlashdata('pesan', 'Data Pages Berhasil Diubah!');
-        return redirect('control/pages/index');
+
+        return redirect('control/pages');
     }
 
     // Delete Data
     public function delete($id)
     {
         // Cari Gambar Berdasarkan ID
-        $pagesMod = $this->pagesModel->find($id);
+        $pages = $this->pagesModel->find($id);
 
         // Cek Jika File Gambar default.svg
-        if ($pagesMod['images'] != 'default.svg') {
-
+        if ($pages['images'] != 'default.svg') {
             // Hapus Gambar Permanen
-            unlink('img/' . $pagesMod['images']);
+            unlink('img/' . $pages['images']);
         }
 
         $this->pagesModel->delete($id);
         session()->setFlashdata('pesan', 'Data Pages Berhasil Dihapus!');
-        return redirect('control/pages/index');
+
+        return redirect('control/pages');
     }
 }

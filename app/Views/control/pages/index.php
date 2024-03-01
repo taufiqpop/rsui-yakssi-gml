@@ -1,6 +1,7 @@
-<?= $this->extend('templates/index'); ?>
+<?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<!-- Pages List -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-11">
@@ -8,7 +9,8 @@
             <a href="<?= base_url(); ?>control/pages/form" class="btn btn-primary">Add Pages</a>
             <br><br>
 
-            <form action="" method="get">
+            <!-- Search Bar -->
+            <form action="" method="post">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search" name="keyword" autofocus>
                     <div class="input-group-append">
@@ -19,6 +21,7 @@
                 </div>
             </form>
 
+            <!-- Message -->
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->getFlashdata('pesan') ?>
@@ -48,9 +51,9 @@
                                         </td>
                                         <td><?= $pages['judul']; ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/pages/details/<?= $pages['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/pages/formEdit/<?= $pages['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <form action="<?= base_url(); ?>control/pages/index/<?= $pages['id']; ?>" method="post" class="d-inline">
+                                            <a href="<?= base_url(); ?>control/pages/detail/<?= $pages['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
+                                            <a href="<?= base_url(); ?>control/pages/edit/<?= $pages['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <form action="<?= base_url(); ?>control/pages/<?= $pages['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
@@ -60,10 +63,13 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+
+                        <!-- Pagers -->
                         <?= $pager->links('pages', 'pages_pagination'); ?>
                     </div>
                 </div>
             </div>
+            <!-- End Table -->
         </div>
     </div>
 </div>

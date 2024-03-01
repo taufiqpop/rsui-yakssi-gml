@@ -19,7 +19,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-$routes->setAutoRoute(true);
+// $routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -29,6 +29,8 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// Home
 $routes->get('/', 'Home::index');
 $routes->add('/doctors', 'Home::doctors');
 $routes->get('/contact', 'Contact::contact');
@@ -41,65 +43,35 @@ $routes->delete('/admin/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin'])
 // User
 $routes->get('/user', 'User::index');
 $routes->get('/profile', 'User::profile');
-$routes->get('/password/(:num)', 'ChangePassword::index/$1');
 $routes->get('/user/edit/(:segment)', 'User::edit/$1');
+
+// Password
+$routes->get('/password/(:num)', 'ChangePassword::index/$1');
 
 // Pesan
 $routes->add('/pesan', 'Pesan::index');
 
-// Beranda
-$routes->add('/control/beranda', 'Beranda::index');
-$routes->add('/control/beranda/insert', 'Beranda::insert');
-$routes->get('/control/beranda/form', 'Beranda::form');
-$routes->get('/control/beranda/edit/(:segment)', 'Beranda::edit/$1');
-$routes->get('/control/beranda/details/(:segment)', 'Beranda::details/$1');
-$routes->delete('/control/beranda/index/(:num)', 'Beranda::delete/$1');
-
-// Widget
-$routes->add('/control/widget', 'Widget::index');
-$routes->add('/widget/save', 'Widget::save');
-$routes->get('/control/widget/form', 'Widget::form');
-$routes->get('/control/widget/edit/(:segment)', 'Widget::edit/$1');
-$routes->get('/control/widget/details/(:segment)', 'Widget::details/$1');
-$routes->delete('/control/widget/index/(:num)', 'Widget::delete/$1');
+// Settings
+$routes->get('/control/settings', 'Settings::index');
 
 // Pages
 $routes->add('/control/pages', 'Pages::index');
 $routes->get('/control/pages/form', 'Pages::form');
+$routes->add('/pages/insert', 'Pages::insert');
 $routes->get('/control/pages/edit/(:segment)', 'Pages::edit/$1');
-$routes->get('/control/pages/details/(:segment)', 'Pages::details/$1');
-$routes->delete('/control/pages/index/(:num)', 'Pages::delete/$1');
+$routes->add('/pages/update/(:segment)', 'Pages::update/$1');
+$routes->get('/control/pages/detail/(:segment)', 'Pages::detail/$1');
+$routes->delete('/control/pages/(:num)', 'Pages::delete/$1');
 
 // Posts
 $routes->add('/control/posts', 'Posts::index');
 $routes->get('/control/posts/form', 'Posts::form');
+$routes->add('/posts/insert', 'Posts::insert');
 $routes->get('/control/posts/edit/(:segment)', 'Posts::edit/$1');
-$routes->get('/control/posts/details/(:segment)', 'Posts::details/$1');
-$routes->delete('/control/posts/index/(:num)', 'Posts::delete/$1');
+$routes->add('/posts/update/(:segment)', 'Posts::update/$1');
+$routes->get('/control/posts/detail/(:segment)', 'Posts::detail/$1');
+$routes->delete('/control/posts/(:num)', 'Posts::delete/$1');
 
-// Category
-$routes->add('/control/category', 'Category::index');
-$routes->get('/control/category/form', 'Category::form');
-$routes->get('/control/category/edit/(:segment)', 'Category::edit/$1');
-$routes->get('/control/category/details/(:segment)', 'Category::details/$1');
-$routes->delete('/control/category/index/(:num)', 'Category::delete/$1');
-
-// Menu
-$routes->add('/control/menu', 'Menu::index');
-$routes->get('/control/menu/form', 'Menu::form');
-$routes->get('/control/menu/edit/(:segment)', 'Menu::edit/$1');
-$routes->get('/control/menu/details/(:segment)', 'Menu::details/$1');
-$routes->delete('/control/menu/index/(:num)', 'Menu::delete/$1');
-
-// Settings
-$routes->get('/control/settings', 'Settings::index');
-
-// Dokter
-$routes->add('/control/dokter', 'Dokter::index');
-$routes->get('/control/dokter/form', 'Dokter::form');
-$routes->get('/control/dokter/edit/(:segment)', 'Dokter::edit/$1');
-$routes->get('/control/dokter/details/(:segment)', 'Dokter::details/$1');
-$routes->delete('/control/dokter/index/(:num)', 'Dokter::delete/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

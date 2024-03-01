@@ -1,25 +1,30 @@
-<?= $this->extend('templates/index'); ?>
+<?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<!-- Detail Posts -->
 <div class="container-fluid">
-    <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Detail Posts</h1>
 
-    <!-- Table -->
     <?php $i = 1; ?>
     <?php foreach ($posts as $posts) : ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mb-3" style="max-width: 1000px;">
+                    <!-- Card -->
                     <div class="row no-gutters">
                         <div class="col-md-6">
                             <img src="<?= base_url(); ?>img/<?= $posts['images']; ?>" class="card-img posts-img img-thumbnail">
-                            <center><?= $posts['deskripsi']; ?>
-                                <div class="container tombol-posts">
-                                    <a href="<?= base_url(); ?>control/posts/index" class="btn btn-dark col-3">Back</a>
-                                    <a href="<?= base_url(); ?>control/posts/formEdit/<?= $posts['id']; ?>" class="btn btn-warning col-3">Edit</a>
+                            <center>
+                                <!-- Deskripsi Foto -->
+                                <?= $posts['deskripsi']; ?>
 
-                                    <form action="<?= base_url(); ?>control/posts/index/<?= $posts['id']; ?>" method="post" class="d-inline">
+                                <!-- Button -->
+                                <div class="container tombol-posts">
+                                    <a href="<?= base_url(); ?>control/posts" class="btn btn-dark col-3">Back</a>
+                                    <a href="<?= base_url(); ?>control/posts/edit/<?= $posts['id']; ?>" class="btn btn-warning col-3">Edit</a>
+
+                                    <!-- Delete -->
+                                    <form action="<?= base_url(); ?>control/posts/<?= $posts['id']; ?>" method="post" class="d-inline">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger col-3" onclick="return confirm('Apakah anda yakin?');">Delete</button>
@@ -51,10 +56,10 @@
                                         </p>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
+                    <!-- End Card -->
                 </div>
             </div>
         </div>

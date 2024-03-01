@@ -26,13 +26,9 @@ class Pager extends BaseConfig
         'default_head'   => 'CodeIgniter\Pager\Views\default_head',
 
         'users_pagination'    => 'App\Views\pagers\users_pagination',
-        'beranda_pagination'  => 'App\Views\pagers\beranda_pagination',
-        'widget_pagination'   => 'App\Views\pagers\widget_pagination',
         'pages_pagination'    => 'App\Views\pagers\pages_pagination',
         'posts_pagination'    => 'App\Views\pagers\posts_pagination',
-        'category_pagination' => 'App\Views\pagers\category_pagination',
         'pesan_pagination'    => 'App\Views\pagers\pesan_pagination',
-        'menu_pagination'     => 'App\Views\pagers\menu_pagination',
         'dokter_pagination'   => 'App\Views\pagers\dokter_pagination',
 
     ];

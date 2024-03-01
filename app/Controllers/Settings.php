@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\SettingsModel;
-
 class Settings extends BaseController
 {
     protected $settingsModel;
@@ -43,6 +41,6 @@ class Settings extends BaseController
         ]);
 
         session()->setFlashdata('pesan', 'Data Settings Berhasil Diubah!');
-        return redirect('control/settings/index');
+        return redirect('control/settings');
     }
 }

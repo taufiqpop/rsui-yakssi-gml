@@ -10,6 +10,7 @@
 
     <title>RSUI YAKSSI | Account</title>
 
+    <!-- Favicon -->
     <link rel="icon" href="<?= base_url(); ?>logo.ico">
 
     <!-- Fonts -->
@@ -17,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="<?= base_url(); ?>/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- My CSS -->
     <link href="<?= base_url(); ?>/css/my-style.css" rel="stylesheet">
@@ -28,13 +29,12 @@
 
     <!-- Content -->
     <?= $this->renderSection('content'); ?>
-    <!-- End Content -->
 
     <!-- Bootstrap JavaScript -->
     <script src="<?= base_url(); ?>/vendor/jquery/jquery.min.js"></script>
     <script src="<?= base_url(); ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url(); ?>/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="<?= base_url(); ?>/js/sb-admin-2.js"></script>
+    <script src="<?= base_url(); ?>/js/sb-admin-2.min.js"></script>
 
     <!-- My JavaScript -->
     <script src="<?= base_url(); ?>/js/my-script.js"></script>

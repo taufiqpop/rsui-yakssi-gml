@@ -5,6 +5,7 @@ namespace App\Controllers;
 class Posts extends BaseController
 {
     protected $postsModel;
+
     public function __construct()
     {
         $this->postsModel = new \App\Models\PostsModel();
@@ -35,13 +36,11 @@ class Posts extends BaseController
     }
 
     // Detail Posts
-    public function details($id)
+    public function detail($id)
     {
-        $postsMod = $this->postsModel->find($id);
-
         $data = [
             'title' => 'RSUI YAKSSI | Detail Posts',
-            'posts' => $postsMod,
+            'posts' => $this->postsModel->find($id),
         ];
 
         $db      = \Config\Database::connect();
@@ -52,11 +51,11 @@ class Posts extends BaseController
 
         $data['posts'] = $query->getResultArray();
 
-        return view('control/posts/details', $data);
+        return view('control/posts/detail', $data);
     }
 
     // Create Data
-    public function form()
+    public function form($id = '')
     {
         $data = [
             'title'      => 'RSUI YAKSSI | Form Posts',
@@ -65,7 +64,7 @@ class Posts extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('posts');
-        $builder->select('id, judul, kategori, seo, tag, images, deskripsi, content, created_at, updated_at, deleted_at');
+        $builder->select('id, judul, kategori, seo, tag, images, deskripsi, content');
         $query   = $builder->get();
 
         $data['posts'] = $query->getResultArray();
@@ -73,8 +72,8 @@ class Posts extends BaseController
         return view('control/posts/form', $data);
     }
 
-    // Save Data
-    public function save()
+    // Insert Data
+    public function insert()
     {
         // Validasi Input
         if (!$this->validate([
@@ -99,28 +98,28 @@ class Posts extends BaseController
         if ($gambarPosts->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
-            // Pindahkan File Ke Folder Img
-            $gambarPosts->move('img');
+            // Generate Nama File Random
+            $namaGambar = $gambarPosts->getRandomName();
 
-            // Ambil Nama File
-            $namaGambar = $gambarPosts->getName();
+            // Pindahkan Gambar
+            $gambarPosts->move('img', $namaGambar);
         }
         $this->postsModel->save([
             'judul'     => $this->request->getVar('judul'),
             'kategori'  => $this->request->getVar('kategori'),
             'seo'       => $this->request->getVar('seo'),
             'tag'       => $this->request->getVar('tag'),
-            'images'    => $namaGambar,
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'content'   => $this->request->getVar('content')
+            'content'   => $this->request->getVar('content'),
+            'images'    => $namaGambar,
         ]);
 
         session()->setFlashdata('pesan', 'Data Posts Berhasil Ditambahkan!');
-        return redirect('control/posts/index');
+        return redirect('control/posts');
     }
 
     // Edit Data
-    public function formEdit($id)
+    public function edit($id)
     {
         $postsMod = $this->postsModel->find($id);
 
@@ -132,13 +131,13 @@ class Posts extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('posts');
-        $builder->select('id, judul, kategori, seo, tag, images, deskripsi, content, created_at, updated_at, deleted_at');
+        $builder->select('id, judul, kategori, seo, tag, images, deskripsi, content');
         $builder->where('id', $id);
         $query   = $builder->get();
 
         $data['posts'] = $query->getResultArray();
 
-        return view('control/posts/formEdit', $data);
+        return view('control/posts/edit', $data);
     }
 
     // Update Data
@@ -156,20 +155,20 @@ class Posts extends BaseController
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('control/posts/formEdit')->withInput()->with('validation', $validation);
+            return redirect()->to('control/posts/edit')->withInput()->with('validation', $validation);
         }
 
-        $fileImgPosts = $this->request->getFile('images');
+        $gambarPosts = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($fileImgPosts->getError() == 4) {
-            $namaImgPosts = $this->request->getVar('imgPostsLama');
+        if ($gambarPosts->getError() == 4) {
+            $namaGambar = $this->request->getVar('imgPostsLama');
         } else {
             // Generate Nama File Random
-            $namaImgPosts = $fileImgPosts->getRandomName();
+            $namaGambar = $gambarPosts->getRandomName();
 
             // Pindahkan Gambar
-            $fileImgPosts->move('img', $namaImgPosts);
+            $gambarPosts->move('img', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/' . $this->request->getVar('imgPostsLama'));
@@ -181,30 +180,31 @@ class Posts extends BaseController
             'kategori'  => $this->request->getVar('kategori'),
             'seo'       => $this->request->getVar('seo'),
             'tag'       => $this->request->getVar('tag'),
-            'images'    => $namaImgPosts,
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'content'   => $this->request->getVar('content')
+            'content'   => $this->request->getVar('content'),
+            'images'    => $namaGambar,
         ]);
 
         session()->setFlashdata('pesan', 'Data Posts Berhasil Diubah!');
-        return redirect('control/posts/index');
+
+        return redirect('control/posts');
     }
 
     // Delete Data
     public function delete($id)
     {
         // Cari Gambar Berdasarkan ID
-        $postsMod = $this->postsModel->find($id);
+        $posts = $this->postsModel->find($id);
 
         // Cek Jika File Gambar default.svg
-        if ($postsMod['images'] != 'default.svg') {
-
+        if ($posts['images'] != 'default.svg') {
             // Hapus Gambar Permanen
-            unlink('img/' . $postsMod['images']);
+            unlink('img/' . $posts['images']);
         }
 
         $this->postsModel->delete($id);
         session()->setFlashdata('pesan', 'Data Posts Berhasil Dihapus!');
-        return redirect('control/posts/index');
+
+        return redirect('control/posts');
     }
 }
