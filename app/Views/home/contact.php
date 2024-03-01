@@ -1,4 +1,4 @@
-<?= $this->extend('rsuiyakssi/templates/index'); ?>
+<?= $this->extend('home/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
 <!-- Contact -->
@@ -12,7 +12,7 @@
                 <div class="section-title">
                     <h2>Contact</h2>
                 </div>
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col-lg-6">
                         <div class="row">
                             <div class="col-md-12">

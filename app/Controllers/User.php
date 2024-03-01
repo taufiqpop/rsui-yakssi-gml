@@ -2,30 +2,19 @@
 
 namespace App\Controllers;
 
-use App\Models\UsersModel;
-use App\Models\WidgetModel;
-use App\Models\PagesModel;
-use App\Models\PostsModel;
-use App\Models\CategoryModel;
-use App\Models\PesanModel;
-
 class User extends BaseController
 {
     protected $usersModel;
-    protected $widgetModel;
     protected $pagesModel;
     protected $postsModel;
-    protected $categoryModel;
     protected $pesanModel;
 
     public function __construct()
     {
-        $this->usersModel    = new \App\Models\UsersModel();
-        $this->widgetModel   = new \App\Models\WidgetModel();
-        $this->pagesModel    = new \App\Models\PagesModel();
-        $this->postsModel    = new \App\Models\PostsModel();
-        $this->categoryModel = new \App\Models\CategoryModel();
-        $this->pesanModel    = new \App\Models\PesanModel();
+        $this->usersModel  = new \App\Models\UsersModel();
+        $this->pagesModel  = new \App\Models\PagesModel();
+        $this->postsModel  = new \App\Models\PostsModel();
+        $this->pesanModel  = new \App\Models\PesanModel();
     }
 
     // Dashboard
@@ -34,12 +23,11 @@ class User extends BaseController
         $data = [
             'title'         => 'RSUI YAKSSI | Dashboard',
             'jmlUsers'      => $this->usersModel->jumlahUsers(),
-            'jmlWidget'     => $this->widgetModel->jumlahWidget(),
             'jmlPages'      => $this->pagesModel->jumlahPages(),
             'jmlPosts'      => $this->postsModel->jumlahPosts(),
-            'jmlCategory'   => $this->categoryModel->jumlahCategory(),
             'jmlPesan'      => $this->pesanModel->jumlahPesan(),
         ];
+
         return view('user/index', $data);
     }
 
@@ -49,30 +37,87 @@ class User extends BaseController
         $data = [
             'title' => 'RSUI YAKSSI| My Profile',
         ];
+
         return view('user/profile', $data);
     }
 
-    // Pesan
-    public function pesan()
+    // Edit Data
+    public function edit($id)
     {
-        $currentPage = $this->request->getVar('page_pesan') ? $this->request->getVar('page_pesan') : 1;
-
-        $keyword = $this->request->getVar('keyword');
-        if ($keyword) {
-            $pesan = $this->pesanModel->search($keyword);
-        } else {
-            $pesan = $this->pesanModel;
-        }
-
-        $this->pesanModel->orderBy('id', 'DESC');
-
         $data = [
-            'title'         => 'RSUI YAKSSI | Pesan',
-            'pesan'         => $pesan->paginate(5, 'pesan'),
-            'pager'         => $this->pesanModel->pager,
-            'currentPage'   => $currentPage,
+            'title'      => 'RSUI YAKSSI | Form Edit Data',
+            'users'      => $this->usersModel->find($id),
+            'validation' => \Config\Services::validation()
         ];
 
-        return view('user/pesan', $data);
+        $db      = \Config\Database::connect();
+        $builder = $db->table('users');
+        $builder->select('id, username, email, fullname, user_image');
+        $builder->where('id', $id);
+        $query   = $builder->get();
+
+        $data['user'] = $query->getResultArray();
+
+        return view('user/edit', $data);
+    }
+
+    // Update Data
+    public function update($id)
+    {
+        $users = $this->usersModel->find($id);
+
+        $db = \Config\Database::connect();
+        $builder = $db->table('users');
+        $builder->select('id, username, email, fullname, user_image');
+        $builder->where('id', $id);
+        $query = $builder->get();
+
+        $data['user'] = $query->getResultArray();
+
+        // Validasi Input
+        if (!$this->validate([
+            'images' => [
+                'rules' => 'max_size[images,10240]|is_image[images]|mime_in[images,image/jpg,image/jpeg,image/png,image/svg]',
+                'errors' => [
+                    'max_size' => 'Ukuran Gambar Terlalu Besar',
+                    'is_image' => 'Yang Anda Pilih Bukan Gambar',
+                    'mime_in'  => 'Yang Anda Pilih Bukan Gambar'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('user/edit')->withInput()->with('validation', $validation);
+        }
+
+        $fileImgUser = $this->request->getFile('images');
+
+        // Cek Gambar, Apakah Tetap Gambar Lama
+        if ($fileImgUser->getError() == 4) {
+            $namaImgUser = $this->request->getVar('imgUserLama');
+        } else {
+            // Generate Nama File Random
+            $namaImgUser = $fileImgUser->getRandomName();
+
+            // Pindahkan Gambar
+            $fileImgUser->move('img', $namaImgUser);
+
+            // Jangan Hapus File default.svg
+            if ($users['user_image'] != 'default.svg') {
+                unlink('img/' . $this->request->getVar('imgUserLama'));
+                // unlink('img/' . $users['user_image']);
+            }
+        }
+
+        $this->usersModel->save([
+            'id'            => $id,
+            'email'         => $this->request->getVar('email'),
+            'username'      => $this->request->getVar('username'),
+            'fullname'      => $this->request->getVar('fullname'),
+            'user_image'    => $namaImgUser,
+            'name'          => $this->request->getVar('name'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
+        return redirect('user/profile');
     }
 }

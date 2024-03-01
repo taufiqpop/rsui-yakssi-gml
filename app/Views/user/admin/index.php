@@ -1,14 +1,14 @@
-<?= $this->extend('templates/index'); ?>
+<?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<!-- User List -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-11">
-            <h1 class="h3 mb-4 text-gray-800">Daftar Category</h1>
-            <a href="<?= base_url(); ?>control/category/form" class="btn btn-primary">Add Category</a>
-            <br><br>
+            <h1 class="h3 mb-4 text-gray-800">User List</h1>
 
-            <form action="" method="get">
+            <!-- Search Bar -->
+            <form action="" method="post">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search" name="keyword" autofocus>
                     <div class="input-group-append">
@@ -19,13 +19,14 @@
                 </div>
             </form>
 
+            <!-- Messages -->
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->getFlashdata('pesan') ?>
                 </div>
             <?php endif; ?>
 
-            <!-- Table -->
+            <!-- Table User List -->
             <div class="row card shadow mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -33,39 +34,36 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="cursor-active">No</th>
-                                    <th scope="col" class="cursor-stop">Photo</th>
-                                    <th scope="col" class="cursor-active">Parent</th>
-                                    <th scope="col" class="cursor-active">Judul</th>
+                                    <th scope="col" class="cursor-stop">Photo Profile</th>
+                                    <th scope="col" class="cursor-active">Full Name</th>
+                                    <th scope="col" class="cursor-active">Username</th>
                                     <th scope="col" class="cursor-stop">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1 + (5 * ($currentPage - 1)); ?>
-                                <?php foreach ($category as $category) : ?>
+                                <?php foreach ($users as $users) : ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/<?= $category['images']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/<?= $users['user_image']; ?>" class="thumbnail">
                                         </td>
-                                        <td><?= $category['parent']; ?></td>
-                                        <td><?= $category['judul']; ?></td>
+                                        <td><?= $users['fullname']; ?></td>
+                                        <td><?= $users['username']; ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/category/details/<?= $category['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/category/formEdit/<?= $category['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <form action="<?= base_url(); ?>control/category/index/<?= $category['id']; ?>" method="post" class="d-inline">
-                                                <?= csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
-                                            </form>
+                                            <a href="<?= base_url('admin/detail/' . $users['id']); ?>" class="btn btn-info">Details</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
-                        <?= $pager->links('category', 'category_pagination'); ?>
+
+                        <!-- Pagers -->
+                        <?= $pager->links('users', 'users_pagination'); ?>
                     </div>
                 </div>
             </div>
+            <!-- End User List -->
         </div>
     </div>
 </div>

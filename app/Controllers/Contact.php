@@ -2,9 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\PesanModel;
-use App\Models\SettingsModel;
-
 class Contact extends BaseController
 {
     protected $pesanModel;
@@ -18,14 +15,12 @@ class Contact extends BaseController
 
     public function contact()
     {
-        $settings = $this->settingsModel;
-
         $data = [
             'title'       => 'RSUI YAKSSI | Contact',
-            'settings'    => $settings->paginate(5, 'settings'),
+            'settings'    => $this->settingsModel->paginate(5, 'settings'),
         ];
 
-        return view('rsuiyakssi/contact', $data);
+        return view('home/contact', $data);
     }
 
     // Save Data
@@ -39,6 +34,7 @@ class Contact extends BaseController
         ]);
 
         session()->setFlashdata('pesan', 'Pesan Berhasil Dikirim! Terima Kasih!');
-        return redirect('rsuiyakssi/contact');
+
+        return redirect('home/contact');
     }
 }

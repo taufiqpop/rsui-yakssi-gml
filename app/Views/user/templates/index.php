@@ -10,6 +10,7 @@
 
     <title><?= $title; ?></title>
 
+    <!-- Favicon -->
     <link rel="icon" href="<?= base_url(); ?>logo.ico">
 
     <!-- Fonts -->
@@ -17,9 +18,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="<?= base_url(); ?>/css/sb-admin-2.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- My CSS -->
+    <!-- My CSS Backend -->
     <link href="<?= base_url(); ?>/css/my-style.css" rel="stylesheet">
 
 </head>
@@ -29,8 +30,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?= $this->include('templates/sidebar'); ?>
-        <!-- End of Sidebar -->
+        <?= $this->include('user/templates/sidebar'); ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -39,15 +39,12 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?= $this->include('templates/topbar'); ?>
-                <!-- End of Topbar -->
+                <?= $this->include('user/templates/topbar'); ?>
 
-                <!-- Begin Page Content -->
+                <!-- Page Content -->
                 <?= $this->renderSection('page-content'); ?>
-                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -57,20 +54,10 @@
                     </div>
                 </div>
             </footer>
-            <!-- End of Footer -->
-
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
+    <!-- Logout -->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -93,7 +80,11 @@
     <script src="<?= base_url(); ?>/vendor/jquery/jquery.min.js"></script>
     <script src="<?= base_url(); ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url(); ?>/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="<?= base_url(); ?>/js/sb-admin-2.js"></script>
+
+    <!-- Main JS -->
+    <script src="<?= base_url(); ?>/js/sb-admin-2.min.js"></script>
+
+    <!-- TinyMCE -->
     <script src="<?= base_url(); ?>/js/tinymce/tinymce.min.js"></script>
     <script src="<?= base_url(); ?>/js/tinymce-plugin.js"></script>
     <script>
@@ -102,9 +93,8 @@
         });
     </script>
 
-    <!-- My JavaScript -->
+    <!-- My JavaScript Backend -->
     <script src="<?= base_url(); ?>/js/my-script.js"></script>
-
 </body>
 
 </html>

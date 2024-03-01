@@ -1,4 +1,4 @@
-<?= $this->extend('rsuiyakssi/templates/index'); ?>
+<?= $this->extend('home/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
 <!-- Home -->

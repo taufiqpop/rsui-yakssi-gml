@@ -29,16 +29,23 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'RSUIYAKSSI::index');
-$routes->get('/index', 'RSUIYAKSSI::index');
-$routes->get('/rsuiyakssi', 'RSUIYAKSSI::index');
-$routes->add('/rsuiyakssi/doctors', 'RSUIYAKSSI::doctors');
-$routes->get('/rsuiyakssi/contact', 'Contact::contact');
+$routes->get('/', 'Home::index');
+$routes->add('/doctors', 'Home::doctors');
+$routes->get('/contact', 'Contact::contact');
 
-$routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
-$routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
-$routes->get('/admin/edit/(:segment)', 'Admin::edit/$1');
+// Admin
+$routes->add('/admin', 'Admin::index', ['filter' => 'role:admin']);
+$routes->add('/admin/detail/(:segment)', 'Admin::detail/$1', ['filter' => 'role:admin']);
 $routes->delete('/admin/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
+
+// User
+$routes->get('/user', 'User::index');
+$routes->get('/profile', 'User::profile');
+$routes->get('/password/(:num)', 'ChangePassword::index/$1');
+$routes->get('/user/edit/(:segment)', 'User::edit/$1');
+
+// Pesan
+$routes->add('/pesan', 'Pesan::index');
 
 // Beranda
 $routes->add('/control/beranda', 'Beranda::index');
@@ -86,7 +93,6 @@ $routes->delete('/control/menu/index/(:num)', 'Menu::delete/$1');
 
 // Settings
 $routes->get('/control/settings', 'Settings::index');
-$routes->get('/password/index', 'ChangePassword::index');
 
 // Dokter
 $routes->add('/control/dokter', 'Dokter::index');

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Pesan extends Migration
+class Settings extends Migration
 {
     public function up()
     {
@@ -15,11 +15,27 @@ class Pesan extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
+            'nama' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'subject' => [
+            'owner' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'telepon' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'author' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'alamat' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'jadwal' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -27,7 +43,15 @@ class Pesan extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'message' => [
+            'fax' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'instagram' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'facebook' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -45,11 +69,11 @@ class Pesan extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('pesan');
+        $this->forge->createTable('settings');
     }
 
     public function down()
     {
-        $this->forge->dropTable('pesan');
+        $this->forge->dropTable('settings');
     }
 }

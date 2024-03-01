@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\PostsModel;
-
 class Posts extends BaseController
 {
     protected $postsModel;

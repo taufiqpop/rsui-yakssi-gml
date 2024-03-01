@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Pesan extends Migration
+class Dokter extends Migration
 {
     public function up()
     {
@@ -15,19 +15,19 @@ class Pesan extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'name' => [
+            'nama' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'subject' => [
+            'spesialis' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'email' => [
+            'images' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'message' => [
+            'instagram' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -45,11 +45,11 @@ class Pesan extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('pesan');
+        $this->forge->createTable('dokter');
     }
 
     public function down()
     {
-        $this->forge->dropTable('pesan');
+        $this->forge->dropTable('dokter');
     }
 }
