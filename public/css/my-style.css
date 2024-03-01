@@ -1,0 +1,117 @@
+.thumbnail {
+    width: 100px;
+    /* border-radius: 50%; */
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#text-rata-kiri {
+    text-align: justify;
+}
+
+.table > tbody > tr > th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table > thead > tr > th {
+    text-align: center;
+}
+
+.user-details {
+    /* border-radius: 50%; */
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.role-profile {
+    margin-left: 15px;
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
+}
+
+/* Category */
+.category-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.tombol-category {
+    margin-top: 20px;
+}
+
+/* Widget */
+.widget-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.tombol-widget {
+    margin-top: 20px;
+}
+
+/* Beranda */
+.beranda-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.tombol-widget {
+    margin-top: 20px;
+}
+
+/* Pages */
+.pages-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.tombol-widget {
+    margin-top: 20px;
+}
+
+/* Posts */
+.posts-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.tombol-posts {
+    margin-top: 20px;
+}
+
+#accordionSidebar {
+    position: relative;
+}
+#navbar {
+    position: relative;
+}
+#page-content {
+    position: relative;
+}
+
+.cursor-active {
+    cursor: pointer;
+}
+
+.cursor-stop {
+    cursor: not-allowed;
+}
+
+.bg-img {
+    background: url('/img/Wallpaper.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
