@@ -49,22 +49,6 @@
     <!-- Page Management -->
     <div class="sidebar-heading">Page Management</div>
 
-    <!-- Beranda -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/beranda">
-            <i class="fas fa-home"></i>
-            <span>Beranda</span>
-        </a>
-    </li>
-
-    <!-- Widget -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/widget" ; ?>
-            <i class="fas fa-images"></i>
-            <span>Widget</span>
-        </a>
-    </li>
-
     <!-- Pages -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>control/pages" ; ?>
@@ -78,14 +62,6 @@
         <a class="nav-link" href="<?= base_url(); ?>control/posts" ; ?>
             <i class="fas fa-book"></i>
             <span>Post</span>
-        </a>
-    </li>
-
-    <!-- Category -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/category" ; ?>
-            <i class="fas fa-tasks"></i>
-            <span>Category</span>
         </a>
     </li>
 
@@ -105,11 +81,17 @@
         </a>
     </li>
 
-    <!-- Menu Manager -->
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Content Management -->
+    <div class="sidebar-heading">Content Management</div>
+
+    <!-- Pasien -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/menu" ; ?>
-            <i class="fas fa-sitemap"></i>
-            <span>Menu Manager</span>
+        <a class="nav-link" href="<?= base_url(); ?>control/pasien" ; ?>
+            <i class="fas fa-skating"></i>
+            <span>Pasien</span>
         </a>
     </li>
 

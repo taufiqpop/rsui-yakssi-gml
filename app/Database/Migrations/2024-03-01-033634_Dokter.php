@@ -15,21 +15,12 @@ class Dokter extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'nama' => [
+            'key' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'spesialis' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'images' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'instagram' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
+            'value' => [
+                'type'       => 'TEXT',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',

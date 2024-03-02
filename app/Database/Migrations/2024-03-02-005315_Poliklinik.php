@@ -15,20 +15,12 @@ class Poliklinkik extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'poliklinik' => [
+            'key' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'deskripsi' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'content' => [
+            'value' => [
                 'type'       => 'TEXT',
-            ],
-            'images' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',

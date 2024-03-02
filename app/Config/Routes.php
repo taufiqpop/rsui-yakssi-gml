@@ -38,7 +38,7 @@ $routes->add('/contact/save', 'Contact::save');
 
 // Admin
 $routes->add('/admin', 'Admin::index', ['filter' => 'role:admin']);
-$routes->add('/admin/detail/(:segment)', 'Admin::detail/$1', ['filter' => 'role:admin']);
+$routes->get('/admin/detail/(:segment)', 'Admin::detail/$1', ['filter' => 'role:admin']);
 $routes->delete('/admin/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
 
 // User
@@ -74,6 +74,15 @@ $routes->get('/control/posts/edit/(:segment)', 'Posts::edit/$1');
 $routes->add('/posts/update/(:segment)', 'Posts::update/$1');
 $routes->get('/control/posts/detail/(:segment)', 'Posts::detail/$1');
 $routes->delete('/control/posts/(:num)', 'Posts::delete/$1');
+
+// Pasien
+$routes->add('/control/pasien', 'Pasien::index');
+$routes->get('/control/pasien/form', 'Pasien::form');
+$routes->add('/pasien/insert', 'Pasien::insert');
+$routes->get('/control/pasien/edit/(:segment)', 'Pasien::edit/$1');
+$routes->add('/pasien/update/(:segment)', 'Pasien::update/$1');
+$routes->get('/control/pasien/detail/(:segment)', 'Pasien::detail/$1');
+$routes->delete('/control/pasien/(:num)', 'Pasien::delete/$1');
 
 /*
  * --------------------------------------------------------------------

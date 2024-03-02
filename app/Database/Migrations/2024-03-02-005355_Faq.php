@@ -15,13 +15,12 @@ class Faq extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'pertanyaan' => [
+            'key' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'jawaban' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
+            'value' => [
+                'type'       => 'TEXT',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
