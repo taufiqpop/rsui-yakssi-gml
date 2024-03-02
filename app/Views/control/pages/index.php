@@ -47,7 +47,7 @@
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/<?= $pages['images']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/pages/<?= $pages['images']; ?>" class="thumbnail">
                                         </td>
                                         <td><?= $pages['judul']; ?></td>
                                         <td>

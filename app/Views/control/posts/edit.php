@@ -50,7 +50,7 @@
                     <div class="form-group row">
                         <label for="images" class="col-sm-2 col-form-label">Images</label>
                         <div class="col-sm-2">
-                            <img src="<?= base_url(); ?>img/<?= $posts['images']; ?>" class="img-thumbnail img-preview">
+                            <img src="<?= base_url(); ?>img/posts/<?= $posts['images']; ?>" class="img-thumbnail img-preview">
                         </div>
                         <div class="col-sm-8">
                             <div class="custom-file">

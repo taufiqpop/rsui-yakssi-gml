@@ -13,7 +13,7 @@
                 <div class="card mb-3" style="max-width: 1000px;">
                     <div class="row no-gutters">
                         <div class="col-md-6">
-                            <img src="<?= base_url(); ?>img/<?= $pages['images']; ?>" class="card-img pages-img img-thumbnail">
+                            <img src="<?= base_url(); ?>img/pages/<?= $pages['images']; ?>" class="card-img pages-img img-thumbnail">
                             <center>
                                 <div class="container tombol-pages">
                                     <a href="<?= base_url(); ?>control/pages" class="btn btn-dark col-3">Back</a>

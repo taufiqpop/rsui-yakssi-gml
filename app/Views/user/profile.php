@@ -18,7 +18,7 @@
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <!-- User Image -->
-                        <img src="<?= base_url('/img/' . user()->user_image); ?>" class="card-img user-details" alt="<?= user()->username; ?>">
+                        <img src="<?= base_url('/img/user/' . user()->user_image); ?>" class="card-img user-details" alt="<?= user()->username; ?>">
                     </div>
 
                     <!-- Card -->

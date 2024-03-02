@@ -10,7 +10,7 @@
                 <h1 class="h3 mb-4 text-gray-800">Form Edit Data User</h1>
 
                 <!-- Forms -->
-                <form action="<?= base_url(); ?>admin/update/<?= $user['id']; ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url(); ?>user/update/<?= $user['id']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <input type="hidden" name="imgUserLama" value="<?= $user['user_image']; ?>">
 
@@ -42,7 +42,7 @@
                     <div class="form-group row">
                         <label for="user_image" class="col-sm-2 col-form-label">Photo</label>
                         <div class="col-sm-2">
-                            <img src="<?= base_url(); ?>img/<?= $user['user_image']; ?>" class="img-thumbnail img-preview">
+                            <img src="<?= base_url(); ?>img/user/<?= $user['user_image']; ?>" class="img-thumbnail img-preview">
                         </div>
 
                         <!-- Validation -->

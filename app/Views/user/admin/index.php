@@ -46,7 +46,7 @@
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/<?= $users['user_image']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/user/<?= $users['user_image']; ?>" class="thumbnail">
                                         </td>
                                         <td><?= $users['fullname']; ?></td>
                                         <td><?= $users['username']; ?></td>

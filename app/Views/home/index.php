@@ -61,7 +61,7 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
             <div class="icon">
-              <img src="<?= base_url(); ?>img/logo-pasien-umum.png" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/pasien/logo-pasien-umum.png" alt="" class="img-fluid">
             </div>
             <hr>
             <h4 class="title"><a href="">Pasien Umum</a></h4>
@@ -72,7 +72,7 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon">
-              <img src="<?= base_url(); ?>img/logo-bpjs-kesehatan.png" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/pasien/logo-bpjs-kesehatan.png" alt="" class="img-fluid">
             </div>
             <hr>
             <h4 class="title"><a href="">Pasien BPJS Kesehatan</a></h4>
@@ -83,7 +83,7 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
             <div class="icon">
-              <img src="<?= base_url(); ?>img/logo-bpjs-ketenagakerjaan.png" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/pasien/logo-bpjs-ketenagakerjaan.png" alt="" class="img-fluid">
             </div>
             <hr>
             <h4 class="title"><a href="">BPJS Ketenagakerjaan</a></h4>
@@ -94,7 +94,7 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
           <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
             <div class="icon">
-              <img src="<?= base_url(); ?>img/logo-jasa-raharja.png" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/pasien/logo-jasa-raharja.png" alt="" class="img-fluid">
             </div>
             <hr>
             <h4 class="title"><a href="">Jasa Raharja</a></h4>
@@ -128,7 +128,7 @@
 
       <div class="row">
         <div class="col-lg-6" data-aos="fade-right">
-          <img src="<?= base_url(); ?>img/about.png" class="img-fluid" alt="">
+          <img src="<?= base_url(); ?>img/about/about.png" class="img-fluid" alt="">
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>konten</h3>
@@ -206,7 +206,7 @@
           <h4 class="title"><a href="">IGD (24 Jam)</a></h4>
           <p class="description">content</p>
         </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon"><i class="fas fa-notes-medical"></i></div>
           <h4 class="title"><a href="">Radiologi/Rontgen (24 Jam)</a></h4>
           <p class="description">content</p>
@@ -238,7 +238,7 @@
         </div>
         <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon"><i class="fas fa-wheelchair"></i></div>
-          <h4 class="title"><a href="">Pemeriksaan Narkoba</a></h4>
+          <h4 class="title"><a href="">Kamar Operasi</a></h4>
           <p class="description">content</p>
         </div>
         <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
@@ -348,7 +348,7 @@
             <div class="tab-pane active show" id="tab-1">
               <h3>THT (Telinga, Hidung, Tenggorokan)</h3>
               <p class="fst-italic">Dokter spesialis THT adalah dokter yang memiliki keahlian khusus dalam mengobati penyakit yang berkaitan dengan telinga, hidung, dan tenggorokan. Selain itu, dokter spesialis ini juga bertugas untuk mengatasi sejumlah penyakit yang terjadi di kepala dan leher.</p>
-              <img src="<?= base_url(); ?>img/departments-1.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-1.jpg" alt="" class="img-fluid">
               <p>Ada beberapa jenis penyakit yang dapat ditangani oleh dokter spesialis THT, antara lain :</p>
               <h6>1. Gangguan Telinga</h6>
               <h6>2. Gangguan Hidung</h6>
@@ -359,52 +359,52 @@
             <div class="tab-pane" id="tab-2">
               <h3>Kejiwaan</h3>
               <p class="fst-italic">Psikiater adalah seorang dokter spesialis yang mendalami ilmu kesehatan jiwa dan perilaku atau psikiatri. Psikiatri sendiri merupakan cabang keilmuan medis yang memiliki fokus pada diagnosis, pengobatan, dan pencegahan terhadap gangguan emosional, kejiwaan, maupun perilaku.</p>
-              <img src="<?= base_url(); ?>img/departments-2.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-2.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-3">
               <h3>Rehab Medis</h3>
               <p class="fst-italic">Dokter spesialis rehabilitasi medik dan kedokteran fisik adalah dokter yang memiliki keahlian khusus dalam pengobatan fisik dan rehabilitasi. Dokter spesialis ini bertugas menangani berbagai masalah pada fisik, mulai dari cedera tulang belakang hingga keseleo pergelangan kaki.</p>
-              <img src="<?= base_url(); ?>img/departments-3.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-3.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-4">
               <h3>Saraf</h3>
               <p class="fst-italic">Dokter spesialis neurologi atau spesialis saraf merupakan dokter yang bertugas menangani berbagai keluhan terkait dengan gangguan otak dan saraf, seperti penyakit Parkinson, penyakit Alzheimer, kejang, demensia, cedera otak, stroke, dan lain-lain</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-5">
               <h3>Gigi</h3>
               <p class="fst-italic">Dokter gigi adalah seorang dokter yang khusus mempelajari ilmu kesehatan dan penyakit pada gigi dan mulut. Seorang dokter gigi memiliki kompetensi atau keahlian dalam mendiagnosis, mengobati, dan memberikan edukasi tentang pencegahan berbagai masalah kesehatan gigi, gusi, dan mulut.</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-6">
               <h3>Anak</h3>
               <p class="fst-italic">Dokter anak atau spesialis pediatri adalah dokter yang berfokus pada perawatan kesehatan fisik, mental, serta perkembangan sosial anak, mulai dari usia anak 0–18 tahun. Selain melakukan pemeriksaan dan perawatan, dokter anak juga dapat memberikan tindakan pencegahan penyakit pada bayi, anak, maupun remaja yang sehat.</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-7">
               <h3>Penyakit Dalam</h3>
               <p class="fst-italic">Dokter spesialis penyakit dalam atau umumnya dikenal dengan sebutan internis merupakan dokter yang bertanggung jawab dalam menangani berbagai kondisi medis terkait dengan banyak organ dalam tubuh, seperti jantung, paru-paru, ginjal, hati, dan lain-lain.</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-8">
               <h3>Urologi</h3>
               <p class="fst-italic">Dokter spesialis urologi adalah dokter yang mengkhususkan diri dalam mendiagnosis dan mengobati penyakit pada sistem saluran kemih. Sistem ini menjaga tubuh tetap bersih dengan menyaring limbah dan racun dan mengeluarkannya dari tubuh. Saluran kemih meliputi kandung kemih, ginjal, ureter, dan uretra.</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-9">
               <h3>Ortopedi</h3>
               <p class="fst-italic">Dokter spesialis tulang atau yang secara resmi disebut juga sebagai dokter spesialis orthopaedi dan traumatologi adalah sebutan bagi dokter yang khusus menangani masalah pada sistem muskuloskeletal, meliputi tulang, otot, sendi, saraf, ligamen, serta jaringan yang menghubungkan tulang dan tendon (sendi).</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-10">
               <h3>Kandungan</h3>
               <p class="fst-italic">Dokter spesialis Obstetri dan Ginekologi atau dikenal juga Obgyn serta dokter kandungan adalah seorang dokter yang mengkhususkan diri dalam kesehatan reproduksi wanita, termasuk menstruasi, kehamilan, persalinan, dan menopause.</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-11">
               <h3>Bedah Umum</h3>
               <p class="fst-italic">Bedah umum adalah disiplin medis yang melibatkan berbagai jenis tindakan bedah untuk mengobati berbagai masalah kesehatan dan penyakit. Dalam bedah umum, ahli bedah diharapkan mampu melakukan perawatan pra operasi maupun pasca operasi, dan manajemennya, selain tindakan bedah itu sendiri.</p>
-              <img src="<?= base_url(); ?>img/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
             </div>
           </div>
         </div>

@@ -63,7 +63,7 @@ class Admin extends BaseController
         $hapusUser = $this->usersModel->find($id);
 
         if ($hapusUser['user_image'] != 'default.svg') {
-            unlink('img/' . $hapusUser['user_image']);
+            unlink('img/user/' . $hapusUser['user_image']);
         }
 
         $this->usersModel->delete($id);

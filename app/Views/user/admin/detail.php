@@ -13,7 +13,7 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="<?= base_url('/img/' . $user['user_image']); ?>" class="card-img user-details" alt="<?= $user['username']; ?>">
+                            <img src="<?= base_url('/img/user/' . $user['user_image']); ?>" class="card-img user-details" alt="<?= $user['username']; ?>">
                             <div class="role-profile">
                                 <!-- Admin -->
                                 <?php if ($user['name'] == 'admin') : ?>

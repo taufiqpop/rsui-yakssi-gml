@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label for="images" class="col-sm-2 col-form-label">Images</label>
                         <div class="col-sm-2">
-                            <img src="<?= base_url(); ?>img/<?= $pages['images']; ?>" class="img-thumbnail img-preview" alt="">
+                            <img src="<?= base_url(); ?>img/pages/<?= $pages['images']; ?>" class="img-thumbnail img-preview" alt="">
                         </div>
                         <div class="col-sm-8">
                             <div class="custom-file">

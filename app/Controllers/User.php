@@ -99,12 +99,12 @@ class User extends BaseController
             $namaImgUser = $fileImgUser->getRandomName();
 
             // Pindahkan Gambar
-            $fileImgUser->move('img', $namaImgUser);
+            $fileImgUser->move('img/user', $namaImgUser);
 
             // Jangan Hapus File default.svg
             if ($users['user_image'] != 'default.svg') {
-                unlink('img/' . $this->request->getVar('imgUserLama'));
-                // unlink('img/' . $users['user_image']);
+                unlink('img/user/' . $this->request->getVar('imgUserLama'));
+                // unlink('img/user/' . $users['user_image']);
             }
         }
 
@@ -118,6 +118,6 @@ class User extends BaseController
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
-        return redirect('user/profile');
+        return redirect('profile');
     }
 }

@@ -33,7 +33,8 @@ $routes->set404Override();
 // Home
 $routes->get('/', 'Home::index');
 $routes->add('/doctors', 'Home::doctors');
-$routes->get('/contact', 'Contact::contact');
+$routes->get('/contact', 'Contact::index');
+$routes->add('/contact/save', 'Contact::save');
 
 // Admin
 $routes->add('/admin', 'Admin::index', ['filter' => 'role:admin']);
@@ -44,6 +45,7 @@ $routes->delete('/admin/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin'])
 $routes->get('/user', 'User::index');
 $routes->get('/profile', 'User::profile');
 $routes->get('/user/edit/(:segment)', 'User::edit/$1');
+$routes->add('/user/update/(:segment)', 'User::update/$1');
 
 // Password
 $routes->get('/password/(:num)', 'ChangePassword::index/$1');
@@ -53,6 +55,7 @@ $routes->add('/pesan', 'Pesan::index');
 
 // Settings
 $routes->get('/control/settings', 'Settings::index');
+$routes->add('/settings/update/(:segment)', 'Settings::update/$1');
 
 // Pages
 $routes->add('/control/pages', 'Pages::index');

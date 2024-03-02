@@ -13,7 +13,7 @@ class Contact extends BaseController
         $this->settingsModel = new \App\Models\SettingsModel();
     }
 
-    public function contact()
+    public function index()
     {
         $data = [
             'title'       => 'RSUI YAKSSI | Contact',
@@ -35,6 +35,6 @@ class Contact extends BaseController
 
         session()->setFlashdata('pesan', 'Pesan Berhasil Dikirim! Terima Kasih!');
 
-        return redirect('home/contact');
+        return redirect('contact');
     }
 }

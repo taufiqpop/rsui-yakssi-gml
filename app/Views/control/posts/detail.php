@@ -13,7 +13,7 @@
                     <!-- Card -->
                     <div class="row no-gutters">
                         <div class="col-md-6">
-                            <img src="<?= base_url(); ?>img/<?= $posts['images']; ?>" class="card-img posts-img img-thumbnail">
+                            <img src="<?= base_url(); ?>img/posts/<?= $posts['images']; ?>" class="card-img posts-img img-thumbnail">
                             <center>
                                 <!-- Deskripsi Foto -->
                                 <?= $posts['deskripsi']; ?>

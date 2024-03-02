@@ -12,7 +12,7 @@
                         <img src="<?= base_url(); ?>img/doctors/doctors-1.jpg" class="img-fluid" alt="">
                         <div class="social">
 
-                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href="#"><i class="bi bi-instagram"></i></a>
 
                         </div>
                     </div>

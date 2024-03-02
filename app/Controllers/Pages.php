@@ -102,7 +102,7 @@ class Pages extends BaseController
             $namaGambar = $gambarPages->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPages->move('img', $namaGambar);
+            $gambarPages->move('img/pages', $namaGambar);
         }
 
         $this->pagesModel->save([
@@ -164,10 +164,10 @@ class Pages extends BaseController
             $namaGambar = $gambarPages->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPages->move('img', $namaGambar);
+            $gambarPages->move('img/pages', $namaGambar);
 
             // Hapus File Yang Lama
-            unlink('img/' . $this->request->getVar('imgPagesLama'));
+            unlink('img/pages/' . $this->request->getVar('imgPagesLama'));
         }
 
         $this->pagesModel->save([
@@ -191,7 +191,7 @@ class Pages extends BaseController
         // Cek Jika File Gambar default.svg
         if ($pages['images'] != 'default.svg') {
             // Hapus Gambar Permanen
-            unlink('img/' . $pages['images']);
+            unlink('img/pages/' . $pages['images']);
         }
 
         $this->pagesModel->delete($id);

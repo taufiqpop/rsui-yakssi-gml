@@ -50,7 +50,7 @@
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/<?= $posts['images']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/posts/<?= $posts['images']; ?>" class="thumbnail">
                                         </td>
                                         <td><?= $posts['judul']; ?></td>
                                         <td><?= $posts['kategori']; ?></td>

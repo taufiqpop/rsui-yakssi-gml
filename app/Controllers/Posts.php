@@ -102,7 +102,7 @@ class Posts extends BaseController
             $namaGambar = $gambarPosts->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPosts->move('img', $namaGambar);
+            $gambarPosts->move('img/posts', $namaGambar);
         }
         $this->postsModel->save([
             'judul'     => $this->request->getVar('judul'),
@@ -168,10 +168,10 @@ class Posts extends BaseController
             $namaGambar = $gambarPosts->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPosts->move('img', $namaGambar);
+            $gambarPosts->move('img/posts', $namaGambar);
 
             // Hapus File Yang Lama
-            unlink('img/' . $this->request->getVar('imgPostsLama'));
+            unlink('img/posts/' . $this->request->getVar('imgPostsLama'));
         }
 
         $this->postsModel->save([
@@ -199,7 +199,7 @@ class Posts extends BaseController
         // Cek Jika File Gambar default.svg
         if ($posts['images'] != 'default.svg') {
             // Hapus Gambar Permanen
-            unlink('img/' . $posts['images']);
+            unlink('img/posts' . $posts['images']);
         }
 
         $this->postsModel->delete($id);
