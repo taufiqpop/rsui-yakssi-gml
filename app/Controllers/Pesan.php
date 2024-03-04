@@ -23,12 +23,12 @@ class Pesan extends BaseController
             $pesan = $this->pesanModel;
         }
 
-        $this->pesanModel->orderBy('id', 'DESC');
+        $pesan->orderBy('id', 'DESC');
 
         $data = [
             'title'         => 'RSUI YAKSSI | Pesan',
             'pesan'         => $pesan->paginate(5, 'pesan'),
-            'pager'         => $this->pesanModel->pager,
+            'pager'         => $pesan->pager,
             'currentPage'   => $currentPage,
         ];
 

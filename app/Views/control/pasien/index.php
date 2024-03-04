@@ -38,22 +38,24 @@
                                     <th scope="col" class="cursor-active">No</th>
                                     <th scope="col" class="cursor-stop">Photo</th>
                                     <th scope="col" class="cursor-stop">Jenis</th>
+                                    <th scope="col" class="cursor-stop">Deskripsi</th>
                                     <th scope="col" class="cursor-stop">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 + (5 * ($currentPage - 1)); ?>
-                                <?php foreach ($pasien as $pasien) : ?>
+                                <?php foreach ($pasien as $index => $value) : ?>
+                                    <?php $data = json_decode($value['value']) ?>
                                     <tr>
-                                        <th scope="row"><?= $i++; ?></th>
+                                        <th scope="row"><?= $index + 1; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/pasien/<?= $pasien['images']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/pasien/<?= $data->images ?>" class=" thumbnail">
                                         </td>
-                                        <td>--content--</td>
+                                        <td><?= $data->jenis ?></td>
+                                        <td style="max-width: 500px;"><?= $data->deskripsi ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/pasien/detail/<?= $pasien['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/pasien/edit/<?= $pasien['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <form action="<?= base_url(); ?>control/pasien/<?= $pasien['id']; ?>" method="post" class="d-inline">
+                                            <a href="<?= base_url(); ?>control/pasien/detail/<?= $value['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
+                                            <a href="<?= base_url(); ?>control/pasien/edit/<?= $value['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <form action="<?= base_url(); ?>control/pasien/<?= $value['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>

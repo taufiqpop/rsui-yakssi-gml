@@ -24,12 +24,12 @@ class Admin extends BaseController
             $users = $this->usersModel;
         }
 
-        $this->usersModel->orderBy('id', 'DESC');
+        $users->orderBy('id', 'DESC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | User List',
             'users'       => $users->paginate(5, 'users'),
-            'pager'       => $this->usersModel->pager,
+            'pager'       => $users->pager,
             'currentPage' => $currentPage,
         ];
 

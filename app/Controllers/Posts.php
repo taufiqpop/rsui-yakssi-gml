@@ -23,12 +23,12 @@ class Posts extends BaseController
             $posts = $this->postsModel;
         }
 
-        $this->postsModel->orderBy('id', 'DESC');
+        $posts->orderBy('id', 'DESC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | Posts',
             'posts'       => $posts->paginate(5, 'posts'),
-            'pager'       => $this->postsModel->pager,
+            'pager'       => $posts->pager,
             'currentPage' => $currentPage,
         ];
 

@@ -23,12 +23,12 @@ class Pages extends BaseController
             $pages = $this->pagesModel;
         }
 
-        $this->pagesModel->orderBy('id', 'DESC');
+        $pages->orderBy('id', 'DESC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | Pages',
             'pages'       => $pages->paginate(5, 'pages'),
-            'pager'       => $this->pagesModel->pager,
+            'pager'       => $pages->pager,
             'currentPage' => $currentPage,
         ];
 

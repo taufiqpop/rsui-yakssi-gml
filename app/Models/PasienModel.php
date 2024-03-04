@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PasienModel extends Model
 {
-    protected $table            = 'pages';
+    protected $table            = 'pasien';
     protected $primaryKey       = 'id';
     protected $returnType       = 'array';
     protected $allowedFields    = ['key', 'value', 'created_at', 'updated_at', 'deleted_at'];

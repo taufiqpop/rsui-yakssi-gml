@@ -23,15 +23,18 @@ class Pasien extends BaseController
             $pasien = $this->pasienModel;
         }
 
-        $this->pasienModel->orderBy('id', 'DESC');
+        $pasien->orderBy('id', 'DESC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | Pasien',
-            'pasien'       => $pasien->paginate(5, 'pasien'),
-            'pager'       => $this->pasienModel->pager,
+            'pasien'      => $pasien->paginate(5, 'pasien'),
+            'pager'       => $pasien->pager,
             'currentPage' => $currentPage,
         ];
 
+        // $_data = json_encode($data);
+        // dd($data);
+        // print_r($pasien->paginate(5, 'pasien'));
         return view('control/pasien/index', $data);
     }
 
@@ -45,7 +48,7 @@ class Pasien extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('pasien');
-        $builder->select('id, key, value, created_at, updated_at, deleted_at');
+        $builder->select('id, key, value');
         $builder->where('id', $id);
         $query   = $builder->get();
 
@@ -127,7 +130,7 @@ class Pasien extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('pasien');
-        $builder->select('id, key, value');
+        $builder->select('id, judul, content, images');
         $builder->where('id', $id);
         $query   = $builder->get();
 
