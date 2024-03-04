@@ -15,8 +15,8 @@
             <?php endif; ?>
 
             <!-- Forms -->
-            <?php foreach ($settings as $settings) : ?>
-                <form action="<?= base_url(); ?>settings/update/<?= $settings['id']; ?>" method="post" enctype="multipart/form-data">
+            <?php foreach ($settings as $setting) : ?>
+                <form action="<?= base_url(); ?>settings/update/<?= $setting['id']; ?>" method="post" enctype="multipart/form-data">
                     <div class="row card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -25,49 +25,49 @@
                                         <tr>
                                             <td>
                                                 <label for="nama">Nama Website</label>
-                                                <input type="text" class="form-control" name="nama" value="<?= $settings['nama']; ?>" autofocus required>
+                                                <input type="text" class="form-control" name="nama" value="<?= $setting['nama']; ?>" autofocus required>
                                             </td>
                                             <td>
                                                 <label for="author">Author Website</label>
-                                                <input type="text" class="form-control" name="author" value="<?= $settings['author']; ?>" required>
+                                                <input type="text" class="form-control" name="author" value="<?= $setting['author']; ?>" required>
                                             </td>
                                             <td>
                                                 <label for="owner">Owner Website</label>
-                                                <input type="text" class="form-control" name="owner" value="<?= $settings['owner']; ?>" required>
+                                                <input type="text" class="form-control" name="owner" value="<?= $setting['owner']; ?>" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <label for="email">Email</label>
-                                                <input type="text" class="form-control" name="email" value="<?= $settings['email']; ?>" required>
+                                                <input type="text" class="form-control" name="email" value="<?= $setting['email']; ?>" required>
                                             </td>
                                             <td>
                                                 <label for="telepon">Telepon</label>
-                                                <input type="text" class="form-control" name="telepon" value="<?= $settings['telepon']; ?>" required>
+                                                <input type="text" class="form-control" name="telepon" value="<?= $setting['telepon']; ?>" required>
                                             </td>
                                             <td>
                                                 <label for="fax">Fax</label>
-                                                <input type="text" class="form-control" name="fax" value="<?= $settings['fax']; ?>" required>
+                                                <input type="text" class="form-control" name="fax" value="<?= $setting['fax']; ?>" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <label for="jadwal">Jadwal</label>
-                                                <input type="text" class="form-control" name="jadwal" value="<?= $settings['jadwal']; ?>" required>
+                                                <input type="text" class="form-control" name="jadwal" value="<?= $setting['jadwal']; ?>" required>
                                             </td>
                                             <td>
                                                 <label for="instagram">Instagram</label>
-                                                <input type="text" class="form-control" name="instagram" value="<?= $settings['instagram']; ?>" required>
+                                                <input type="text" class="form-control" name="instagram" value="<?= $setting['instagram']; ?>" required>
                                             </td>
                                             <td>
                                                 <label for="facebook">Facebook</label>
-                                                <input type="text" class="form-control" name="facebook" value="<?= $settings['facebook']; ?>" required>
+                                                <input type="text" class="form-control" name="facebook" value="<?= $setting['facebook']; ?>" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="3">
                                                 <label for="alamat">Alamat</label>
-                                                <input type="text" class="form-control" name="alamat" value="<?= $settings['alamat']; ?>" required>
+                                                <input type="text" class="form-control" name="alamat" value="<?= $setting['alamat']; ?>" required>
                                             </td>
                                         </tr>
                                     </tbody>

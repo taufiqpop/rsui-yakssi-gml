@@ -8,10 +8,6 @@
     text-align: center;
 }
 
-#text-rata-kiri {
-    text-align: justify;
-}
-
 .table > tbody > tr > th {
     vertical-align: middle;
     text-align: center;
@@ -21,6 +17,7 @@
     text-align: center;
 }
 
+/* Users */
 .user-details {
     margin-top: 10px;
     margin-left: 10px;
@@ -42,6 +39,7 @@
     margin-top: 20px;
 }
 
+/* Sidebar Navbar */
 #accordionSidebar {
     position: relative;
 }
@@ -52,6 +50,7 @@
     position: relative;
 }
 
+/* Cursor Mode */
 .cursor-active {
     cursor: pointer;
 }
@@ -60,6 +59,7 @@
     cursor: not-allowed;
 }
 
+/* Background Images */
 .bg-img {
     background: url('/img/Wallpaper.png');
     background-position: center;

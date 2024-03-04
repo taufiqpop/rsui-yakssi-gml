@@ -42,15 +42,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 + (5 * ($currentPage - 1)); ?>
-                                <?php foreach ($pesan as $pesan) : ?>
+                                <?php foreach ($pesan as $index => $message) : ?>
                                     <tr>
-                                        <th scope="row"><?= $i++; ?></th>
-                                        <td><?= $pesan['name']; ?></td>
-                                        <td><?= $pesan['email']; ?></td>
-                                        <td><?= $pesan['subject']; ?></td>
-                                        <td><?= $pesan['message']; ?></td>
-                                        <td><?= $pesan['created_at']; ?></td>
+                                        <th scope="row"><?= $index + 1; ?></th>
+                                        <td><?= $message['name']; ?></td>
+                                        <td><?= $message['email']; ?></td>
+                                        <td><?= $message['subject']; ?></td>
+                                        <td><?= $message['message']; ?></td>
+                                        <td><?= $message['created_at']; ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

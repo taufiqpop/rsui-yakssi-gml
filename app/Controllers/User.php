@@ -56,7 +56,7 @@ class User extends BaseController
         $builder->where('id', $id);
         $query   = $builder->get();
 
-        $data['user'] = $query->getResultArray();
+        $data['users'] = $query->getResultArray();
 
         return view('user/edit', $data);
     }

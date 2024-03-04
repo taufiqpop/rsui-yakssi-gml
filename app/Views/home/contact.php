@@ -2,7 +2,7 @@
 <?= $this->section('page-content'); ?>
 
 <!-- Contact -->
-<?php foreach ($settings as $settings) : ?>
+<?php foreach ($settings as $setting) : ?>
     <main>
         <div class="container mt-5">
             <br><br>
@@ -20,7 +20,7 @@
                                     <i class="bx bx-map"></i>
                                     <h3>Address</h3>
                                     <div class="container">
-                                        <p><?= $settings['alamat']; ?></p>
+                                        <p><?= $setting['alamat']; ?></p>
                                     </div>
                                     <br>
                                     <div class="container">
@@ -32,20 +32,20 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="info-box mt-4">
-                                    <a href="mailto:<?= $settings['email']; ?>" target="_blank">
+                                    <a href="mailto:<?= $setting['email']; ?>" target="_blank">
                                         <i class="bx bx-envelope"></i>
                                     </a>
                                     <h3>Email</h3>
-                                    <p><?= $settings['email']; ?></p>
+                                    <p><?= $setting['email']; ?></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-box mt-4">
-                                    <a href="https://wa.me/<?= $settings['telepon']; ?>" target="_blank">
+                                    <a href="https://wa.me/<?= $setting['telepon']; ?>" target="_blank">
                                         <i class="bx bx-phone-call"></i>
                                     </a>
                                     <h3>Whatsapp</h3>
-                                    <p><?= $settings['telepon']; ?></p>
+                                    <p><?= $setting['telepon']; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -84,25 +84,25 @@
                                 <div class="info-box mt-4">
                                     <i class="bx bx-printer"></i>
                                     <h3>Fax</h3>
-                                    <p><?= $settings['fax']; ?></p>
+                                    <p><?= $setting['fax']; ?></p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="info-box mt-4">
-                                    <a href="https://www.instagram.com/<?= $settings['instagram']; ?>" target="_blank">
+                                    <a href="https://www.instagram.com/<?= $setting['instagram']; ?>" target="_blank">
                                         <i class="bx bxl-instagram"></i>
                                     </a>
                                     <h3>Instagram</h3>
-                                    <p>@<?= $settings['instagram']; ?></p>
+                                    <p>@<?= $setting['instagram']; ?></p>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="info-box mt-4">
-                                    <a href="https://www.facebook.com/<?= $settings['facebook']; ?>" target="_blank">
+                                    <a href="https://www.facebook.com/<?= $setting['facebook']; ?>" target="_blank">
                                         <i class="bx bxl-facebook"></i>
                                     </a>
                                     <h3>Facebook</h3>
-                                    <p>@<?= $settings['facebook']; ?></p>
+                                    <p>@<?= $setting['facebook']; ?></p>
                                 </div>
                             </div>
                         </div>

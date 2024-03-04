@@ -42,18 +42,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 + (5 * ($currentPage - 1)); ?>
-                                <?php foreach ($pages as $pages) : ?>
+                                <?php foreach ($pages as $index => $page) : ?>
                                     <tr>
-                                        <th scope="row"><?= $i++; ?></th>
+                                        <th scope="row"><?= $index + 1; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/pages/<?= $pages['images']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/pages/<?= $page['images']; ?>" class="thumbnail">
                                         </td>
-                                        <td><?= $pages['judul']; ?></td>
+                                        <td><?= $page['judul']; ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/pages/detail/<?= $pages['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/pages/edit/<?= $pages['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <form action="<?= base_url(); ?>control/pages/<?= $pages['id']; ?>" method="post" class="d-inline">
+                                            <a href="<?= base_url(); ?>control/pages/detail/<?= $page['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
+                                            <a href="<?= base_url(); ?>control/pages/edit/<?= $page['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <form action="<?= base_url(); ?>control/pages/<?= $page['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>

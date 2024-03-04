@@ -45,21 +45,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 + (5 * ($currentPage - 1)); ?>
-                                <?php foreach ($posts as $posts) : ?>
+                                <?php foreach ($posts as $index => $post) : ?>
                                     <tr>
-                                        <th scope="row"><?= $i++; ?></th>
+                                        <th scope="row"><?= $index + 1; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/posts/<?= $posts['images']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/posts/<?= $post['images']; ?>" class="thumbnail">
                                         </td>
-                                        <td><?= $posts['judul']; ?></td>
-                                        <td><?= $posts['kategori']; ?></td>
-                                        <td><?= $posts['seo']; ?></td>
-                                        <td><?= $posts['tag']; ?></td>
+                                        <td><?= $post['judul']; ?></td>
+                                        <td><?= $post['kategori']; ?></td>
+                                        <td><?= $post['seo']; ?></td>
+                                        <td><?= $post['tag']; ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/posts/detail/<?= $posts['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/posts/edit/<?= $posts['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <form action="<?= base_url(); ?>control/posts/<?= $posts['id']; ?>" method="post" class="d-inline">
+                                            <a href="<?= base_url(); ?>control/posts/detail/<?= $post['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
+                                            <a href="<?= base_url(); ?>control/posts/edit/<?= $post['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <form action="<?= base_url(); ?>control/posts/<?= $post['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>

@@ -6,8 +6,7 @@
     <h1 class="h3 mb-4 text-gray-800">User Details</h1>
 
     <!-- Card User -->
-    <?php $i = 1; ?>
-    <?php foreach ($user as $user) : ?>
+    <?php foreach ($users as $user) : ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mb-3" style="max-width: 540px;">

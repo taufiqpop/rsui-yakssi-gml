@@ -41,17 +41,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1 + (5 * ($currentPage - 1)); ?>
-                                <?php foreach ($users as $users) : ?>
+                                <?php foreach ($users as $index => $user) : ?>
                                     <tr>
-                                        <th scope="row"><?= $i++; ?></th>
+                                        <th scope="row"><?= $index + 1; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/user/<?= $users['user_image']; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/user/<?= $user['user_image']; ?>" class="thumbnail">
                                         </td>
-                                        <td><?= $users['fullname']; ?></td>
-                                        <td><?= $users['username']; ?></td>
+                                        <td><?= $user['fullname']; ?></td>
+                                        <td><?= $user['username']; ?></td>
                                         <td>
-                                            <a href="<?= base_url('admin/detail/' . $users['id']); ?>" class="btn btn-info">Details</a>
+                                            <a href="<?= base_url('admin/detail/' . $user['id']); ?>" class="btn btn-info">Details</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

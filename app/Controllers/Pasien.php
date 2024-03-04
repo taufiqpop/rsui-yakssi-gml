@@ -32,9 +32,6 @@ class Pasien extends BaseController
             'currentPage' => $currentPage,
         ];
 
-        // $_data = json_encode($data);
-        // dd($data);
-        // print_r($pasien->paginate(5, 'pasien'));
         return view('control/pasien/index', $data);
     }
 

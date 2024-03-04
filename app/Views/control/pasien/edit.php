@@ -2,7 +2,6 @@
 <?= $this->section('page-content'); ?>
 
 <!-- Edit Pasien -->
-<?php $i = 1; ?>
 <?php foreach ($pasien as $pasien) : ?>
     <div class="container-fluid">
         <div class="row">

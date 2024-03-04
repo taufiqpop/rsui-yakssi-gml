@@ -34,11 +34,11 @@
 
 <body>
     <!-- Top Bar -->
-    <?php foreach ($settings as $settings) : ?>
+    <?php foreach ($settings as $setting) : ?>
         <div id="topbar" class="d-flex align-items-center fixed-top">
             <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
                 <div class="align-items-center d-none d-md-flex">
-                    <i class="bi bi-clock"></i> <?= $settings['jadwal']; ?>
+                    <i class="bi bi-clock"></i> <?= $setting['jadwal']; ?>
                 </div>
                 <div class="d-flex align-items-center">
                     <i class="bi bi-clock d-flex align-items-center ms-4"></i>
@@ -60,16 +60,16 @@
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center">
                 <!-- Logo RSUI -->
-                <a href="<?= base_url(); ?>" class="logo me-auto"><img src="<?= base_url(); ?>img/logo.png" alt=""> <?= $settings['nama']; ?></a>
+                <a href="<?= base_url(); ?>" class="logo me-auto"><img src="<?= base_url(); ?>img/logo.png" alt=""> <?= $setting['nama']; ?></a>
 
                 <!-- Navbar -->
                 <nav id="navbar" class="navbar order-last order-lg-0">
                     <ul>
-                        <li><a class="nav-link scrollto" href="index#hero">Home</a></li>
-                        <li><a class="nav-link scrollto" href="index#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="index#services">Pelayanan</a></li>
-                        <li><a class="nav-link scrollto" href="index#departments">Poliklinik</a></li>
-                        <li><a class="nav-link scrollto" href="index#doctors">Dokter</a></li>
+                        <li><a class="nav-link scrollto" href="home#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="home#about">About</a></li>
+                        <li><a class="nav-link scrollto" href="home#services">Pelayanan</a></li>
+                        <li><a class="nav-link scrollto" href="home#departments">Poliklinik</a></li>
+                        <li><a class="nav-link scrollto" href="home#doctors">Dokter</a></li>
                         <li class="dropdown"><a href="#"><span>Berita</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li><a href="#">Umum</a></li>
@@ -82,7 +82,7 @@
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav>
-                <a href="https://api.whatsapp.com/send?phone=<?= $settings['telepon']; ?>&text=Halo%20Admin%20Saya%20Mau%20Booking%20Daftar" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline"><strong>Booking</span> Online</strong></a>
+                <a href="https://api.whatsapp.com/send?phone=<?= $setting['telepon']; ?>&text=Halo%20Admin%20Saya%20Mau%20Booking%20Daftar" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline"><strong>Booking</span> Online</strong></a>
             </div>
         </header>
 
@@ -98,7 +98,7 @@
         <footer id="footer">
             <div class="container">
                 <div class="copyright">
-                    Copyright <strong><?= date('Y'); ?> <a href="<?= base_url(); ?>admin" style="color:black;" target="_blank">&copy;</a> <span><?= $settings['owner']; ?></span></strong>. All Rights Reserved
+                    Copyright <strong><?= date('Y'); ?> <a href="<?= base_url(); ?>admin" style="color:black;" target="_blank">&copy;</a> <span><?= $setting['owner']; ?></span></strong>. All Rights Reserved
                 </div>
             </div>
         </footer>
