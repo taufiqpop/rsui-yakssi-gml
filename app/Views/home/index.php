@@ -418,7 +418,7 @@
       <div class="section-title">
         <h2>Doctors</h2>
         <center>
-          <a href="<?= base_url(); ?>rsuiyakssi/doctors" class="btn btn-success" style="width: 25%;">Daftar Semua Dokter</a>
+          <a href="<?= base_url(); ?>doctors" class="btn btn-success" style="width: 25%;">Daftar Semua Dokter</a>
         </center>
       </div>
       <div class="row">

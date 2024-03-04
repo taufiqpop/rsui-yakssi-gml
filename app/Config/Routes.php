@@ -32,7 +32,7 @@ $routes->set404Override();
 
 // Home
 $routes->get('/', 'Home::index');
-$routes->get('/home', 'Home::index');
+$routes->get('/index', 'Home::index');
 $routes->add('/doctors', 'Home::doctors');
 $routes->get('/contact', 'Contact::index');
 $routes->add('/contact/save', 'Contact::save');

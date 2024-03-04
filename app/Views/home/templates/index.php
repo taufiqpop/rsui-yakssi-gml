@@ -65,11 +65,11 @@
                 <!-- Navbar -->
                 <nav id="navbar" class="navbar order-last order-lg-0">
                     <ul>
-                        <li><a class="nav-link scrollto" href="home#hero">Home</a></li>
-                        <li><a class="nav-link scrollto" href="home#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="home#services">Pelayanan</a></li>
-                        <li><a class="nav-link scrollto" href="home#departments">Poliklinik</a></li>
-                        <li><a class="nav-link scrollto" href="home#doctors">Dokter</a></li>
+                        <li><a class="nav-link scrollto" href="index#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="index#about">About</a></li>
+                        <li><a class="nav-link scrollto" href="index#services">Pelayanan</a></li>
+                        <li><a class="nav-link scrollto" href="index#departments">Poliklinik</a></li>
+                        <li><a class="nav-link scrollto" href="index#doctors">Dokter</a></li>
                         <li class="dropdown"><a href="#"><span>Berita</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li><a href="#">Umum</a></li>
