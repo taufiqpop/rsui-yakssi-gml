@@ -1,31 +1,29 @@
 <?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-<!-- Detail Pasien -->
+<!-- Detail Pelayanan -->
 <div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800">Detail Pasien</h1>
+    <h1 class="h3 mb-4 text-gray-800">Detail Pelayanan</h1>
 
-    <?php foreach ($pasien as $patient) : ?>
-        <?php $data = json_decode($patient['value']) ?>
+    <?php foreach ($pelayanan as $service) : ?>
+        <?php $data = json_decode($service['value']) ?>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card mb-3" style="max-width: 800px;">
                     <!-- Card -->
                     <div class="row no-gutters">
                         <div class="col-md-6">
-                            <img src="<?= base_url(); ?>img/pasien/<?= $data->images; ?>" class="card-img detail-img img-thumbnail">
-
                             <center>
-                                <!-- Deskripsi Foto -->
-                                <p><?= $data->images ?></p>
+                                <!-- Logo -->
+                                <i class="<?= $data->logo; ?> card-img detail-img img-thumbnail" style="font-size: 10em; color: #01ab5a"></i>
 
                                 <!-- Button -->
-                                <div class="container tombol-detail">
-                                    <a href="<?= base_url(); ?>control/pasien" class="btn btn-dark col-3">Back</a>
-                                    <a href="<?= base_url(); ?>control/pasien/edit/<?= $patient['id']; ?>" class="btn btn-warning col-3">Edit</a>
+                                <div class=" container tombol-detail">
+                                    <a href="<?= base_url(); ?>control/pelayanan" class="btn btn-dark col-3">Back</a>
+                                    <a href="<?= base_url(); ?>control/pelayanan/edit/<?= $service['id']; ?>" class="btn btn-warning col-3">Edit</a>
 
                                     <!-- Delete -->
-                                    <form action="<?= base_url(); ?>control/pasien/<?= $patient['id']; ?>" method="post" class="d-inline">
+                                    <form action="<?= base_url(); ?>control/pelayanan/<?= $service['id']; ?>" method="post" class="d-inline">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger col-3" onclick="return confirm('Apakah anda yakin?');">Delete</button>

@@ -15,7 +15,7 @@
                 <div class="form-group row">
                     <label for="jenis" class="col-sm-2 col-form-label">Jenis Pasien</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Jenis Pasien" name="jenis" required>
+                        <input type="text" class="form-control" placeholder="Jenis Pasien" name="jenis" required autofocus>
                     </div>
                 </div>
 

@@ -70,7 +70,7 @@
                         </table>
 
                         <!-- Pagers -->
-                        <?= $pager->links('posts', 'posts_pagination'); ?>
+                        <?= $pager->links('posts', 'data_pagination'); ?>
                     </div>
                 </div>
             </div>

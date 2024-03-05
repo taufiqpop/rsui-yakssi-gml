@@ -33,7 +33,7 @@ $routes->set404Override();
 // Home
 $routes->get('/', 'Home::index');
 $routes->get('/index', 'Home::index');
-$routes->add('/doctors', 'Home::doctors');
+$routes->get('/doctors', 'Home::doctors');
 $routes->get('/contact', 'Contact::index');
 $routes->add('/contact/save', 'Contact::save');
 
@@ -83,8 +83,46 @@ $routes->add('/pasien/insert', 'Pasien::insert');
 $routes->get('/control/pasien/edit/(:segment)', 'Pasien::edit/$1');
 $routes->add('/pasien/update/(:segment)', 'Pasien::update/$1');
 $routes->get('/control/pasien/detail/(:segment)', 'Pasien::detail/$1');
-$routes->delete('/control/pasien/(:num)', 'Pasien::delete/$1');
 
+// Dokter
+$routes->add('/control/dokter', 'Dokter::index');
+$routes->get('/control/dokter/form', 'Dokter::form');
+$routes->add('/dokter/insert', 'Dokter::insert');
+$routes->get('/control/dokter/edit/(:segment)', 'Dokter::edit/$1');
+$routes->add('/dokter/update/(:segment)', 'Dokter::update/$1');
+$routes->delete('/control/dokter/(:num)', 'Dokter::delete/$1');
+
+// Pelayanan
+$routes->add('/control/pelayanan', 'Pelayanan::index');
+$routes->get('/control/pelayanan/form', 'Pelayanan::form');
+$routes->add('/pelayanan/insert', 'Pelayanan::insert');
+$routes->get('/control/pelayanan/edit/(:segment)', 'Pelayanan::edit/$1');
+$routes->add('/pelayanan/update/(:segment)', 'Pelayanan::update/$1');
+$routes->get('/control/pelayanan/detail/(:segment)', 'Pelayanan::detail/$1');
+
+// Poliklinik
+$routes->add('/control/poliklinik', 'Poliklinik::index');
+$routes->get('/control/poliklinik/form', 'Poliklinik::form');
+$routes->add('/poliklinik/insert', 'Poliklinik::insert');
+$routes->get('/control/poliklinik/edit/(:segment)', 'Poliklinik::edit/$1');
+$routes->add('/poliklinik/update/(:segment)', 'Poliklinik::update/$1');
+$routes->get('/control/poliklinik/detail/(:segment)', 'Poliklinik::detail/$1');
+
+// FAQ
+$routes->add('/control/faq', 'FAQ::index');
+$routes->get('/control/faq/form', 'FAQ::form');
+$routes->add('/faq/insert', 'FAQ::insert');
+$routes->get('/control/faq/edit/(:segment)', 'FAQ::edit/$1');
+$routes->add('/faq/update/(:segment)', 'FAQ::update/$1');
+$routes->get('/control/faq/detail/(:segment)', 'FAQ::detail/$1');
+
+// Galeri
+$routes->add('/control/galeri', 'Galeri::index');
+$routes->get('/control/galeri/form', 'Galeri::form');
+$routes->add('/galeri/insert', 'Galeri::insert');
+$routes->get('/control/galeri/edit/(:segment)', 'Galeri::edit/$1');
+$routes->add('/galeri/update/(:segment)', 'Galeri::update/$1');
+$routes->get('/control/galeri/detail/(:segment)', 'Galeri::detail/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

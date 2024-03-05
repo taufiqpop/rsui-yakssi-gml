@@ -56,7 +56,7 @@
                         </table>
 
                         <!-- Pagers -->
-                        <?= $pager->links('pesan', 'pesan_pagination'); ?>
+                        <?= $pager->links('pesan', 'data_pagination'); ?>
                     </div>
                 </div>
             </div>

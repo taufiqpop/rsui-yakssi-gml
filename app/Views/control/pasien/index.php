@@ -37,8 +37,8 @@
                                 <tr>
                                     <th scope="col" class="cursor-active">No</th>
                                     <th scope="col" class="cursor-stop">Photo</th>
-                                    <th scope="col" class="cursor-stop">Jenis</th>
-                                    <th scope="col" class="cursor-stop">Deskripsi</th>
+                                    <th scope="col" class="cursor-active">Jenis</th>
+                                    <th scope="col" class="cursor-active">Deskripsi</th>
                                     <th scope="col" class="cursor-stop">Action</th>
                                 </tr>
                             </thead>
@@ -65,6 +65,9 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+
+                        <!-- Pagers -->
+                        <?= $pager->links('pasien', 'data_pagination'); ?>
                     </div>
                 </div>
             </div>

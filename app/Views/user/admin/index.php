@@ -58,7 +58,7 @@
                         </table>
 
                         <!-- Pagers -->
-                        <?= $pager->links('users', 'users_pagination'); ?>
+                        <?= $pager->links('users', 'data_pagination'); ?>
                     </div>
                 </div>
             </div>

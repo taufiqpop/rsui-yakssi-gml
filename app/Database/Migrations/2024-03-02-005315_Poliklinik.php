@@ -36,11 +36,11 @@ class Poliklinkik extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('poliklinkik');
+        $this->forge->createTable('poliklinik');
     }
 
     public function down()
     {
-        $this->forge->dropTable('poliklinkik');
+        $this->forge->dropTable('poliklinik');
     }
 }

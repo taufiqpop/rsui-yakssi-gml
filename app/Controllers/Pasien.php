@@ -106,9 +106,9 @@ class Pasien extends BaseController
         }
 
         $this->pasienModel->save([
-            'judul'     => $this->request->getVar('judul'),
-            'content'   => $this->request->getVar('content'),
-            'images'    => $namaGambar,
+            'key'     => $this->request->getVar('key'),
+            'value'   => $this->request->getVar('value'),
+            'images'  => $namaGambar,
         ]);
 
         session()->setFlashdata('pesan', 'Data Pasien Berhasil Ditambahkan!');
@@ -127,7 +127,7 @@ class Pasien extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('pasien');
-        $builder->select('id, judul, content, images');
+        $builder->select('id, key, value, created_at, updated_at, deleted_at');
         $builder->where('id', $id);
         $query   = $builder->get();
 

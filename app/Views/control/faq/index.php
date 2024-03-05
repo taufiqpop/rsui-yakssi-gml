@@ -1,16 +1,16 @@
 <?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-<!-- Pages List -->
+<!-- List FAQ -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-11">
-            <h1 class="h3 mb-4 text-gray-800">Daftar Pages</h1>
-            <a href="<?= base_url(); ?>control/pages/form" class="btn btn-primary">Add Pages</a>
+            <h1 class="h3 mb-4 text-gray-800">Daftar FAQ</h1>
+            <a href="<?= base_url(); ?>control/faq/form" class="btn btn-primary">Add FAQ</a>
             <br><br>
 
             <!-- Search Bar -->
-            <form action="" method="post">
+            <form action="" method="get">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search" name="keyword" autofocus>
                     <div class="input-group-append">
@@ -21,7 +21,7 @@
                 </div>
             </form>
 
-            <!-- Message -->
+            <!-- Messages -->
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->getFlashdata('pesan') ?>
@@ -36,23 +36,21 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="cursor-active">No</th>
-                                    <th scope="col" class="cursor-stop">Photo</th>
-                                    <th scope="col" class="cursor-active">Judul</th>
+                                    <th scope="col" class="cursor-active">Pertanyaan</th>
+                                    <th scope="col" class="cursor-active">Jawaban</th>
                                     <th scope="col" class="cursor-stop">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($pages as $index => $page) : ?>
+                                <?php foreach ($faq as $index => $question) : ?>
+                                    <?php $data = json_decode($question['value']) ?>
                                     <tr>
                                         <th scope="row"><?= $index + 1; ?></th>
+                                        <td style="text-align: justify; max-width: 500px"><?= $data->pertanyaan; ?></td>
+                                        <td style="text-align: justify; max-width: 500px"><?= $data->jawaban; ?></td>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/pages/<?= $page['images']; ?>" class="thumbnail">
-                                        </td>
-                                        <td><?= $page['judul']; ?></td>
-                                        <td>
-                                            <a href="<?= base_url(); ?>control/pages/detail/<?= $page['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/pages/edit/<?= $page['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <form action="<?= base_url(); ?>control/pages/<?= $page['id']; ?>" method="post" class="d-inline">
+                                            <a href="<?= base_url(); ?>control/faq/edit/<?= $question['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <form action="<?= base_url(); ?>control/faq/<?= $question['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
@@ -64,7 +62,7 @@
                         </table>
 
                         <!-- Pagers -->
-                        <?= $pager->links('pages', 'data_pagination'); ?>
+                        <?= $pager->links('faq', 'data_pagination'); ?>
                     </div>
                 </div>
             </div>

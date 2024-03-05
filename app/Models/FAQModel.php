@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DokterModel extends Model
+class FAQModel extends Model
 {
-    protected $table            = 'dokter';
+    protected $table            = 'faq';
     protected $primaryKey       = 'id';
     protected $returnType       = 'array';
     protected $allowedFields    = ['key', 'value', 'created_at', 'updated_at', 'deleted_at'];
@@ -14,11 +14,11 @@ class DokterModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('dokter')->like('key', $keyword)->orLike('value', $keyword);
+        return $this->table('faq')->like('key', $keyword)->orLike('value', $keyword);
     }
 
-    public function jumlahDokter()
+    public function jumlahFAQ()
     {
-        return $this->table('dokter')->get()->getNumRows();
+        return $this->table('faq')->get()->getNumRows();
     }
 }
