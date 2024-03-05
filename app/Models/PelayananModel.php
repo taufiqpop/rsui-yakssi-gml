@@ -14,7 +14,7 @@ class PelayananModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('pelayanan')->like('key', $keyword)->orLike('value', $keyword);
+        return $this->table('pelayanan')->like('value', $keyword);
     }
 
     public function jumlahPelayanan()

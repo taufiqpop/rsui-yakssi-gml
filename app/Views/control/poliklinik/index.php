@@ -47,7 +47,7 @@
                                     <tr>
                                         <th scope="row"><?= $index + 1; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/departments/<?= $data->images ?>" class=" thumbnail">
+                                            <img src="<?= base_url(); ?>img/departments/<?= $data->images ?>" class="thumbnail">
                                         </td>
                                         <td><?= $data->poliklinik; ?></td>
                                         <td>

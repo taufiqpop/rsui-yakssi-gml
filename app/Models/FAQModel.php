@@ -14,7 +14,7 @@ class FAQModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('faq')->like('key', $keyword)->orLike('value', $keyword);
+        return $this->table('faq')->Like('value', $keyword);
     }
 
     public function jumlahFAQ()

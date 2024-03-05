@@ -9,12 +9,12 @@ class PostsModel extends Model
     protected $table            = 'posts';
     protected $primaryKey       = 'id';
     protected $returnType       = 'array';
-    protected $allowedFields    = ['judul', 'kategori', 'seo', 'tag', 'images', 'deskripsi', 'content', 'created_at', 'updated_at', 'deleted_at'];
+    protected $allowedFields    = ['key', 'value', 'kategori', 'tag', 'created_at', 'updated_at', 'deleted_at'];
     protected $useTimestamps    = true;
 
     public function search($keyword)
     {
-        return $this->table('posts')->like('judul', $keyword)->orLike('kategori', $keyword)->orLike('seo', $keyword);
+        return $this->table('posts')->like('value', $keyword)->orLike('kategori', $keyword)->orLike('tag', $keyword);
     }
 
     public function jumlahPosts()

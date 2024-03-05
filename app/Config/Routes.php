@@ -99,6 +99,7 @@ $routes->add('/pelayanan/insert', 'Pelayanan::insert');
 $routes->get('/control/pelayanan/edit/(:segment)', 'Pelayanan::edit/$1');
 $routes->add('/pelayanan/update/(:segment)', 'Pelayanan::update/$1');
 $routes->get('/control/pelayanan/detail/(:segment)', 'Pelayanan::detail/$1');
+$routes->delete('/control/pelayanan/(:num)', 'Pelayanan::delete/$1');
 
 // Poliklinik
 $routes->add('/control/poliklinik', 'Poliklinik::index');
@@ -107,6 +108,7 @@ $routes->add('/poliklinik/insert', 'Poliklinik::insert');
 $routes->get('/control/poliklinik/edit/(:segment)', 'Poliklinik::edit/$1');
 $routes->add('/poliklinik/update/(:segment)', 'Poliklinik::update/$1');
 $routes->get('/control/poliklinik/detail/(:segment)', 'Poliklinik::detail/$1');
+$routes->delete('/control/poliklinik/(:num)', 'Poliklinik::delete/$1');
 
 // FAQ
 $routes->add('/control/faq', 'FAQ::index');
@@ -114,15 +116,17 @@ $routes->get('/control/faq/form', 'FAQ::form');
 $routes->add('/faq/insert', 'FAQ::insert');
 $routes->get('/control/faq/edit/(:segment)', 'FAQ::edit/$1');
 $routes->add('/faq/update/(:segment)', 'FAQ::update/$1');
-$routes->get('/control/faq/detail/(:segment)', 'FAQ::detail/$1');
+$routes->delete('/control/faq/(:num)', 'FAQ::delete/$1');
 
-// Galeri
-$routes->add('/control/galeri', 'Galeri::index');
-$routes->get('/control/galeri/form', 'Galeri::form');
-$routes->add('/galeri/insert', 'Galeri::insert');
-$routes->get('/control/galeri/edit/(:segment)', 'Galeri::edit/$1');
-$routes->add('/galeri/update/(:segment)', 'Galeri::update/$1');
-$routes->get('/control/galeri/detail/(:segment)', 'Galeri::detail/$1');
+// Gallery
+$routes->add('/control/gallery', 'Gallery::index');
+$routes->get('/control/gallery/form', 'Gallery::form');
+$routes->add('/gallery/insert', 'Gallery::insert');
+$routes->get('/control/gallery/edit/(:segment)', 'Gallery::edit/$1');
+$routes->add('/gallery/update/(:segment)', 'Gallery::update/$1');
+$routes->get('/control/gallery/detail/(:segment)', 'Gallery::detail/$1');
+$routes->delete('/control/gallery/(:num)', 'Gallery::delete/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -45,7 +45,7 @@ class Posts extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('posts');
-        $builder->select('id, judul, kategori, seo, tag, images, deskripsi, content, created_at, updated_at, deleted_at');
+        $builder->select('id, key, value, kategori, tag');
         $builder->where('id', $id);
         $query   = $builder->get();
 

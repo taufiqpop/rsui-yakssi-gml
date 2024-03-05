@@ -14,7 +14,7 @@ class Dokter extends BaseController
     // List Dokter
     public function index()
     {
-        $currentPage = $this->request->getVar('page_pages') ? $this->request->getVar('page_pages') : 1;
+        $currentPage = $this->request->getVar('page_dokter') ? $this->request->getVar('page_dokter') : 1;
 
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {

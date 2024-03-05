@@ -14,7 +14,7 @@ class PasienModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('pasien')->like('key', $keyword)->orLike('value', $keyword);
+        return $this->table('pasien')->like('value', $keyword);
     }
 
     public function jumlahPasien()

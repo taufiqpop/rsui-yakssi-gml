@@ -1,12 +1,12 @@
 <?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-<!-- List Posts -->
+<!-- List Gallery -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-11">
-            <h1 class="h3 mb-4 text-gray-800">Daftar Posts</h1>
-            <a href="<?= base_url(); ?>control/posts/form" class="btn btn-primary">Add Posts</a>
+        <div class="col-10">
+            <h1 class="h3 mb-4 text-gray-800">Daftar Gallery</h1>
+            <a href="<?= base_url(); ?>control/gallery/form" class="btn btn-primary">Add Gallery</a>
             <br><br>
 
             <!-- Search Bar -->
@@ -37,27 +37,23 @@
                                 <tr>
                                     <th scope="col" class="cursor-active">No</th>
                                     <th scope="col" class="cursor-stop">Photo</th>
-                                    <th scope="col" class="cursor-active">Judul</th>
-                                    <th scope="col" class="cursor-active">Kategori</th>
-                                    <th scope="col" class="cursor-active">Tag</th>
+                                    <th scope="col" class="cursor-active">Deskripsi</th>
                                     <th scope="col" class="cursor-stop">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($posts as $index => $post) : ?>
-                                    <?php $data = json_decode($post['value']) ?>
+                                <?php foreach ($gallery as $index => $galeri) : ?>
+                                    <?php $data = json_decode($galeri['value']) ?>
                                     <tr>
                                         <th scope="row"><?= $index + 1; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/posts/<?= $data->images; ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/gallery/<?= $data->images ?>" class="thumbnail">
                                         </td>
-                                        <td><?= $data->judul; ?></td>
-                                        <td><?= $post['kategori']; ?></td>
-                                        <td><?= $post['tag']; ?></td>
+                                        <td><?= $data->deskripsi; ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/posts/detail/<?= $post['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/posts/edit/<?= $post['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                            <form action="<?= base_url(); ?>control/posts/<?= $post['id']; ?>" method="post" class="d-inline">
+                                            <a href="<?= base_url(); ?>control/gallery/detail/<?= $galeri['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
+                                            <a href="<?= base_url(); ?>control/gallery/edit/<?= $galeri['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <form action="<?= base_url(); ?>control/gallery/<?= $galeri['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
@@ -69,7 +65,7 @@
                         </table>
 
                         <!-- Pagers -->
-                        <?= $pager->links('posts', 'data_pagination'); ?>
+                        <?= $pager->links('gallery', 'data_pagination'); ?>
                     </div>
                 </div>
             </div>

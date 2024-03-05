@@ -14,7 +14,7 @@ class PoliklinikModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('poliklinik')->like('key', $keyword)->orLike('value', $keyword);
+        return $this->table('poliklinik')->like('value', $keyword);
     }
 
     public function jumlahPoliklinik()

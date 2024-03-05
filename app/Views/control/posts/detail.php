@@ -6,16 +6,17 @@
     <h1 class="h3 mb-4 text-gray-800">Detail Posts</h1>
 
     <?php foreach ($posts as $post) : ?>
+        <?php $data = json_decode($post['value']) ?>
         <div class="row">
             <div class="col-lg-12">
-                <div class="card mb-3" style="max-width: 1000px;">
+                <div class="card mb-3" style="max-width: 1500px;">
                     <!-- Card -->
                     <div class="row no-gutters">
-                        <div class="col-md-6">
-                            <img src="<?= base_url(); ?>img/posts/<?= $post['images']; ?>" class="card-img detail-img img-thumbnail">
+                        <div class="col-md-5">
+                            <img src="<?= base_url(); ?>img/posts/<?= $data->images ?>" class="card-img detail-img img-thumbnail">
                             <center>
                                 <!-- Deskripsi Foto -->
-                                <p><?= $post['deskripsi']; ?></p>
+                                <p><?= $data->deskripsi; ?></p>
 
                                 <!-- Button -->
                                 <div class="container tombol-posts">
@@ -32,27 +33,28 @@
                                 </div>
                             </center>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
-                                        <h4>
-                                            <?= $post['judul']; ?>
-                                        </h4>
+                                        <h1>
+                                            <?= $data->judul; ?>
+                                        </h1>
                                     </li>
                                     <li class="list-group-item">
                                         <table class="table table-md table-bordered">
                                             <tr>
+                                                <th>Kategori</th>
+                                                <th>Tag</th>
+                                            </tr>
+                                            <tr>
                                                 <td><?= $post['kategori']; ?></td>
-                                                <td><?= $post['seo']; ?></td>
                                                 <td><?= $post['tag']; ?></td>
                                             </tr>
                                         </table>
                                     </li>
                                     <li class="list-group-item">
-                                        <p>
-                                            <?= $post['content']; ?>
-                                        </p>
+                                        <p><?= $data->content ?></p>
                                     </li>
                                 </ul>
                             </div>

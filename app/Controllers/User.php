@@ -5,16 +5,28 @@ namespace App\Controllers;
 class User extends BaseController
 {
     protected $usersModel;
+    protected $dokterModel;
+    protected $faqModel;
+    protected $galleryModel;
     protected $pagesModel;
-    protected $postsModel;
+    protected $pasienModel;
+    protected $pelayananModel;
     protected $pesanModel;
+    protected $poliklinikModel;
+    protected $postsModel;
 
     public function __construct()
     {
-        $this->usersModel  = new \App\Models\UsersModel();
-        $this->pagesModel  = new \App\Models\PagesModel();
-        $this->postsModel  = new \App\Models\PostsModel();
-        $this->pesanModel  = new \App\Models\PesanModel();
+        $this->usersModel       = new \App\Models\UsersModel();
+        $this->dokterModel      = new \App\Models\DokterModel();
+        $this->faqModel         = new \App\Models\FAQModel();
+        $this->galleryModel     = new \App\Models\GalleryModel();
+        $this->pagesModel       = new \App\Models\PagesModel();
+        $this->pasienModel      = new \App\Models\PasienModel();
+        $this->pelayananModel   = new \App\Models\PelayananModel();
+        $this->pesanModel       = new \App\Models\PesanModel();
+        $this->poliklinikModel  = new \App\Models\PoliklinikModel();
+        $this->postsModel       = new \App\Models\PostsModel();
     }
 
     // Dashboard
@@ -23,9 +35,15 @@ class User extends BaseController
         $data = [
             'title'         => 'RSUI YAKSSI | Dashboard',
             'jmlUsers'      => $this->usersModel->jumlahUsers(),
+            'jmlDokter'     => $this->dokterModel->jumlahDokter(),
+            'jmlFAQ'        => $this->faqModel->jumlahFAQ(),
+            'jmlGallery'    => $this->galleryModel->jumlahGallery(),
             'jmlPages'      => $this->pagesModel->jumlahPages(),
-            'jmlPosts'      => $this->postsModel->jumlahPosts(),
+            'jmlPasien'     => $this->pasienModel->jumlahPasien(),
+            'jmlPelayanan'  => $this->pelayananModel->jumlahPelayanan(),
             'jmlPesan'      => $this->pesanModel->jumlahPesan(),
+            'jmlPoliklinik' => $this->poliklinikModel->jumlahPoliklinik(),
+            'jmlPosts'      => $this->postsModel->jumlahPosts(),
         ];
 
         return view('user/index', $data);

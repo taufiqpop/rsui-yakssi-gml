@@ -14,7 +14,7 @@ class DokterModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('dokter')->like('key', $keyword)->orLike('value', $keyword);
+        return $this->table('dokter')->Like('value', $keyword);
     }
 
     public function jumlahDokter()

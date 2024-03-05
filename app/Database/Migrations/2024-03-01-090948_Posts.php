@@ -15,32 +15,20 @@ class Posts extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'judul' => [
+            'key' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+            ],
+            'value' => [
+                'type'       => 'TEXT',
             ],
             'kategori' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'seo' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
             'tag' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
-            ],
-            'images' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'deskripsi' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
-            ],
-            'content' => [
-                'type'       => 'TEXT',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -56,6 +44,8 @@ class Posts extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addKey('kategori');
+        $this->forge->addKey('tag');
         $this->forge->createTable('posts');
     }
 

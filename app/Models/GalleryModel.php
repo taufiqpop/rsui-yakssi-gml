@@ -14,7 +14,7 @@ class GalleryModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('gallery')->like('key', $keyword)->orLike('value', $keyword);
+        return $this->table('gallery')->Like('value', $keyword);
     }
 
     public function jumlahGallery()
