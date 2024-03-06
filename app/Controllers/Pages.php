@@ -151,7 +151,7 @@ class Pages extends BaseController
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('control/pages/formEdit')->withInput()->with('validation', $validation);
+            return redirect()->to('control/pages/edit')->withInput()->with('validation', $validation);
         }
 
         $gambarPages = $this->request->getFile('images');

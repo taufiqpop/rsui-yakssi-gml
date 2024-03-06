@@ -27,7 +27,7 @@
             <?php } ?>
 
             <!-- Forms -->
-            <form action="<?= base_url(); ?>ChangePassword/setPassword" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url(); ?>password/setPassword/<?= $id; ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" class="id" value="<?= $id; ?>">
 
                 <!-- New Password -->

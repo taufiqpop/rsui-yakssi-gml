@@ -84,14 +84,6 @@ class User extends BaseController
     {
         $users = $this->usersModel->find($id);
 
-        $db = \Config\Database::connect();
-        $builder = $db->table('users');
-        $builder->select('id, username, email, fullname, user_image');
-        $builder->where('id', $id);
-        $query = $builder->get();
-
-        $data['user'] = $query->getResultArray();
-
         // Validasi Input
         if (!$this->validate([
             'images' => [
@@ -122,7 +114,6 @@ class User extends BaseController
             // Jangan Hapus File default.svg
             if ($users['user_image'] != 'default.svg') {
                 unlink('img/user/' . $this->request->getVar('imgUserLama'));
-                // unlink('img/user/' . $users['user_image']);
             }
         }
 
@@ -132,10 +123,10 @@ class User extends BaseController
             'username'      => $this->request->getVar('username'),
             'fullname'      => $this->request->getVar('fullname'),
             'user_image'    => $namaImgUser,
-            'name'          => $this->request->getVar('name'),
         ]);
 
-        session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
+        session()->setFlashdata('pesan', 'Data User Berhasil Diubah!');
+
         return redirect('profile');
     }
 }

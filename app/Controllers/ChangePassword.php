@@ -48,7 +48,7 @@ class ChangePassword extends BaseController
             $userModel->update($this->request->getVar('id'), $data);
             session()->setFlashdata('pesan', 'Password Berhasil Diubah!');
 
-            return redirect()->to(base_url('user/profile'));
+            return redirect()->to(base_url('profile'));
         }
     }
 }

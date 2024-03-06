@@ -50,6 +50,7 @@ $routes->add('/user/update/(:segment)', 'User::update/$1');
 
 // Password
 $routes->get('/password/(:num)', 'ChangePassword::index/$1');
+$routes->add('/password/setPassword/(:num)', 'ChangePassword::setPassword/$1');
 
 // Pesan
 $routes->add('/pesan', 'Pesan::index');

@@ -23,11 +23,6 @@
                                 <?php if ($user['name'] == 'user') : ?>
                                     <span class="badge badge-primary"><?= $user['name']; ?></span>
                                 <?php endif; ?>
-
-                                <!-- UNDEFINED -->
-                                <?php if ($user['name'] == null) : ?>
-                                    <span class="badge badge-dark">none</span>
-                                <?php endif; ?>
                             </div>
                         </div>
 
@@ -54,7 +49,7 @@
                                         Email : <?= $user['email']; ?>
                                     </li>
                                 </ul>
-                                <a href="<?= base_url(); ?>admin" class="btn btn-dark col-3">Back</a>
+                                <a href="<?= base_url(); ?>user" class="btn btn-dark col-3">Back</a>
                                 <a href="<?= base_url('user/edit/' . $user['userid']); ?>" class="btn btn-warning col-3">Edit</a>
 
                                 <!-- Delete -->
