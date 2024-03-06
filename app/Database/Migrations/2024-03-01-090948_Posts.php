@@ -32,15 +32,12 @@ class Posts extends Migration
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
-                'default'    => 'CURRENT_TIMESTAMP',
             ],
             'updated_at' => [
                 'type'       => 'DATETIME',
-                'default'    => 'CURRENT_TIMESTAMP',
             ],
             'deleted_at' => [
                 'type'       => 'DATETIME',
-                'default'    => 'CURRENT_TIMESTAMP',
             ],
         ]);
         $this->forge->addKey('id', true);
