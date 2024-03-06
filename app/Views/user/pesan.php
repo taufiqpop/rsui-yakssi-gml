@@ -36,9 +36,9 @@
                                     <th scope="col" class="cursor-active">No</th>
                                     <th scope="col" class="cursor-active">Nama</th>
                                     <th scope="col" class="cursor-active">Email</th>
-                                    <th scope="col" class="cursor-active">Subject</th>
-                                    <th scope="col" class="cursor-active">Message</th>
-                                    <th scope="col" class="cursor-active">Date</th>
+                                    <th scope="col" class="cursor-active">Subyek</th>
+                                    <th scope="col" class="cursor-active">Pesan</th>
+                                    <th scope="col" class="cursor-active">Tanggal</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,7 +49,7 @@
                                         <td><?= $message['email']; ?></td>
                                         <td><?= $message['subject']; ?></td>
                                         <td><?= $message['message']; ?></td>
-                                        <td><?= $message['created_at']; ?></td>
+                                        <td><?= date('l, d F Y', strtotime($message['created_at'])); ?> <br> (<?= date('H:m:s', strtotime($message['created_at'])); ?>)</td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

@@ -9,11 +9,11 @@
     <?php foreach ($users as $user) : ?>
         <div class="row">
             <div class="col-lg-12">
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3" style="max-width: 600px;">
                     <div class="row no-gutters">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <img src="<?= base_url('/img/user/' . $user['user_image']); ?>" class="card-img user-details" alt="<?= $user['username']; ?>">
-                            <div class="role-profile">
+                            <div class="role-profile mt-1 mb-2">
                                 <!-- Admin -->
                                 <?php if ($user['name'] == 'admin') : ?>
                                     <span class="badge badge-danger"><?= $user['name']; ?></span>
@@ -23,41 +23,46 @@
                                 <?php if ($user['name'] == 'user') : ?>
                                     <span class="badge badge-primary"><?= $user['name']; ?></span>
                                 <?php endif; ?>
+
+                                <!-- UNDEFINED -->
+                                <?php if ($user['name'] == null) : ?>
+                                    <span class="badge badge-dark">none</span>
+                                <?php endif; ?>
                             </div>
                         </div>
 
                         <!-- Card Body -->
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
                                     <!-- Fullname -->
                                     <?php if ($user['fullname']) : ?>
                                         <li class="list-group-item">
-                                            <h4>
-                                                <?= $user['fullname']; ?>
-                                            </h4>
+                                            <h2><?= $user['fullname']; ?></h4>
                                         </li>
                                     <?php endif; ?>
 
                                     <!-- Username -->
                                     <li class="list-group-item">
-                                        Username : <?= $user['username']; ?>
+                                        <b>Username : </b><?= $user['username']; ?>
                                     </li>
 
                                     <!-- Email -->
                                     <li class="list-group-item">
-                                        Email : <?= $user['email']; ?>
+                                        <b>Email : </b><?= $user['email']; ?>
                                     </li>
                                 </ul>
-                                <a href="<?= base_url(); ?>user" class="btn btn-dark col-3">Back</a>
-                                <a href="<?= base_url('user/edit/' . $user['userid']); ?>" class="btn btn-warning col-3">Edit</a>
+                                <div class="container tombol-detail">
+                                    <a href="<?= base_url(); ?>admin" class="btn btn-dark col-3"><i class="fas fa-arrow-left"></i></a>
+                                    <a href="<?= base_url('user/edit/' . $user['userid']); ?>" class="btn btn-warning col-3"><i class="fas fa-edit"></i></a>
 
-                                <!-- Delete -->
-                                <form action="<?= base_url(); ?>admin/<?= $user['userid']; ?>" method="post" class="d-inline">
-                                    <?= csrf_field(); ?>
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger col-3" onclick="return confirm('Apakah anda yakin?');">Delete</button>
-                                </form>
+                                    <!-- Delete -->
+                                    <form action="<?= base_url(); ?>admin/<?= $user['userid']; ?>" method="post" class="d-inline">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger col-3" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

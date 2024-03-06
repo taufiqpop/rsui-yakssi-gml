@@ -21,14 +21,14 @@
 
                                 <!-- Button -->
                                 <div class="container tombol-detail">
-                                    <a href="<?= base_url(); ?>control/pasien" class="btn btn-dark col-3">Back</a>
-                                    <a href="<?= base_url(); ?>control/pasien/edit/<?= $patient['id']; ?>" class="btn btn-warning col-3">Edit</a>
+                                    <a href="<?= base_url(); ?>control/pasien" class="btn btn-dark col-3"><i class="fas fa-arrow-left"></i></a>
+                                    <a href="<?= base_url(); ?>control/pasien/edit/<?= $patient['id']; ?>" class="btn btn-warning col-3"><i class="fas fa-edit"></i></a>
 
                                     <!-- Delete -->
                                     <form action="<?= base_url(); ?>control/pasien/<?= $patient['id']; ?>" method="post" class="d-inline">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger col-3" onclick="return confirm('Apakah anda yakin?');">Delete</button>
+                                        <button type="submit" class="btn btn-danger col-3" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
                                     </form>
                                     <hr>
                                 </div>

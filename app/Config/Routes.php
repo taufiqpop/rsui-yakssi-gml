@@ -40,7 +40,7 @@ $routes->add('/contact/save', 'Contact::save');
 // Admin
 $routes->add('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/detail/(:segment)', 'Admin::detail/$1', ['filter' => 'role:admin']);
-$routes->delete('/admin/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
+$routes->delete('/user/admin/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
 
 // User
 $routes->get('/user', 'User::index');

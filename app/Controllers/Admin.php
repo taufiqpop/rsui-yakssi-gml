@@ -4,11 +4,12 @@ namespace App\Controllers;
 
 class Admin extends BaseController
 {
+    protected $userModel;
     protected $usersModel;
 
     public function __construct()
     {
-        // $this->usersModel = new \Myth\Auth\Models\UserModel();
+        $this->userModel = new \Myth\Auth\Models\UserModel();
         $this->usersModel = new \App\Models\UsersModel();
     }
 
@@ -60,15 +61,18 @@ class Admin extends BaseController
     // Delete Data 
     public function delete($id)
     {
-        $hapusUser = $this->usersModel->find($id);
+        // Cari Gambar Berdasarkan ID
+        $users = $this->usersModel->find($id);
 
-        if ($hapusUser['user_image'] != 'default.svg') {
-            unlink('img/user/' . $hapusUser['user_image']);
+        // Cek Jika File Gambar default.svg
+        if ($users['user_image'] != 'default.svg') {
+            // Hapus Gambar Permanen
+            unlink('img/user/' . $users['user_image']);
         }
 
         $this->usersModel->delete($id);
-        session()->setFlashdata('pesan', 'Data Berhasil Dihapus!');
+        session()->setFlashdata('pesan', 'Data User Berhasil Dihapus!');
 
-        return redirect('user/admin/index');
+        return redirect('admin');
     }
 }

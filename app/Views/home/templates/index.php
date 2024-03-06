@@ -50,7 +50,7 @@
                         echo $hariIni->format('l, d F Y')
                         ?>
                         (<span id="jam"></span>
-                        <?php echo $hariIni->format('A') ?>)
+                        <?= $hariIni->format('A') ?>)
                     </span>
                 </div>
             </div>
