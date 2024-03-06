@@ -36,8 +36,6 @@ $(document).ready(function () {
     .click();
 });
 
-// Delete Alert
-
 // Preview Images
 function previewImgUser() {
   const imgUser = document.querySelector("#imgUser");
