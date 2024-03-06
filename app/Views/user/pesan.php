@@ -36,9 +36,9 @@
                                     <th scope="col" class="cursor-active">No</th>
                                     <th scope="col" class="cursor-active">Nama</th>
                                     <th scope="col" class="cursor-active">Email</th>
-                                    <th scope="col" class="cursor-active">Subyek</th>
+                                    <th scope="col" class="cursor-active">Judul</th>
                                     <th scope="col" class="cursor-active">Pesan</th>
-                                    <th scope="col" class="cursor-active">Tanggal</th>
+                                    <th scope="col" class="cursor-active">Tanggal Dikirim</th>
                                 </tr>
                             </thead>
                             <tbody>

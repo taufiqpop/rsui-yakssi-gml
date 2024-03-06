@@ -12,7 +12,7 @@
 
     <!-- Dashboard -->
     <li class="nav-item active">
-        <a class=" nav-link" href="<?= base_url(); ?>user">
+        <a class="nav-link" href="<?= base_url(); ?>user">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
@@ -47,51 +47,49 @@
     <hr class="sidebar-divider">
 
     <!-- Page Management -->
-    <div class="sidebar-heading">Page Management</div>
-
-    <!-- Pasien -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/pasien" ; ?>
-            <i class="fas fa-child"></i>
-            <span>Pasien</span>
-        </a>
-    </li>
+    <div class="sidebar-heading">Medical Control</div>
 
     <!-- Dokter -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/dokter" ; ?>
+        <a class="nav-link" href="<?= base_url(); ?>control/dokter">
             <i class="fas fa-hand-holding-medical"></i>
             <span>Dokter</span>
         </a>
     </li>
 
-    <!-- Pelayanan -->
+    <!-- Pasien -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/pelayanan" ; ?>
-            <i class="fas fa-file-medical"></i>
-            <span>Pelayanan</span>
+        <a class="nav-link" href="<?= base_url(); ?>control/pasien">
+            <i class="fas fa-child"></i>
+            <span>Pasien</span>
         </a>
     </li>
 
     <!-- Poliklinik -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/poliklinik" ; ?>
+        <a class="nav-link" href="<?= base_url(); ?>control/poliklinik">
             <i class="fas fa-clinic-medical"></i>
             <span>Poliklinik</span>
         </a>
     </li>
 
-    <!-- FAQ -->
+    <!-- Pelayanan -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/faq" ; ?>
-            <i class="fas fa-list"></i>
-            <span>FAQ</span>
+        <a class="nav-link" href="<?= base_url(); ?>control/pelayanan">
+            <i class="fas fa-file-medical"></i>
+            <span>Pelayanan</span>
         </a>
     </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Page Management -->
+    <div class="sidebar-heading">Features Control</div>
+
     <!-- Pages -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/pages" ; ?>
+        <a class="nav-link" href="<?= base_url(); ?>control/pages">
             <i class="far fa-file-alt"></i>
             <span>Pages</span>
         </a>
@@ -99,23 +97,37 @@
 
     <!-- Posts -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/posts" ; ?>
+        <a class="nav-link" href="<?= base_url(); ?>control/posts">
             <i class="fas fa-newspaper"></i>
-            <span>Post</span>
+            <span>Berita</span>
         </a>
     </li>
 
     <!-- Gallery -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/gallery" ; ?>
+        <a class="nav-link" href="<?= base_url(); ?>control/gallery">
             <i class="fas fa-images"></i>
             <span>Gallery</span>
         </a>
     </li>
 
+    <!-- FAQ -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url(); ?>control/faq">
+            <i class="fas fa-list"></i>
+            <span>FAQ</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Page Management -->
+    <div class="sidebar-heading">Others</div>
+
     <!-- Pesan -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>pesan" ; ?>
+        <a class="nav-link" href="<?= base_url(); ?>pesan">
             <i class="fas fa-comment"></i>
             <span>Pesan</span>
         </a>
@@ -123,7 +135,7 @@
 
     <!-- Settings -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/settings" ; ?>
+        <a class="nav-link" href="<?= base_url(); ?>control/settings">
             <i class="fas fa-cog"></i>
             <span>Pengaturan</span>
         </a>

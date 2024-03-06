@@ -1,3 +1,44 @@
+// Time Zone Responsive
+window.onload = function () {
+  jam();
+};
+
+function jam() {
+  let e = document.getElementById("jam"),
+    d = new Date(),
+    h,
+    m,
+    s;
+  h = d.getHours();
+  m = set(d.getMinutes());
+  s = set(d.getSeconds());
+
+  e.innerHTML = h + ":" + m + ":" + s;
+
+  setTimeout("jam()", 1000);
+}
+
+function set(e) {
+  e = e < 10 ? "0" + e : e;
+  return e;
+}
+
+// Active Page Highlight On Click
+$(document).ready(function () {
+  $(".nav-item a")
+    .on("click", function () {
+      $(".nav-item.active").removeClass(" active");
+      $(this).parent().addClass(" active");
+    })
+    .filter(function () {
+      return window.location.href.indexOf($(this).attr("href").trim()) > -1;
+    })
+    .click();
+});
+
+// Delete Alert
+
+// Preview Images
 function previewImgUser() {
   const imgUser = document.querySelector("#imgUser");
   const imgUserLabel = document.querySelector(".custom-file-label");

@@ -1,4 +1,20 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="navbar">
+
+    <!-- Clock -->
+    <i class="fas fa-clock fa-sm fa-fw mr-2 text-gray-400"></i>
+    <strong>
+        <span>
+            <?php
+            // Time Zone
+            date_default_timezone_set('Asia/Jakarta');
+            $hariIni = new DateTime();
+            echo $hariIni->format('l, d F Y')
+            ?>
+            (<span id="jam"></span>
+            <?= $hariIni->format('A') ?>)
+        </span>
+    </strong>
+
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>

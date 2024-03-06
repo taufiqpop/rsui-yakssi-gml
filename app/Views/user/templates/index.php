@@ -14,14 +14,14 @@
     <link rel="icon" href="<?= base_url(); ?>logo.ico">
 
     <!-- Fonts -->
-    <link href="<?= base_url(); ?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url(); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="<?= base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- My CSS Backend -->
-    <link href="<?= base_url(); ?>/css/my-style.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>css/my-style.css" rel="stylesheet">
 
 </head>
 
@@ -77,24 +77,29 @@
     </div>
 
     <!-- Bootstrap JavaScript -->
-    <script src="<?= base_url(); ?>/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url(); ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url(); ?>/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?= base_url(); ?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Main JS -->
-    <script src="<?= base_url(); ?>/js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url(); ?>js/sb-admin-2.min.js"></script>
 
     <!-- TinyMCE -->
-    <script src="<?= base_url(); ?>/js/tinymce/tinymce.min.js"></script>
-    <script src="<?= base_url(); ?>/js/tinymce-plugin.js"></script>
+    <script src="<?= base_url(); ?>js/tinymce/tinymce.min.js"></script>
+    <script src="<?= base_url(); ?>js/tinymce-plugin.js"></script>
     <script>
         tinymce.init({
             selector: 'textarea'
         });
     </script>
 
+    <!-- JQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
     <!-- My JavaScript Backend -->
-    <script src="<?= base_url(); ?>/js/my-script.js"></script>
+    <script src="<?= base_url(); ?>js/my-script.js"></script>
 </body>
 
 </html>
