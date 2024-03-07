@@ -164,7 +164,7 @@ class Pasien extends BaseController
 
         // Cek Gambar, Apakah Tetap Gambar Lama
         if ($gambarPages->getError() == 4) {
-            $namaGambar = $this->request->getVar('imgPasienLama');
+            $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
             $namaGambar = $gambarPages->getRandomName();
@@ -173,7 +173,7 @@ class Pasien extends BaseController
             $gambarPages->move('img/pasien', $namaGambar);
 
             // Hapus File Yang Lama
-            unlink('img/pasien/' . $this->request->getVar('imgPasienLama'));
+            unlink('img/pasien/' . $this->request->getVar('imgLama'));
         }
 
         $input = [

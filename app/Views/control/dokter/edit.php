@@ -1,40 +1,40 @@
 <?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-<!-- Edit Pasien -->
-<?php foreach ($pasien as $patient) : ?>
-    <?php $data = json_decode($patient['value']) ?>
+<!-- Edit Dokter -->
+<?php foreach ($dokter as $doctors) : ?>
+    <?php $data = json_decode($doctors['value']) ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
-                <h1 class="h3 mb-4 text-gray-800">Form Edit Data Pasien</h1>
+                <h1 class="h3 mb-4 text-gray-800">Form Edit Data Dokter</h1>
 
                 <!-- Forms -->
-                <form action="<?= base_url(); ?>pasien/update/<?= $patient['id']; ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url(); ?>dokter/update/<?= $doctors['id']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
-                    <input type="hidden" name="imgLama" value="<?= $data->images ?>">
+                    <input type="hidden" name="imgLama" value="<?= $data->photo ?>">
 
-                    <!-- Jenis Pasien -->
+                    <!-- Jenis Dokter -->
                     <div class="form-group row">
-                        <label for="jenis" class="col-sm-2 col-form-label">Jenis Pasien</label>
+                        <label for="nama" class="col-sm-2 col-form-label">Nama Dokter</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="jenis" value="<?= $data->jenis ?>" autofocus required>
+                            <input type="text" class="form-control" name="nama" value="<?= $data->nama ?>" autofocus required>
                         </div>
                     </div>
 
                     <!-- Deskripsi -->
                     <div class="form-group row">
-                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <label for="spesialis" class="col-sm-2 col-form-label">Spesialis Dokter</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="deskripsi" value="<?= $data->deskripsi ?>" required>
+                            <input type="text" class="form-control" name="spesialis" value="<?= $data->spesialis ?>" required>
                         </div>
                     </div>
 
-                    <!-- Images -->
+                    <!-- Photo -->
                     <div class="form-group row">
-                        <label for="images" class="col-sm-2 col-form-label">Images</label>
+                        <label for="images" class="col-sm-2 col-form-label">Photo</label>
                         <div class="col-sm-4">
-                            <img src="<?= base_url(); ?>img/pasien/<?= $data->images ?>" class="img-thumbnail img-preview">
+                            <img src="<?= base_url(); ?>img/doctors/<?= $data->photo ?>" class="img-thumbnail img-preview">
                         </div>
                         <div class="col-sm-6">
                             <div class="custom-file">
@@ -42,7 +42,7 @@
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('images'); ?>
                                 </div>
-                                <label class="custom-file-label" for="images"><?= $data->images ?></label>
+                                <label class="custom-file-label" for="images"><?= $data->photo ?></label>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <!-- Button -->
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <a href="<?= base_url(); ?>control/pasien" class="btn btn-dark mb-1">Back</a>
+                            <a href="<?= base_url(); ?>control/dokter" class="btn btn-dark mb-1">Back</a>
                             <button type="submit" class="btn btn-primary mb-1">Confirm Changes</button>
                         </div>
                     </div>
