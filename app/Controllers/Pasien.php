@@ -105,12 +105,18 @@ class Pasien extends BaseController
             $gambarPages->move('img/pasien', $namaGambar);
         }
 
-        $this->pasienModel->save([
-            'key'     => $this->request->getVar('key'),
-            'value'   => $this->request->getVar('value'),
-            'images'  => $namaGambar,
-        ]);
+        $input = [
+            'jenis'     => $this->request->getPost('jenis'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'images'    => $namaGambar,
+        ];
 
+        $data = [
+            'key'   => $this->request->getPost('jenis'),
+            'value' => json_encode($input),
+        ];
+
+        $this->pasienModel->save($data);
         session()->setFlashdata('pesan', 'Data Pasien Berhasil Ditambahkan!');
 
         return redirect('control/pasien');
@@ -151,14 +157,14 @@ class Pasien extends BaseController
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('control/pasien/formEdit')->withInput()->with('validation', $validation);
+            return redirect()->to('control/pasien/edit')->withInput()->with('validation', $validation);
         }
 
         $gambarPages = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
         if ($gambarPages->getError() == 4) {
-            $namaGambar = $this->request->getVar('imgPagesLama');
+            $namaGambar = $this->request->getVar('imgPasienLama');
         } else {
             // Generate Nama File Random
             $namaGambar = $gambarPages->getRandomName();
@@ -167,16 +173,22 @@ class Pasien extends BaseController
             $gambarPages->move('img/pasien', $namaGambar);
 
             // Hapus File Yang Lama
-            unlink('img/pasien/' . $this->request->getVar('imgPagesLama'));
+            unlink('img/pasien/' . $this->request->getVar('imgPasienLama'));
         }
 
-        $this->pasienModel->save([
-            'id'      => $id,
-            'judul'   => $this->request->getVar('judul'),
-            'content' => $this->request->getVar('content'),
-            'images'  => $namaGambar,
-        ]);
+        $input = [
+            'jenis'     => $this->request->getPost('jenis'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'images'    => $namaGambar,
+        ];
 
+        $data = [
+            'id'    => $id,
+            'key'   => $this->request->getPost('jenis'),
+            'value' => json_encode($input),
+        ];
+
+        $this->pasienModel->save($data);
         session()->setFlashdata('pesan', 'Data Pasien Berhasil Diubah!');
 
         return redirect('control/pasien');
@@ -187,11 +199,12 @@ class Pasien extends BaseController
     {
         // Cari Gambar Berdasarkan ID
         $pasien = $this->pasienModel->find($id);
+        $namaGambar = $this->request->getVar('imgPasienLama');
 
         // Cek Jika File Gambar default.svg
         if ($pasien['images'] != 'default.svg') {
             // Hapus Gambar Permanen
-            unlink('img/pasien/' . $pasien['images']);
+            unlink('img/pasien/' . $namaGambar);
         }
 
         $this->pasienModel->delete($id);

@@ -53,7 +53,6 @@
                                         <td><?= $doctor['key'] ?></td>
                                         <td style="max-width: 500px;"><?= $data->spesialis ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/faq/edit/<?= $question['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
                                             <a href="<?= base_url(); ?>control/dokter/edit/<?= $doctor['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
                                             <form action="<?= base_url(); ?>control/dokter/<?= $doctor['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>

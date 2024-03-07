@@ -53,7 +53,6 @@
                                         <td><?= $data->jenis ?></td>
                                         <td style="max-width: 500px;"><?= $data->deskripsi ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/pasien/detail/<?= $patient['id']; ?>" class="btn btn-info mb-1"><i class="fas fa-info"></i></a>
                                             <a href="<?= base_url(); ?>control/pasien/edit/<?= $patient['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
                                             <form action="<?= base_url(); ?>control/pasien/<?= $patient['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>

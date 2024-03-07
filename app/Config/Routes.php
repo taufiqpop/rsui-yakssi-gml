@@ -84,6 +84,7 @@ $routes->add('/pasien/insert', 'Pasien::insert');
 $routes->get('/control/pasien/edit/(:segment)', 'Pasien::edit/$1');
 $routes->add('/pasien/update/(:segment)', 'Pasien::update/$1');
 $routes->get('/control/pasien/detail/(:segment)', 'Pasien::detail/$1');
+$routes->delete('/control/pasien/(:num)', 'Pasien::delete/$1');
 
 // Dokter
 $routes->add('/control/dokter', 'Dokter::index');

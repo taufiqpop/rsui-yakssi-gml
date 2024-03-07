@@ -105,12 +105,13 @@ class Pages extends BaseController
             $gambarPages->move('img/pages', $namaGambar);
         }
 
-        $this->pagesModel->save([
+        $data = [
             'judul'     => $this->request->getVar('judul'),
             'content'   => $this->request->getVar('content'),
             'images'    => $namaGambar,
-        ]);
+        ];
 
+        $this->pagesModel->save($data);
         session()->setFlashdata('pesan', 'Data Pages Berhasil Ditambahkan!');
 
         return redirect('control/pages');
@@ -170,13 +171,14 @@ class Pages extends BaseController
             unlink('img/pages/' . $this->request->getVar('imgPagesLama'));
         }
 
-        $this->pagesModel->save([
+        $data = [
             'id'      => $id,
             'judul'   => $this->request->getVar('judul'),
             'content' => $this->request->getVar('content'),
             'images'  => $namaGambar,
-        ]);
+        ];
 
+        $this->pagesModel->save($data);
         session()->setFlashdata('pesan', 'Data Pages Berhasil Diubah!');
 
         return redirect('control/pages');
