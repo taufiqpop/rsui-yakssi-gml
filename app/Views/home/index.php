@@ -55,60 +55,25 @@
 <main id="main">
 
   <!-- Jenis Pasien -->
-  <?php foreach ($pasien as $index => $patient) : ?>
-    <?php $data = json_decode($patient['value']) ?>
-    <section id="featured-services" class="featured-services">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-
-
+  <section id="featured-services" class="featured-services">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <?php foreach ($pasien as $patient) : ?>
+          <?php $data = json_decode($patient['value']) ?>
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div class="icon">
-                <img src="<?= base_url(); ?>img/pasien/logo-pasien-umum.png" alt="" class="img-fluid">
+                <img src="<?= base_url(); ?>img/pasien/<?= $data->images ?>" class="img-fluid">
               </div>
               <hr>
-              <h4 class="title"><a href="">Pasien Umum</a></h4>
-              <p class="description">Pasien umum adalah pasien yang berobat membayar sendiri segala biaya perobatan dan perawatan sesuai dengan ketentuan ketentuan yang berlaku.</p>
+              <h4 class="title"><?= $data->jenis; ?></h4>
+              <p class="description"><?= $data->deskripsi ?></p>
             </div>
           </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon">
-                <img src="<?= base_url(); ?>img/pasien/logo-bpjs-kesehatan.png" alt="" class="img-fluid">
-              </div>
-              <hr>
-              <h4 class="title"><a href="">Pasien BPJS Kesehatan</a></h4>
-              <p class="description">Badan Penyelenggara Jaminan Sosial (BPJS) Kesehatan adalah badan hukum yang dibentuk untuk menyelenggarakan program jaminan kesehatan.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon">
-                <img src="<?= base_url(); ?>img/pasien/logo-bpjs-ketenagakerjaan.png" alt="" class="img-fluid">
-              </div>
-              <hr>
-              <h4 class="title"><a href="">BPJS Ketenagakerjaan</a></h4>
-              <p class="description">BPJS Ketenagakerjaan adalah singkatan dari Badan Penyelenggara Jaminan Sosial yang merupakan badan hukum publik yang bertugas melindungi seluruh pekerja melalaui 4 program jaminan sosial ketenagakerjaan.</p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon">
-                <img src="<?= base_url(); ?>img/pasien/logo-jasa-raharja.png" alt="" class="img-fluid">
-              </div>
-              <hr>
-              <h4 class="title"><a href="">Jasa Raharja</a></h4>
-              <p class="description">Asuransi Jasa Raharja adalah asuransi sosial milik negara (BUMN) yang bertanggung jawab mengelola asuransi kecelakaan lalu lintas bagi penumpang baik angkutan umum, kendaraan pribadi, maupun pejalan kaki.</p>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
-    </section>
-  <?php endforeach; ?>
+    </div>
+  </section>
 
   <!-- Cta -->
   <section id="cta" class="cta">
