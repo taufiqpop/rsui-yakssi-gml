@@ -199,13 +199,10 @@ class Pasien extends BaseController
     {
         // Cari Gambar Berdasarkan ID
         $pasien = $this->pasienModel->find($id);
-        $namaGambar = $this->request->getVar('imgPasienLama');
+        $pasienJSON = json_decode($pasien['value']);
 
-        // Cek Jika File Gambar default.svg
-        if ($pasien['images'] != 'default.svg') {
-            // Hapus Gambar Permanen
-            unlink('img/pasien/' . $namaGambar);
-        }
+        // Hapus Gambar Permanen
+        unlink('img/pasien/' . $pasienJSON->images);
 
         $this->pasienModel->delete($id);
         session()->setFlashdata('pesan', 'Data Pasien Berhasil Dihapus!');
