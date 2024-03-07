@@ -49,7 +49,11 @@
                                         <td><?= $message['email']; ?></td>
                                         <td><?= $message['subject']; ?></td>
                                         <td><?= $message['message']; ?></td>
-                                        <td><?= date('l, d F Y', strtotime($message['created_at'])); ?> <br> (<?= date('H:m:s', strtotime($message['created_at'])); ?>)</td>
+                                        <td>
+                                            <?= date('l, d F Y', strtotime($message['created_at'])); ?>
+                                            <br>
+                                            (<?= date('H:m:s', strtotime($message['created_at'])); ?>)
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

@@ -1,6 +1,7 @@
 <?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<!-- Dashboard -->
 <div class="container-fluid">
     <div class="row">
         <div class="container-fluid">

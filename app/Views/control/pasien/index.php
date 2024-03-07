@@ -4,7 +4,7 @@
 <!-- List Pasien -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-11">
+        <div class="col-12">
             <h1 class="h3 mb-4 text-gray-800">Daftar Pasien</h1>
             <a href="<?= base_url(); ?>control/pasien/form" class="btn btn-primary">Add Pasien</a>
             <br><br>
@@ -53,12 +53,12 @@
                                         <td><?= $data->jenis ?></td>
                                         <td style="max-width: 500px;"><?= $data->deskripsi ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/pasien/detail/<?= $patient['id']; ?>" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a href="<?= base_url(); ?>control/pasien/edit/<?= $patient['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url(); ?>control/pasien/detail/<?= $patient['id']; ?>" class="btn btn-info mb-1"><i class="fas fa-info"></i></a>
+                                            <a href="<?= base_url(); ?>control/pasien/edit/<?= $patient['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
                                             <form action="<?= base_url(); ?>control/pasien/<?= $patient['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger mb-1" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>

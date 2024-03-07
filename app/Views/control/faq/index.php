@@ -49,11 +49,11 @@
                                         <td style="text-align: justify; max-width: 500px"><?= $data->pertanyaan; ?></td>
                                         <td style="text-align: justify; max-width: 500px"><?= $data->jawaban; ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/faq/edit/<?= $question['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                            <a href="<?= base_url(); ?>control/faq/edit/<?= $question['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
                                             <form action="<?= base_url(); ?>control/faq/<?= $question['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger mb-1" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>

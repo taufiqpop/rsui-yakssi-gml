@@ -99,7 +99,7 @@
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>control/posts">
             <i class="fas fa-newspaper"></i>
-            <span>Berita</span>
+            <span>Post</span>
         </a>
     </li>
 

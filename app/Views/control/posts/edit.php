@@ -83,8 +83,8 @@
                     <!-- Button -->
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <a href="<?= base_url(); ?>control/posts/detail/<?= $post['id']; ?>" class="btn btn-dark">Back</a>
-                            <button type="submit" class="btn btn-primary">Confirm Changes</button>
+                            <a href="<?= base_url(); ?>control/posts/detail/<?= $post['id']; ?>" class="btn btn-dark mb-1">Back</a>
+                            <button type="submit" class="btn btn-primary mb-1">Confirm Changes</button>
                         </div>
                     </div>
                 </form>

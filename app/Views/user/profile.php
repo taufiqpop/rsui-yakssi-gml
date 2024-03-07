@@ -41,8 +41,8 @@
 
                                 <!-- Action -->
                                 <li class="list-group-item">
-                                    <a href="<?= base_url('user/edit/' . user()->id); ?>" class="btn btn-info">Edit Profile</a>
-                                    <a href="<?= base_url('password/' . user()->id); ?>" class="btn btn-danger">Change Password</a>
+                                    <a href="<?= base_url('user/edit/' . user()->id); ?>" class="btn btn-info mb-1">Edit Profile</a>
+                                    <a href="<?= base_url('password/' . user()->id); ?>" class="btn btn-danger mb-1">Change Password</a>
                                 </li>
                             </ul>
                         </div>

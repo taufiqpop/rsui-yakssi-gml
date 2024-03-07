@@ -1,5 +1,5 @@
 .thumbnail {
-    width: 100px;
+    height: 150px;
     /* border-radius: 50%; */
 }
 
@@ -30,9 +30,7 @@
 
 /* Details Data Backend */
 .detail-img {
-    margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 10px;
 }
 
 .tombol-detail {
