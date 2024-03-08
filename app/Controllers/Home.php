@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    protected $settingsModel;
     protected $dokterModel;
     protected $faqModel;
     protected $galleryModel;
@@ -13,10 +12,10 @@ class Home extends BaseController
     protected $pelayananModel;
     protected $poliklinikModel;
     protected $postsModel;
+    protected $settingsModel;
 
     public function __construct()
     {
-        $this->settingsModel    = new \App\Models\SettingsModel();
         $this->dokterModel      = new \App\Models\DokterModel();
         $this->faqModel         = new \App\Models\FAQModel();
         $this->galleryModel     = new \App\Models\GalleryModel();
@@ -25,20 +24,21 @@ class Home extends BaseController
         $this->pelayananModel   = new \App\Models\PelayananModel();
         $this->poliklinikModel  = new \App\Models\PoliklinikModel();
         $this->postsModel       = new \App\Models\PostsModel();
+        $this->settingsModel    = new \App\Models\SettingsModel();
     }
 
     public function index()
     {
         $data = [
             'title'         => 'RSUI YAKSSI Gemolong',
-            'settings'      => $this->settingsModel->paginate(4, 'settings'),
+            'dokter'        => $this->dokterModel->paginate(4, 'dokter'),
             'faq'           => $this->faqModel->paginate(4, 'faq'),
             'gallery'       => $this->galleryModel->paginate(4, 'gallery'),
-            'pages'         => $this->pagesModel->paginate(4, 'pages'),
             'pasien'        => $this->pasienModel->paginate(4, 'pasien'),
             'pelayanan'     => $this->pelayananModel->paginate(4, 'pelayanan'),
             'poliklinik'    => $this->poliklinikModel->paginate(4, 'poliklinik'),
             'posts'         => $this->postsModel->paginate(4, 'posts'),
+            'settings'      => $this->settingsModel->paginate(4, 'settings'),
         ];
 
         return view('home/index', $data);
@@ -48,6 +48,7 @@ class Home extends BaseController
     {
         $data = [
             'title'     => 'RSUI YAKSSI | Dokter',
+            'dokter'    => $this->dokterModel->paginate(4, 'dokter'),
             'settings'  => $this->settingsModel->paginate(5, 'settings'),
         ];
 

@@ -23,7 +23,7 @@
                 <div class="form-group row">
                     <label for="logo" class="col-sm-2 col-form-label">Logo</label>
                     <div class="col-sm-10">
-                        <select name="logo" id="logo">
+                        <select name="logo" id="logo" class="form-select form-select-lg mb-3" required>
                             <?php foreach ($logoFA as $logo) : ?>
                                 <?php $data = json_decode($logo['value']) ?>
                                 <option value="<?= $data->value; ?>"><?= $data->logo; ?></option>

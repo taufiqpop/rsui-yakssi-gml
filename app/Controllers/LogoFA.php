@@ -14,7 +14,7 @@ class LogoFA extends BaseController
     // List LogoFA
     public function index()
     {
-        $currentPage = $this->request->getVar('page_pages') ? $this->request->getVar('page_pages') : 1;
+        $currentPage = $this->request->getVar('page_logofa') ? $this->request->getVar('page_logofa') : 1;
 
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {
@@ -34,7 +34,7 @@ class LogoFA extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | Logo FA',
-            'logoFA'      => $logoFA->paginate(5, 'logoFA'),
+            'logoFA'      => $logoFA->paginate(5, 'logofa'),
             'pager'       => $logoFA->pager,
             'currentPage' => $currentPage,
         ];
