@@ -13,11 +13,9 @@ class Settings extends BaseController
     // List Settings
     public function index()
     {
-        $settings = $this->settingsModel;
-
         $data = [
             'title'       => 'RSUI YAKSSI | Settings',
-            'settings'    => $settings->paginate(5, 'settings'),
+            'settings'    => $this->settingsModel->paginate(5, 'settings'),
         ];
 
         return view('control/settings/index', $data);

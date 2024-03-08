@@ -7,6 +7,7 @@
         <div class="col-11">
             <h1 class="h3 mb-4 text-gray-800">Daftar Pelayanan</h1>
             <a href="<?= base_url(); ?>control/pelayanan/form" class="btn btn-primary">Add Pelayanan</a>
+            <a href="<?= base_url(); ?>control/logofa" class="btn btn-info">Logo</a>
             <br><br>
 
             <!-- Search Bar -->

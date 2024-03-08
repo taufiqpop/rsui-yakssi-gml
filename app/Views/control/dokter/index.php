@@ -43,10 +43,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($dokter as $index => $doctor) : ?>
+                                <?php foreach ($dokter as $doctor) : ?>
                                     <?php $data = json_decode($doctor['value']) ?>
                                     <tr>
-                                        <th scope="row"><?= $index + 1; ?></th>
                                         <td>
                                             <img src="<?= base_url(); ?>img/doctors/<?= $data->photo ?>" class=" thumbnail">
                                         </td>
@@ -62,6 +61,9 @@
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
+
+                                <!-- Pagers -->
+                                <?= $pager->links('dokter', 'data_pagination'); ?>
                             </tbody>
                         </table>
 

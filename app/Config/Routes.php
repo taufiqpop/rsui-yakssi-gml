@@ -94,7 +94,7 @@ $routes->get('/control/dokter/edit/(:segment)', 'Dokter::edit/$1');
 $routes->add('/dokter/update/(:segment)', 'Dokter::update/$1');
 $routes->delete('/control/dokter/(:num)', 'Dokter::delete/$1');
 
-// Pelayanan
+// LogoFA
 $routes->add('/control/pelayanan', 'Pelayanan::index');
 $routes->get('/control/pelayanan/form', 'Pelayanan::form');
 $routes->add('/pelayanan/insert', 'Pelayanan::insert');
@@ -102,6 +102,13 @@ $routes->get('/control/pelayanan/edit/(:segment)', 'Pelayanan::edit/$1');
 $routes->add('/pelayanan/update/(:segment)', 'Pelayanan::update/$1');
 $routes->get('/control/pelayanan/detail/(:segment)', 'Pelayanan::detail/$1');
 $routes->delete('/control/pelayanan/(:num)', 'Pelayanan::delete/$1');
+
+// LogoFA
+$routes->add('/control/logofa', 'LogoFA::index');
+$routes->add('/logofa/insert', 'LogoFA::insert');
+$routes->get('/control/logofa/edit/(:segment)', 'LogoFA::edit/$1');
+$routes->add('/logofa/update/(:segment)', 'LogoFA::update/$1');
+$routes->delete('/control/logofa/(:num)', 'LogoFA::delete/$1');
 
 // Poliklinik
 $routes->add('/control/poliklinik', 'Poliklinik::index');

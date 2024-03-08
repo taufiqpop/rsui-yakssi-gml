@@ -34,6 +34,7 @@ class Dokter extends BaseController
 
         return view('control/dokter/index', $data);
     }
+
     // Create Data
     public function form()
     {
