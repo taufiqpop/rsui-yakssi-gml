@@ -7,49 +7,27 @@
     <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
     <div class="carousel-inner" role="listbox">
 
-      <!-- Slide 1 -->
-      <div class="carousel-item active" style="background-image: url(<?= base_url(); ?>img/slide/slide-1.png)">
-        <div class="container">
-          <h2>Welcome To <span>RSUI YAKSSI Gemolong</span></h2>
-          <p>RSUI YAKSSI Gemolong merupakan salah satu rumah sakit umum di wilayah Sragen yang berkedudukan di Jl Raya Solo-Purwodadi Km 20 Gemolong.
-            <br>RSUI YAKSSI Gemolong merupakan Rumah Sakit yang berada dibawah PT. YAKSSI.
-          </p>
-          <a href="#about" class="btn-get-started scrollto">Read More..</a>
+      <!-- Slider -->
+      <?php foreach ($beranda as $index => $slider) : ?>
+        <?php $data = json_decode($slider['value']) ?>
+        <div class="carousel-item <?= $data->status; ?>" style="background-image: url(<?= base_url(); ?>img/beranda/<?= $data->images ?>)">
+          <div class="container">
+            <h2><?= $data->header; ?></h2>
+            <p><?= $data->deskripsi; ?></p>
+            <a href="#about" class="btn-get-started scrollto">Read More..</a>
+          </div>
         </div>
-      </div>
+      <?php endforeach; ?>
 
-      <!-- Slide 2 -->
-      <div class="carousel-item" style="background-image: url(<?= base_url(); ?>img/slide/slide-2.jpg)">
-        <div class="container">
-          <h2>Welcome To <span>RSUI YAKSSI Gemolong</span></h2>
-          <p>RSUI YAKSSI Gemolong merupakan salah satu rumah sakit umum di wilayah Sragen yang berkedudukan di Jl Raya Solo-Purwodadi Km 20 Gemolong.
-            <br>RSUI YAKSSI Gemolong merupakan Rumah Sakit yang berada dibawah PT. YAKSSI.
-          </p>
-          <a href="#about" class="btn-get-started scrollto">Read More..</a>
-        </div>
-      </div>
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
 
-      <!-- Slide 3 -->
-      <div class="carousel-item" style="background-image: url(<?= base_url(); ?>img/slide/slide-3.jpg)">
-        <div class="container">
-          <h2>Welcome To <span>RSUI YAKSSI Gemolong</span></h2>
-          <p>RSUI YAKSSI Gemolong merupakan salah satu rumah sakit umum di wilayah Sragen yang berkedudukan di Jl Raya Solo-Purwodadi Km 20 Gemolong.
-            <br>RSUI YAKSSI Gemolong merupakan Rumah Sakit yang berada dibawah PT. YAKSSI.
-          </p>
-          <a href="#about" class="btn-get-started scrollto">Read More..</a>
-        </div>
-      </div>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
     </div>
-
-    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-    </a>
-
-    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-    </a>
-
-  </div>
 </section>
 
 <main id="main">
@@ -318,7 +296,7 @@
             <div class="tab-pane active show" id="tab-1">
               <h3>THT (Telinga, Hidung, Tenggorokan)</h3>
               <p class="fst-italic">Dokter spesialis THT adalah dokter yang memiliki keahlian khusus dalam mengobati penyakit yang berkaitan dengan telinga, hidung, dan tenggorokan. Selain itu, dokter spesialis ini juga bertugas untuk mengatasi sejumlah penyakit yang terjadi di kepala dan leher.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-1.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-1.jpg" alt="" class="img-fluid">
               <p>Ada beberapa jenis penyakit yang dapat ditangani oleh dokter spesialis THT, antara lain :</p>
               <h6>1. Gangguan Telinga</h6>
               <h6>2. Gangguan Hidung</h6>
@@ -329,52 +307,52 @@
             <div class="tab-pane" id="tab-2">
               <h3>Kejiwaan</h3>
               <p class="fst-italic">Psikiater adalah seorang dokter spesialis yang mendalami ilmu kesehatan jiwa dan perilaku atau psikiatri. Psikiatri sendiri merupakan cabang keilmuan medis yang memiliki fokus pada diagnosis, pengobatan, dan pencegahan terhadap gangguan emosional, kejiwaan, maupun perilaku.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-2.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-2.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-3">
               <h3>Rehab Medis</h3>
               <p class="fst-italic">Dokter spesialis rehabilitasi medik dan kedokteran fisik adalah dokter yang memiliki keahlian khusus dalam pengobatan fisik dan rehabilitasi. Dokter spesialis ini bertugas menangani berbagai masalah pada fisik, mulai dari cedera tulang belakang hingga keseleo pergelangan kaki.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-3.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-3.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-4">
               <h3>Saraf</h3>
               <p class="fst-italic">Dokter spesialis neurologi atau spesialis saraf merupakan dokter yang bertugas menangani berbagai keluhan terkait dengan gangguan otak dan saraf, seperti penyakit Parkinson, penyakit Alzheimer, kejang, demensia, cedera otak, stroke, dan lain-lain</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-5">
               <h3>Gigi</h3>
               <p class="fst-italic">Dokter gigi adalah seorang dokter yang khusus mempelajari ilmu kesehatan dan penyakit pada gigi dan mulut. Seorang dokter gigi memiliki kompetensi atau keahlian dalam mendiagnosis, mengobati, dan memberikan edukasi tentang pencegahan berbagai masalah kesehatan gigi, gusi, dan mulut.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-6">
               <h3>Anak</h3>
               <p class="fst-italic">Dokter anak atau spesialis pediatri adalah dokter yang berfokus pada perawatan kesehatan fisik, mental, serta perkembangan sosial anak, mulai dari usia anak 0–18 tahun. Selain melakukan pemeriksaan dan perawatan, dokter anak juga dapat memberikan tindakan pencegahan penyakit pada bayi, anak, maupun remaja yang sehat.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-7">
               <h3>Penyakit Dalam</h3>
               <p class="fst-italic">Dokter spesialis penyakit dalam atau umumnya dikenal dengan sebutan internis merupakan dokter yang bertanggung jawab dalam menangani berbagai kondisi medis terkait dengan banyak organ dalam tubuh, seperti jantung, paru-paru, ginjal, hati, dan lain-lain.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-8">
               <h3>Urologi</h3>
               <p class="fst-italic">Dokter spesialis urologi adalah dokter yang mengkhususkan diri dalam mendiagnosis dan mengobati penyakit pada sistem saluran kemih. Sistem ini menjaga tubuh tetap bersih dengan menyaring limbah dan racun dan mengeluarkannya dari tubuh. Saluran kemih meliputi kandung kemih, ginjal, ureter, dan uretra.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-9">
               <h3>Ortopedi</h3>
               <p class="fst-italic">Dokter spesialis tulang atau yang secara resmi disebut juga sebagai dokter spesialis orthopaedi dan traumatologi adalah sebutan bagi dokter yang khusus menangani masalah pada sistem muskuloskeletal, meliputi tulang, otot, sendi, saraf, ligamen, serta jaringan yang menghubungkan tulang dan tendon (sendi).</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-10">
               <h3>Kandungan</h3>
               <p class="fst-italic">Dokter spesialis Obstetri dan Ginekologi atau dikenal juga Obgyn serta dokter kandungan adalah seorang dokter yang mengkhususkan diri dalam kesehatan reproduksi wanita, termasuk menstruasi, kehamilan, persalinan, dan menopause.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
             <div class="tab-pane" id="tab-11">
               <h3>Bedah Umum</h3>
               <p class="fst-italic">Bedah umum adalah disiplin medis yang melibatkan berbagai jenis tindakan bedah untuk mengobati berbagai masalah kesehatan dan penyakit. Dalam bedah umum, ahli bedah diharapkan mampu melakukan perawatan pra operasi maupun pasca operasi, dan manajemennya, selain tindakan bedah itu sendiri.</p>
-              <img src="<?= base_url(); ?>img/departments/departments-4.jpg" alt="" class="img-fluid">
+              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
             </div>
           </div>
         </div>

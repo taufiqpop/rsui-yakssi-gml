@@ -87,6 +87,14 @@ $routes->get('/control/pasien/detail/(:segment)', 'Pasien::detail/$1');
 $routes->delete('/control/pasien/(:num)', 'Pasien::delete/$1');
 
 // Dokter
+$routes->add('/control/beranda', 'Beranda::index');
+$routes->get('/control/beranda/form', 'Beranda::form');
+$routes->add('/beranda/insert', 'Beranda::insert');
+$routes->get('/control/beranda/edit/(:segment)', 'Beranda::edit/$1');
+$routes->add('/beranda/update/(:segment)', 'Beranda::update/$1');
+$routes->delete('/control/beranda/(:num)', 'Beranda::delete/$1');
+
+// Dokter
 $routes->add('/control/dokter', 'Dokter::index');
 $routes->get('/control/dokter/form', 'Dokter::form');
 $routes->add('/dokter/insert', 'Dokter::insert');

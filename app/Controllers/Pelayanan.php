@@ -16,7 +16,7 @@ class Pelayanan extends BaseController
     // List Pelayanan
     public function index()
     {
-        $currentPage = $this->request->getVar('page_pages') ? $this->request->getVar('page_pages') : 1;
+        $currentPage = $this->request->getVar('page_pelayanan') ? $this->request->getVar('page_pelayanan') : 1;
 
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {

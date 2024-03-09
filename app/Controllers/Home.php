@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+    protected $berandaModel;
     protected $dokterModel;
     protected $faqModel;
     protected $galleryModel;
@@ -16,6 +17,7 @@ class Home extends BaseController
 
     public function __construct()
     {
+        $this->berandaModel     = new \App\Models\BerandaModel();
         $this->dokterModel      = new \App\Models\DokterModel();
         $this->faqModel         = new \App\Models\FAQModel();
         $this->galleryModel     = new \App\Models\GalleryModel();
@@ -31,6 +33,7 @@ class Home extends BaseController
     {
         $data = [
             'title'         => 'RSUI YAKSSI Gemolong',
+            'beranda'       => $this->berandaModel->paginate(4, 'beranda'),
             'dokter'        => $this->dokterModel->paginate(4, 'dokter'),
             'faq'           => $this->faqModel->paginate(4, 'faq'),
             'gallery'       => $this->galleryModel->paginate(4, 'gallery'),

@@ -87,6 +87,14 @@
     <!-- Page Management -->
     <div class="sidebar-heading">Features Control</div>
 
+    <!-- Beranda -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url(); ?>control/beranda">
+            <i class="fas fa-home"></i>
+            <span>Beranda</span>
+        </a>
+    </li>
+
     <!-- Pages -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>control/pages">

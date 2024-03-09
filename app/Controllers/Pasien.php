@@ -14,7 +14,7 @@ class Pasien extends BaseController
     // List Pasien
     public function index()
     {
-        $currentPage = $this->request->getVar('page_pages') ? $this->request->getVar('page_pages') : 1;
+        $currentPage = $this->request->getVar('page_pasien') ? $this->request->getVar('page_pasien') : 1;
 
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {
@@ -92,17 +92,17 @@ class Pasien extends BaseController
         }
 
         // Ambil Gambar
-        $gambarPages = $this->request->getFile('images');
+        $gambarPasien = $this->request->getFile('images');
 
         // Apakah Tidak Ada Gambar Yang Diupload
-        if ($gambarPages->getError() == 4) {
+        if ($gambarPasien->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarPages->getRandomName();
+            $namaGambar = $gambarPasien->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPages->move('img/pasien', $namaGambar);
+            $gambarPasien->move('img/pasien', $namaGambar);
         }
 
         $input = [
@@ -160,17 +160,17 @@ class Pasien extends BaseController
             return redirect()->to('control/pasien/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarPages = $this->request->getFile('images');
+        $gambarPasien = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarPages->getError() == 4) {
+        if ($gambarPasien->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarPages->getRandomName();
+            $namaGambar = $gambarPasien->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPages->move('img/pasien', $namaGambar);
+            $gambarPasien->move('img/pasien', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/pasien/' . $this->request->getVar('imgLama'));

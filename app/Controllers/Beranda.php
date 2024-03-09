@@ -2,55 +2,55 @@
 
 namespace App\Controllers;
 
-class Dokter extends BaseController
+class Beranda extends BaseController
 {
-    protected $dokterModel;
+    protected $berandaModel;
 
     public function __construct()
     {
-        $this->dokterModel = new \App\Models\DokterModel();
+        $this->berandaModel = new \App\Models\BerandaModel();
     }
 
-    // List Dokter
+    // List Beranda
     public function index()
     {
-        $currentPage = $this->request->getVar('page_dokter') ? $this->request->getVar('page_dokter') : 1;
+        $currentPage = $this->request->getVar('page_beranda') ? $this->request->getVar('page_beranda') : 1;
 
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {
-            $dokter = $this->dokterModel->search($keyword);
+            $beranda = $this->berandaModel->search($keyword);
         } else {
-            $dokter = $this->dokterModel;
+            $beranda = $this->berandaModel;
         }
 
-        $dokter->orderBy('id', 'DESC');
+        $beranda->orderBy('id', 'ASC');
 
         $data = [
-            'title'       => 'RSUI YAKSSI | Dokter',
-            'dokter'      => $dokter->paginate(5, 'dokter'),
-            'pager'       => $dokter->pager,
+            'title'       => 'RSUI YAKSSI | Beranda',
+            'beranda'     => $beranda->paginate(5, 'beranda'),
+            'pager'       => $beranda->pager,
             'currentPage' => $currentPage,
         ];
 
-        return view('control/dokter/index', $data);
+        return view('control/beranda/index', $data);
     }
 
     // Create Data
     public function form()
     {
         $data = [
-            'title'      => 'RSUI YAKSSI | Form Dokter',
+            'title'      => 'RSUI YAKSSI | Form Beranda',
             'validation' => \Config\Services::validation()
         ];
 
         $db      = \Config\Database::connect();
-        $builder = $db->table('dokter');
+        $builder = $db->table('beranda');
         $builder->select('id, key, value');
         $query   = $builder->get();
 
-        $data['dokter'] = $query->getResultArray();
+        $data['beranda'] = $query->getResultArray();
 
-        return view('control/dokter/form', $data);
+        return view('control/beranda/form', $data);
     }
 
     // Insert Data
@@ -69,58 +69,59 @@ class Dokter extends BaseController
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('control/dokter/form')->withInput()->with('validation', $validation);
+            return redirect()->to('control/beranda/form')->withInput()->with('validation', $validation);
         }
 
         // Ambil Gambar
-        $gambarDokter = $this->request->getFile('images');
+        $gambarBeranda = $this->request->getFile('images');
 
         // Apakah Tidak Ada Gambar Yang Diupload
-        if ($gambarDokter->getError() == 4) {
+        if ($gambarBeranda->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarDokter->getRandomName();
+            $namaGambar = $gambarBeranda->getRandomName();
 
             // Pindahkan Gambar
-            $gambarDokter->move('img/doctors', $namaGambar);
+            $gambarBeranda->move('img/beranda', $namaGambar);
         }
 
         $input = [
-            'nama'      => $this->request->getPost('nama'),
-            'spesialis' => $this->request->getPost('spesialis'),
-            'photo'     => $namaGambar,
+            'status'    => $this->request->getPost('status'),
+            'header'    => $this->request->getPost('header'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'images'    => $namaGambar,
         ];
 
         $data = [
-            'key'   => $this->request->getPost('nama'),
+            'key'   => $this->request->getPost('header'),
             'value' => json_encode($input),
         ];
 
-        $this->dokterModel->save($data);
-        session()->setFlashdata('pesan', 'Data Dokter Berhasil Ditambahkan!');
+        $this->berandaModel->save($data);
+        session()->setFlashdata('pesan', 'Data Beranda Berhasil Ditambahkan!');
 
-        return redirect('control/dokter');
+        return redirect('control/beranda');
     }
 
     // Edit Data
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Dokter',
-            'dokter'      => $this->dokterModel->find($id),
+            'title'      => 'RSUI YAKKSI | Edit Data Beranda',
+            'beranda'      => $this->berandaModel->find($id),
             'validation' => \Config\Services::validation()
         ];
 
         $db      = \Config\Database::connect();
-        $builder = $db->table('dokter');
+        $builder = $db->table('beranda');
         $builder->select('id, key, value, created_at, updated_at, deleted_at');
         $builder->where('id', $id);
         $query   = $builder->get();
 
-        $data['dokter'] = $query->getResultArray();
+        $data['beranda'] = $query->getResultArray();
 
-        return view('control/dokter/edit', $data);
+        return view('control/beranda/edit', $data);
     }
 
     // Update Data
@@ -138,56 +139,57 @@ class Dokter extends BaseController
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('control/dokter/edit')->withInput()->with('validation', $validation);
+            return redirect()->to('control/beranda/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarDokter = $this->request->getFile('images');
+        $gambarBeranda = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarDokter->getError() == 4) {
+        if ($gambarBeranda->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarDokter->getRandomName();
+            $namaGambar = $gambarBeranda->getRandomName();
 
             // Pindahkan Gambar
-            $gambarDokter->move('img/doctors', $namaGambar);
+            $gambarBeranda->move('img/beranda', $namaGambar);
 
             // Hapus File Yang Lama
-            unlink('img/doctors/' . $this->request->getVar('imgLama'));
+            unlink('img/beranda/' . $this->request->getVar('imgLama'));
         }
 
         $input = [
-            'nama'      => $this->request->getPost('nama'),
-            'spesialis' => $this->request->getPost('spesialis'),
-            'photo'     => $namaGambar,
+            'status'      => $this->request->getPost('status'),
+            'header'      => $this->request->getPost('header'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'images'    => $namaGambar,
         ];
 
         $data = [
             'id'    => $id,
-            'key'   => $this->request->getPost('nama'),
+            'key'   => $this->request->getPost('header'),
             'value' => json_encode($input),
         ];
 
-        $this->dokterModel->save($data);
-        session()->setFlashdata('pesan', 'Data Dokter Berhasil Diubah!');
+        $this->berandaModel->save($data);
+        session()->setFlashdata('pesan', 'Data Beranda Berhasil Diubah!');
 
-        return redirect('control/dokter');
+        return redirect('control/beranda');
     }
 
     // Delete Data
     public function delete($id)
     {
         // Cari Gambar Berdasarkan ID
-        $dokter = $this->dokterModel->find($id);
-        $dokterJSON = json_decode($dokter['value']);
+        $beranda = $this->berandaModel->find($id);
+        $berandaJSON = json_decode($beranda['value']);
 
         // Hapus Gambar Permanen
-        unlink('img/doctors/' . $dokterJSON->photo);
+        unlink('img/beranda/' . $berandaJSON->images);
 
-        $this->dokterModel->delete($id);
-        session()->setFlashdata('pesan', 'Data Dokter Berhasil Dihapus!');
+        $this->berandaModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Beranda Berhasil Dihapus!');
 
-        return redirect('control/dokter');
+        return redirect('control/beranda');
     }
 }

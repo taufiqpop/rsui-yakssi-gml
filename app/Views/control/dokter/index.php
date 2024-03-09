@@ -50,7 +50,7 @@
                                         <td>
                                             <img src="<?= base_url(); ?>img/doctors/<?= $data->photo ?>" class=" thumbnail">
                                         </td>
-                                        <td><?= $doctor['key'] ?></td>
+                                        <td><?= $data->nama ?></td>
                                         <td style="max-width: 500px;"><?= $data->spesialis ?></td>
                                         <td>
                                             <a href="<?= base_url(); ?>control/dokter/edit/<?= $doctor['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
@@ -62,9 +62,6 @@
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
-
-                                <!-- Pagers -->
-                                <?= $pager->links('dokter', 'data_pagination'); ?>
                             </tbody>
                         </table>
 

@@ -1,12 +1,12 @@
 <?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-<!-- List Poliklinik -->
+<!-- List Beranda -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-11">
-            <h1 class="h3 mb-4 text-gray-800">Daftar Poliklinik</h1>
-            <a href="<?= base_url(); ?>control/poliklinik/form" class="btn btn-primary">Add Poliklinik</a>
+            <h1 class="h3 mb-4 text-gray-800">Daftar Beranda</h1>
+            <a href="<?= base_url(); ?>control/beranda/form" class="btn btn-primary">Add Beranda</a>
             <br><br>
 
             <!-- Search Bar -->
@@ -37,23 +37,24 @@
                                 <tr>
                                     <th scope="col" class="cursor-active">No</th>
                                     <th scope="col" class="cursor-stop">Photo</th>
-                                    <th scope="col" class="cursor-active">Jenis</th>
+                                    <th scope="col" class="cursor-active">Header</th>
+                                    <th scope="col" class="cursor-active">Status</th>
                                     <th scope="col" class="cursor-stop">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($poliklinik as $index => $poli) : ?>
-                                    <?php $data = json_decode($poli['value']) ?>
+                                <?php foreach ($beranda as $index => $slider) : ?>
+                                    <?php $data = json_decode($slider['value']) ?>
                                     <tr>
                                         <th scope="row"><?= $index + 1; ?></th>
                                         <td>
-                                            <img src="<?= base_url(); ?>img/poliklinik/<?= $data->images ?>" class="thumbnail">
+                                            <img src="<?= base_url(); ?>img/beranda/<?= $data->images ?>" class=" thumbnail">
                                         </td>
-                                        <td><?= $data->poliklinik; ?></td>
+                                        <td style="max-width: 500px;"><?= $data->header ?></td>
+                                        <td><?= $data->status ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/poliklinik/detail/<?= $poli['id']; ?>" class="btn btn-info mb-1"><i class="fas fa-info mb-1"></i></a>
-                                            <a href="<?= base_url(); ?>control/poliklinik/edit/<?= $poli['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit mb-1"></i></a>
-                                            <form action="<?= base_url(); ?>control/poliklinik/<?= $poli['id']; ?>" method="post" class="d-inline">
+                                            <a href="<?= base_url(); ?>control/beranda/edit/<?= $slider['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
+                                            <form action="<?= base_url(); ?>control/beranda/<?= $slider['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger mb-1" onclick="return confirm('Apakah anda yakin?');"><i class="fas fa-trash"></i></button>
@@ -65,7 +66,7 @@
                         </table>
 
                         <!-- Pagers -->
-                        <?= $pager->links('poliklinik', 'data_pagination'); ?>
+                        <?= $pager->links('beranda', 'data_pagination'); ?>
                     </div>
                 </div>
             </div>

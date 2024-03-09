@@ -51,7 +51,6 @@
                                         </td>
                                         <td><?= $data->deskripsi; ?></td>
                                         <td>
-                                            <a href="<?= base_url(); ?>control/gallery/detail/<?= $galeri['id']; ?>" class="btn btn-info mb-1"><i class="fas fa-info"></i></a>
                                             <a href="<?= base_url(); ?>control/gallery/edit/<?= $galeri['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit"></i></a>
                                             <form action="<?= base_url(); ?>control/gallery/<?= $galeri['id']; ?>" method="post" class="d-inline">
                                                 <?= csrf_field(); ?>

@@ -13,7 +13,7 @@
                     <!-- Card -->
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="<?= base_url(); ?>img/departments/<?= $data->images; ?>" class="card-img detail-img img-thumbnail">
+                            <img src="<?= base_url(); ?>img/poliklinik/<?= $data->images; ?>" class="card-img detail-img img-thumbnail">
 
                             <center>
                                 <!-- Deskripsi Foto -->
