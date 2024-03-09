@@ -86,6 +86,10 @@ $routes->add('/pasien/update/(:segment)', 'Pasien::update/$1');
 $routes->get('/control/pasien/detail/(:segment)', 'Pasien::detail/$1');
 $routes->delete('/control/pasien/(:num)', 'Pasien::delete/$1');
 
+// About
+$routes->add('/control/about', 'About::index');
+$routes->add('/about/update/(:segment)', 'About::update/$1');
+
 // Beranda
 $routes->add('/control/beranda', 'Beranda::index');
 $routes->get('/control/beranda/form', 'Beranda::form');

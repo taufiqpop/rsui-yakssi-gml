@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+    protected $aboutModel;
     protected $berandaModel;
     protected $dokterModel;
     protected $faqModel;
@@ -17,6 +18,7 @@ class Home extends BaseController
 
     public function __construct()
     {
+        $this->aboutModel     = new \App\Models\AboutModel();
         $this->berandaModel     = new \App\Models\BerandaModel();
         $this->dokterModel      = new \App\Models\DokterModel();
         $this->faqModel         = new \App\Models\FAQModel();
@@ -33,15 +35,20 @@ class Home extends BaseController
     {
         $data = [
             'title'         => 'RSUI YAKSSI Gemolong',
-            'beranda'       => $this->berandaModel->paginate(4, 'beranda'),
+            'about'         => $this->aboutModel->paginate(1, 'about'),
+            'beranda'       => $this->berandaModel->paginate(10, 'beranda'),
             'dokter'        => $this->dokterModel->paginate(4, 'dokter'),
-            'faq'           => $this->faqModel->paginate(4, 'faq'),
-            'gallery'       => $this->galleryModel->paginate(4, 'gallery'),
+            'faq'           => $this->faqModel->paginate(100, 'faq'),
+            'gallery'       => $this->galleryModel->paginate(100, 'gallery'),
             'pasien'        => $this->pasienModel->paginate(4, 'pasien'),
-            'pelayanan'     => $this->pelayananModel->paginate(4, 'pelayanan'),
-            'poliklinik'    => $this->poliklinikModel->paginate(4, 'poliklinik'),
-            'posts'         => $this->postsModel->paginate(4, 'posts'),
-            'settings'      => $this->settingsModel->paginate(4, 'settings'),
+            'pelayanan'     => $this->pelayananModel->paginate(100, 'pelayanan'),
+            'poliklinik'    => $this->poliklinikModel->paginate(100, 'poliklinik'),
+            'posts'         => $this->postsModel->paginate(10000, 'posts'),
+            'settings'      => $this->settingsModel->paginate(1, 'settings'),
+            'jmlDokter'     => $this->dokterModel->jumlahDokter(),
+            'jmlPelayanan'  => $this->pelayananModel->jumlahPelayanan(),
+            'jmlPoliklinik' => $this->poliklinikModel->jumlahPoliklinik(),
+            'jmlPosts'      => $this->postsModel->jumlahPosts(),
         ];
 
         return view('home/index', $data);

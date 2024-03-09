@@ -11,11 +11,19 @@
             <form action="<?= base_url(); ?>faq/insert" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
 
+                <!-- Href -->
+                <div class="form-group row">
+                    <label for="href" class="col-sm-2 col-form-label">Href</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Href" name="href" required autofocus>
+                    </div>
+                </div>
+
                 <!-- Pertanyaan -->
                 <div class="form-group row">
                     <label for="pertanyaan" class="col-sm-2 col-form-label">Pertanyaan</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Pertanyaan" name="pertanyaan" required autofocus>
+                        <input type="text" class="form-control" placeholder="Pertanyaan" name="pertanyaan" required>
                     </div>
                 </div>
 

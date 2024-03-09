@@ -70,28 +70,22 @@
   <section id="about" class="about">
     <div class="container" data-aos="fade-up">
 
-      <div class="section-title">
-        <h2>About Us</h2>
-        <p style="text-align: justify; text-indent: 60px;">RSUI YAKSSI Gemolong merupakan salah satu rumah sakit umum di wilayah Sragen yang berkedudukan di Jl Raya Solo-Purwodadi Km 20 Gemolong. RSUI YAKSSI Gemolong merupakan Rumah Sakit yang berada dibawah PT. YAKSSI. Berawal mula dari sebuah klinik kesehatan di Gemolong, Rumah Sakit Umum YAKSSI selalu mengalami perubahan besar maupun kecil dalam upayanya melayani masyarakat. Berbagai tantangan dan halangan berhasil dilewati dalam keberlangsungan rumah sakit. RSUI YAKSSI masih sadar bahwasanya pelayanan kepada masyarakat tiada hentinya, dan selamanya RSUI YAKSSI tidak bisa sempurna. Namun, itu tidak menghentikan upaya RSUI YAKSSI untuk selalu berbenah diri.</p>
-      </div>
+      <?php foreach ($about as $tentang) : ?>
+        <?php $data = json_decode($tentang['value']) ?>
+        <div class="section-title">
+          <h2><?= $data->header; ?></h2>
+          <div><?= $data->deskripsi; ?></div>
+        </div>
 
-      <div class="row">
-        <div class="col-lg-6" data-aos="fade-right">
-          <img src="<?= base_url(); ?>img/about/about.png" class="img-fluid" alt="">
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img src="<?= base_url(); ?>img/about/<?= $data->images; ?>" class="img-fluid" alt="<?= $data->images; ?>">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <?= $data->konten; ?>
+          </div>
         </div>
-        <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>konten</h3>
-          <p class="fst-italic">
-            konten
-          </p>
-          <ul>
-            <li><i class="bi bi-check-circle"></i> Lorem ipsum dolor sit amet.</li>
-            <li><i class="bi bi-check-circle"></i> Lorem ipsum dolor sit amet.</li>
-            <li><i class="bi bi-check-circle"></i> Lorem ipsum dolor sit amet.</li>
-          </ul>
-          <p>konten</p>
-        </div>
-      </div>
+      <?php endforeach; ?>
 
     </div>
   </section>
@@ -103,7 +97,7 @@
         <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="fas fa-user-md"></i>
-            <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="<?= $jmlDokter; ?>" data-purecounter-duration="1" class="purecounter"></span>
             <p><strong>Dokter</strong></p>
             <a href="#doctors">Info Lebih Lengkap &raquo;</a>
           </div>
@@ -112,7 +106,7 @@
         <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="far fa-hospital"></i>
-            <span data-purecounter-start="0" data-purecounter-end="13" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="<?= $jmlPelayanan; ?>" data-purecounter-duration="1" class="purecounter"></span>
             <p><strong>Pelayanan</strong></p>
             <a href="#services">Info Lebih Lengkap &raquo;</a>
           </div>
@@ -121,7 +115,7 @@
         <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="fas fa-flask"></i>
-            <span data-purecounter-start="0" data-purecounter-end="11" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="<?= $jmlPoliklinik; ?>" data-purecounter-duration="1" class="purecounter"></span>
             <p><strong>Poliklinik</strong></p>
             <a href="#departments">Info Lebih Lengkap &raquo;</a>
           </div>
@@ -130,7 +124,7 @@
         <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
             <i class="fas fa-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="<?= $jmlPosts; ?>" data-purecounter-duration="1" class="purecounter"></span>
             <p><strong>Penghargaan</strong></p>
             <a href="#">Info Lebih Lengkap &raquo;</a>
           </div>
@@ -141,76 +135,22 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Pelayanan -->
   <section id="services" class="services services">
     <div class="container" data-aos="fade-up">
-
       <div class="section-title">
         <h2>Pelayanan</h2>
       </div>
-
       <div class="row">
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon"><i class="fas fa-heartbeat"></i></div>
-          <h4 class="title"><a href="">IGD (24 Jam)</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <h4 class="title"><a href="">Radiologi/Rontgen (24 Jam)</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <h4 class="title"><a href="">Ruang Bersalin (24 Jam)</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon"><i class="fas fa-dna"></i></div>
-          <h4 class="title"><a href="">Instalasi Farmasi (24 Jam)</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <h4 class="title"><a href="">Laboratorium (24 Jam)</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon"><i class="fas fa-pills"></i></div>
-          <h4 class="title"><a href="">Fisioterapi</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon"><i class="fas fa-hospital-user"></i></div>
-          <h4 class="title"><a href="">ICU, PICU, & NICU</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon"><i class="fas fa-wheelchair"></i></div>
-          <h4 class="title"><a href="">Kamar Operasi</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <h4 class="title"><a href="">Rawat Inap</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <h4 class="title"><a href="">USG</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <h4 class="title"><a href="">Layanan Bank Darah</a></h4>
-          <p class="description">content</p>
-        </div>
-        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon"><i class="fas fa-notes-medical"></i></div>
-          <h4 class="title"><a href="">Endoskopi THT</a></h4>
-          <p class="description">content</p>
-        </div>
+        <?php foreach ($pelayanan as $service) : ?>
+          <?php $data = json_decode($service['value']) ?>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon"><i class="<?= $data->logo; ?>"></i></div>
+            <h4 class="title"><a href=""><?= $data->jenis; ?></a></h4>
+          </div>
+        <?php endforeach; ?>
       </div>
+    </div>
     </div>
   </section>
 
@@ -510,65 +450,19 @@
   <section id="faq" class="faq section-bg">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
-        <h2>Frequently Asked Questioins</h2>
+        <h2>Frequently Asked Question</h2>
       </div>
       <ul class="faq-list">
-        <li>
-          <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-          <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-            <p>
-              Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-          <div id="faq2" class="collapse" data-bs-parent=".faq-list">
-            <p>
-              Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-          <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-            <p>
-              Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-          <div id="faq4" class="collapse" data-bs-parent=".faq-list">
-            <p>
-              Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-          <div id="faq5" class="collapse" data-bs-parent=".faq-list">
-            <p>
-              Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-            </p>
-          </div>
-        </li>
-
-        <li>
-          <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-          <div id="faq6" class="collapse" data-bs-parent=".faq-list">
-            <p>
-              Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-            </p>
-          </div>
-        </li>
-
+        <?php foreach ($faq as $question) : ?>
+          <?php $data = json_decode($question['value']) ?>
+          <li>
+            <div data-bs-toggle="collapse" class="collapsed question" href="#<?= $data->href; ?>"><?= $data->pertanyaan; ?><i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="<?= $data->href; ?>" class="collapse" data-bs-parent=".faq-list">
+              <p><?= $data->jawaban; ?></p>
+            </div>
+          </li>
+        <?php endforeach; ?>
       </ul>
-
     </div>
   </section>
 </main>

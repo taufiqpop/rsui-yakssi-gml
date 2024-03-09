@@ -95,6 +95,14 @@
         </a>
     </li>
 
+    <!-- About -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url(); ?>control/about">
+            <i class="fab fa-amazon"></i>
+            <span>About</span>
+        </a>
+    </li>
+
     <!-- Pages -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>control/pages">

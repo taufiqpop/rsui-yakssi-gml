@@ -1,9 +1,9 @@
 <?= $this->extend('user/templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-<!-- Detail Pelayanan -->
+<!-- Detail Beranda -->
 <div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800">Detail Pelayanan</h1>
+    <h1 class="h3 mb-4 text-gray-800">Detail Beranda</h1>
 
     <?php foreach ($beranda as $slider) : ?>
         <?php $data = json_decode($slider['value']) ?>

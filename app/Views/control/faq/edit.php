@@ -13,11 +13,19 @@
                 <form action="<?= base_url(); ?>faq/update/<?= $FAQ['id']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
 
+                    <!-- Href -->
+                    <div class="form-group row">
+                        <label for="href" class="col-sm-2 col-form-label">Href</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="href" value="<?= $data->href ?>" autofocus required>
+                        </div>
+                    </div>
+
                     <!-- Pertanyaan -->
                     <div class="form-group row">
                         <label for="pertanyaan" class="col-sm-2 col-form-label">Pertanyaan</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="pertanyaan" value="<?= $data->pertanyaan ?>" autofocus required>
+                            <input type="text" class="form-control" name="pertanyaan" value="<?= $data->pertanyaan ?>" required>
                         </div>
                     </div>
 
@@ -25,7 +33,7 @@
                     <div class="form-group row">
                         <label for="jawaban" class="col-sm-2 col-form-label">Jawaban</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="jawaban" value="<?= $data->jawaban ?>" autofocus required>
+                            <input type="text" class="form-control" name="jawaban" value="<?= $data->jawaban ?>" required>
                         </div>
                     </div>
 

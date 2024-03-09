@@ -25,7 +25,7 @@ class Pelayanan extends BaseController
             $pelayanan = $this->pelayananModel;
         }
 
-        $pelayanan->orderBy('id', 'DESC');
+        $pelayanan->orderBy('id', 'ASC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | Pelayanan',

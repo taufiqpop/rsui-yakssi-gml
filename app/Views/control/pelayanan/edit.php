@@ -2,17 +2,16 @@
 <?= $this->section('page-content'); ?>
 
 <!-- Edit Pelayanan -->
-<?php foreach ($pelayanan as $patient) : ?>
-    <?php $data = json_decode($patient['value']) ?>
+<?php foreach ($pelayanan as $service) : ?>
+    <?php $data = json_decode($service['value']) ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
                 <h1 class="h3 mb-4 text-gray-800">Form Edit Data Pelayanan</h1>
 
                 <!-- Forms -->
-                <form action="<?= base_url(); ?>pelayanan/update/<?= $patient['id']; ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url(); ?>pelayanan/update/<?= $service['id']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
-                    <input type="hidden" name="imgLama" value="<?= $data->images ?>">
 
                     <!-- Jenis Pelayanan -->
                     <div class="form-group row">
@@ -22,28 +21,19 @@
                         </div>
                     </div>
 
+                    <!-- Logo -->
+                    <div class="form-group row">
+                        <label for="logo" class="col-sm-2 col-form-label">Logo</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="logo" value="<?= $data->logo ?>" required>
+                        </div>
+                    </div>
+
                     <!-- Deskripsi -->
                     <div class="form-group row">
                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="deskripsi" value="<?= $data->deskripsi ?>" required>
-                        </div>
-                    </div>
-
-                    <!-- Images -->
-                    <div class="form-group row">
-                        <label for="images" class="col-sm-2 col-form-label">Images</label>
-                        <div class="col-sm-4">
-                            <img src="<?= base_url(); ?>img/pelayanan/<?= $data->images ?>" class="img-thumbnail img-preview">
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
-                                <div class="invalid-feedback">
-                                    <?= $validation->getError('images'); ?>
-                                </div>
-                                <label class="custom-file-label" for="images"><?= $data->images ?></label>
-                            </div>
                         </div>
                     </div>
 

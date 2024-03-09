@@ -57,12 +57,13 @@ class FAQ extends BaseController
     public function insert($id = '')
     {
         $input = [
-            'pertanyaan'     => $this->request->getPost('pertanyaan'),
+            'href'         => $this->request->getPost('href'),
+            'pertanyaan'   => $this->request->getPost('pertanyaan'),
             'jawaban'      => $this->request->getPost('jawaban'),
         ];
 
         $data = [
-            'key'   => $this->request->getPost('pertanyaan'),
+            'key'   => $this->request->getPost('href'),
             'value' => json_encode($input),
         ];
 
@@ -96,13 +97,14 @@ class FAQ extends BaseController
     public function update($id)
     {
         $input = [
+            'href'         => $this->request->getPost('href'),
             'pertanyaan'   => $this->request->getPost('pertanyaan'),
             'jawaban'      => $this->request->getPost('jawaban'),
         ];
 
         $data = [
             'id'    => $id,
-            'key'   => $this->request->getPost('pertanyaan'),
+            'key'   => $this->request->getPost('href'),
             'value' => json_encode($input),
         ];
 
