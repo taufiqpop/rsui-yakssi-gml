@@ -35,6 +35,25 @@ class Beranda extends BaseController
         return view('control/beranda/index', $data);
     }
 
+    // Detail Beranda
+    public function detail($id)
+    {
+        $data = [
+            'title'   => 'RSUI YAKSSI | Detail Beranda',
+            'beranda' => $this->berandaModel->find($id),
+        ];
+
+        $db      = \Config\Database::connect();
+        $builder = $db->table('beranda');
+        $builder->select('id, key, value');
+        $builder->where('id', $id);
+        $query   = $builder->get();
+
+        $data['beranda'] = $query->getResultArray();
+
+        return view('control/beranda/detail', $data);
+    }
+
     // Create Data
     public function form()
     {

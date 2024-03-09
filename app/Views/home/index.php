@@ -19,14 +19,15 @@
         </div>
       <?php endforeach; ?>
 
+      <!-- Previous -->
       <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
       </a>
 
+      <!-- Next -->
       <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
         <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
       </a>
-
     </div>
 </section>
 
@@ -53,7 +54,7 @@
     </div>
   </section>
 
-  <!-- Cta -->
+  <!-- CTA -->
   <section id="cta" class="cta">
     <div class="container" data-aos="zoom-in">
 
