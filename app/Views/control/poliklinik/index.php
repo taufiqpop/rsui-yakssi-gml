@@ -38,6 +38,7 @@
                                     <th scope="col" class="cursor-active">No</th>
                                     <th scope="col" class="cursor-stop">Photo</th>
                                     <th scope="col" class="cursor-active">Jenis</th>
+                                    <th scope="col" class="cursor-active">Status</th>
                                     <th scope="col" class="cursor-stop">Action</th>
                                 </tr>
                             </thead>
@@ -50,6 +51,7 @@
                                             <img src="<?= base_url(); ?>img/poliklinik/<?= $data->images ?>" class="thumbnail">
                                         </td>
                                         <td><?= $data->poliklinik; ?></td>
+                                        <td><?= $data->status; ?></td>
                                         <td>
                                             <a href="<?= base_url(); ?>control/poliklinik/detail/<?= $poli['id']; ?>" class="btn btn-info mb-1"><i class="fas fa-info mb-1"></i></a>
                                             <a href="<?= base_url(); ?>control/poliklinik/edit/<?= $poli['id']; ?>" class="btn btn-warning mb-1"><i class="fas fa-edit mb-1"></i></a>

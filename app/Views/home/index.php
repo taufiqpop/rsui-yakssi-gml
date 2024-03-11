@@ -54,29 +54,25 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- Emergency -->
   <section id="cta" class="cta">
     <div class="container" data-aos="zoom-in">
-
       <div class="text-center">
         <h3>In an Emergency? Need Help?</h3>
         <a class="cta-btn scrollto" href="#">CLICK HERE NOW !!</a>
       </div>
-
     </div>
   </section>
 
   <!-- About Us -->
   <section id="about" class="about">
     <div class="container" data-aos="fade-up">
-
       <?php foreach ($about as $tentang) : ?>
         <?php $data = json_decode($tentang['value']) ?>
         <div class="section-title">
           <h2><?= $data->header; ?></h2>
           <div><?= $data->deskripsi; ?></div>
         </div>
-
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
             <img src="<?= base_url(); ?>img/about/<?= $data->images; ?>" class="img-fluid" alt="<?= $data->images; ?>">
@@ -86,7 +82,6 @@
           </div>
         </div>
       <?php endforeach; ?>
-
     </div>
   </section>
 
@@ -129,9 +124,7 @@
             <a href="#">Info Lebih Lengkap &raquo;</a>
           </div>
         </div>
-
       </div>
-
     </div>
   </section>
 
@@ -157,144 +150,33 @@
   <!-- Poliklinik -->
   <section id="departments" class="departments">
     <div class="container" data-aos="fade-up">
-
       <div class="section-title">
         <h2>Poliklinik</h2>
       </div>
       <div class="row" data-aos="fade-up" data-aos-delay="100">
         <div class="col-lg-4 mb-5 mb-lg-0">
           <ul class="nav nav-tabs flex-column">
-            <li class="nav-item">
-              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-                <h4>THT</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-                <h4>Kejiwaan</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-                <h4>Rehab Medis</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
-                <h4>Saraf</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
-                <h4>Gigi</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-6">
-                <h4>Anak</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-7">
-                <h4>Penyakit Dalam</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-8">
-                <h4>Urologi</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-9">
-                <h4>Ortopedi</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-10">
-                <h4>Kandungan</h4>
-                <p>content</p>
-              </a>
-            </li>
-            <li class="nav-item mt-2">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-11">
-                <h4>Bedah Umum</h4>
-                <p>content</p>
-              </a>
-            </li>
+            <?php foreach ($poliklinik as $poli) : ?>
+              <?php $data = json_decode($poli['value']) ?>
+              <li class="nav-item">
+                <a class="nav-link <?= $data->status; ?> show" data-bs-toggle="tab" data-bs-target="#tab-<?= $poli['id'] ?>">
+                  <h4><?= $data->poliklinik; ?></h4>
+                </a>
+              </li>
+            <?php endforeach; ?>
           </ul>
         </div>
         <div class="col-lg-8">
           <div class="tab-content">
-            <div class="tab-pane active show" id="tab-1">
-              <h3>THT (Telinga, Hidung, Tenggorokan)</h3>
-              <p class="fst-italic">Dokter spesialis THT adalah dokter yang memiliki keahlian khusus dalam mengobati penyakit yang berkaitan dengan telinga, hidung, dan tenggorokan. Selain itu, dokter spesialis ini juga bertugas untuk mengatasi sejumlah penyakit yang terjadi di kepala dan leher.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-1.jpg" alt="" class="img-fluid">
-              <p>Ada beberapa jenis penyakit yang dapat ditangani oleh dokter spesialis THT, antara lain :</p>
-              <h6>1. Gangguan Telinga</h6>
-              <h6>2. Gangguan Hidung</h6>
-              <h6>3. Gangguan Tenggorokan</h6>
-              <h6>4. Gangguan Tidur</h6>
-              <h6>5. Gangguan Di Leher & Kepala</h6>
-            </div>
-            <div class="tab-pane" id="tab-2">
-              <h3>Kejiwaan</h3>
-              <p class="fst-italic">Psikiater adalah seorang dokter spesialis yang mendalami ilmu kesehatan jiwa dan perilaku atau psikiatri. Psikiatri sendiri merupakan cabang keilmuan medis yang memiliki fokus pada diagnosis, pengobatan, dan pencegahan terhadap gangguan emosional, kejiwaan, maupun perilaku.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-2.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-3">
-              <h3>Rehab Medis</h3>
-              <p class="fst-italic">Dokter spesialis rehabilitasi medik dan kedokteran fisik adalah dokter yang memiliki keahlian khusus dalam pengobatan fisik dan rehabilitasi. Dokter spesialis ini bertugas menangani berbagai masalah pada fisik, mulai dari cedera tulang belakang hingga keseleo pergelangan kaki.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-3.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-4">
-              <h3>Saraf</h3>
-              <p class="fst-italic">Dokter spesialis neurologi atau spesialis saraf merupakan dokter yang bertugas menangani berbagai keluhan terkait dengan gangguan otak dan saraf, seperti penyakit Parkinson, penyakit Alzheimer, kejang, demensia, cedera otak, stroke, dan lain-lain</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-5">
-              <h3>Gigi</h3>
-              <p class="fst-italic">Dokter gigi adalah seorang dokter yang khusus mempelajari ilmu kesehatan dan penyakit pada gigi dan mulut. Seorang dokter gigi memiliki kompetensi atau keahlian dalam mendiagnosis, mengobati, dan memberikan edukasi tentang pencegahan berbagai masalah kesehatan gigi, gusi, dan mulut.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-6">
-              <h3>Anak</h3>
-              <p class="fst-italic">Dokter anak atau spesialis pediatri adalah dokter yang berfokus pada perawatan kesehatan fisik, mental, serta perkembangan sosial anak, mulai dari usia anak 0–18 tahun. Selain melakukan pemeriksaan dan perawatan, dokter anak juga dapat memberikan tindakan pencegahan penyakit pada bayi, anak, maupun remaja yang sehat.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-7">
-              <h3>Penyakit Dalam</h3>
-              <p class="fst-italic">Dokter spesialis penyakit dalam atau umumnya dikenal dengan sebutan internis merupakan dokter yang bertanggung jawab dalam menangani berbagai kondisi medis terkait dengan banyak organ dalam tubuh, seperti jantung, paru-paru, ginjal, hati, dan lain-lain.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-8">
-              <h3>Urologi</h3>
-              <p class="fst-italic">Dokter spesialis urologi adalah dokter yang mengkhususkan diri dalam mendiagnosis dan mengobati penyakit pada sistem saluran kemih. Sistem ini menjaga tubuh tetap bersih dengan menyaring limbah dan racun dan mengeluarkannya dari tubuh. Saluran kemih meliputi kandung kemih, ginjal, ureter, dan uretra.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-9">
-              <h3>Ortopedi</h3>
-              <p class="fst-italic">Dokter spesialis tulang atau yang secara resmi disebut juga sebagai dokter spesialis orthopaedi dan traumatologi adalah sebutan bagi dokter yang khusus menangani masalah pada sistem muskuloskeletal, meliputi tulang, otot, sendi, saraf, ligamen, serta jaringan yang menghubungkan tulang dan tendon (sendi).</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-10">
-              <h3>Kandungan</h3>
-              <p class="fst-italic">Dokter spesialis Obstetri dan Ginekologi atau dikenal juga Obgyn serta dokter kandungan adalah seorang dokter yang mengkhususkan diri dalam kesehatan reproduksi wanita, termasuk menstruasi, kehamilan, persalinan, dan menopause.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="tab-pane" id="tab-11">
-              <h3>Bedah Umum</h3>
-              <p class="fst-italic">Bedah umum adalah disiplin medis yang melibatkan berbagai jenis tindakan bedah untuk mengobati berbagai masalah kesehatan dan penyakit. Dalam bedah umum, ahli bedah diharapkan mampu melakukan perawatan pra operasi maupun pasca operasi, dan manajemennya, selain tindakan bedah itu sendiri.</p>
-              <img src="<?= base_url(); ?>img/poliklinik/departments-4.jpg" alt="" class="img-fluid">
-            </div>
+            <?php foreach ($poliklinik as $poli) : ?>
+              <?php $data = json_decode($poli['value']) ?>
+              <div class="tab-pane <?= $data->status; ?> show" id="tab-<?= $poli['id'] ?>">
+                <h3><?= $data->poliklinik; ?></h3>
+                <p class="fst-italic"><?= $data->deskripsi; ?></p>
+                <img src="<?= base_url(); ?>img/poliklinik/<?= $data->images; ?>" class="img-fluid">
+                <div><?= $data->konten; ?></div>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -318,10 +200,10 @@
               <div class="member-img">
                 <img src="<?= base_url(); ?>img/doctors/<?= $data->photo; ?>" class="img-fluid">
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-twitter"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -331,8 +213,6 @@
             </div>
           </div>
         <?php endforeach; ?>
-
-
       </div>
     </div>
   </section>
@@ -340,14 +220,12 @@
   <!-- Gallery -->
   <section id="gallery" class="gallery">
     <div class="container" data-aos="fade-up">
-
       <div class="section-title">
         <h2>Gallery</h2>
       </div>
-
       <div class="gallery-slider swiper">
         <div class="swiper-wrapper align-items-center">
-          <?php foreach ($gallery as $index => $galeri) : ?>
+          <?php foreach ($gallery as $galeri) : ?>
             <?php $data = json_decode($galeri['value']) ?>
             <div class="swiper-slide">
               <a class="gallery-lightbox" href="<?= base_url(); ?>img/gallery/<?= $data->images; ?>">
@@ -358,91 +236,6 @@
         </div>
         <div class="swiper-pagination"></div>
       </div>
-
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing" class="pricing">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Pricing</h2>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6">
-          <div class="box" data-aos="fade-up" data-aos-delay="100">
-            <h3>Free</h3>
-            <h4><sup>$</sup>0<span> / month</span></h4>
-            <ul>
-              <li>Aida dere</li>
-              <li>Nec feugiat nisl</li>
-              <li>Nulla at volutpat dola</li>
-              <li class="na">Pharetra massa</li>
-              <li class="na">Massa ultricies mi</li>
-            </ul>
-            <div class="btn-wrap">
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-          <div class="box featured" data-aos="fade-up" data-aos-delay="200">
-            <h3>Business</h3>
-            <h4><sup>$</sup>19<span> / month</span></h4>
-            <ul>
-              <li>Aida dere</li>
-              <li>Nec feugiat nisl</li>
-              <li>Nulla at volutpat dola</li>
-              <li>Pharetra massa</li>
-              <li class="na">Massa ultricies mi</li>
-            </ul>
-            <div class="btn-wrap">
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-          <div class="box" data-aos="fade-up" data-aos-delay="300">
-            <h3>Developer</h3>
-            <h4><sup>$</sup>29<span> / month</span></h4>
-            <ul>
-              <li>Aida dere</li>
-              <li>Nec feugiat nisl</li>
-              <li>Nulla at volutpat dola</li>
-              <li>Pharetra massa</li>
-              <li>Massa ultricies mi</li>
-            </ul>
-            <div class="btn-wrap">
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-          <div class="box" data-aos="fade-up" data-aos-delay="400">
-            <span class="advanced">Advanced</span>
-            <h3>Ultimate</h3>
-            <h4><sup>$</sup>49<span> / month</span></h4>
-            <ul>
-              <li>Aida dere</li>
-              <li>Nec feugiat nisl</li>
-              <li>Nulla at volutpat dola</li>
-              <li>Pharetra massa</li>
-              <li>Massa ultricies mi</li>
-            </ul>
-            <div class="btn-wrap">
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
     </div>
   </section>
 
@@ -465,5 +258,122 @@
       </ul>
     </div>
   </section>
+
+  <!-- Contact -->
+  <?php foreach ($settings as $setting) : ?>
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+
+        <!-- Information -->
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="info-box">
+                  <i class="bx bx-map"></i>
+                  <h3>Address</h3>
+                  <div class="container">
+                    <p><?= $setting['alamat']; ?></p>
+                  </div>
+                  <br>
+                  <div class="container">
+                    <center>
+                      <iframe style="border:0; width: 75%; height: 100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.5517459393545!2d110.8230696!3d-7.4040156999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a0e89d0226707%3A0x52e879d69c14a79f!2sRumah%20Sakit%20Umum%20Islam%20Yakssi%2C%20Jl.%20Solo%2C%20Ngembatpadas%2C%20Ngembat%20Padas%2C%20Kec.%20Gemolong%2C%20Kabupaten%20Sragen%2C%20Jawa%20Tengah%2050274!5e0!3m2!1sen!2sid!4v1706668744082!5m2!1sen!2sid" allowfullscreen></iframe>
+                    </center>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box mt-4">
+                  <a href="mailto:<?= $setting['email']; ?>" target="_blank">
+                    <i class="bx bx-envelope"></i>
+                  </a>
+                  <h3>Email</h3>
+                  <p><?= $setting['email']; ?></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info-box mt-4">
+                  <a href="https://wa.me/<?= $setting['telepon']; ?>" target="_blank">
+                    <i class="bx bx-phone-call"></i>
+                  </a>
+                  <h3>Whatsapp</h3>
+                  <p><?= $setting['telepon']; ?></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Forms -->
+          <div class="col-lg-6">
+            <form action="<?= base_url(); ?>contact/save" method="post" role="form" class="php-email-form">
+
+              <!-- Messages -->
+              <?php if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success" role="alert">
+                  <?= session()->getFlashdata('pesan') ?>
+                </div>
+              <?php endif; ?>
+
+              <!-- Form Pesan -->
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+            <!-- Information -->
+            <div class="row">
+              <div class="col-md-4">
+                <div class="info-box mt-4">
+                  <i class="bx bx-printer"></i>
+                  <h3>Fax</h3>
+                  <p><?= $setting['fax']; ?></p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="info-box mt-4">
+                  <a href="https://www.instagram.com/<?= $setting['instagram']; ?>" target="_blank">
+                    <i class="bx bxl-instagram"></i>
+                  </a>
+                  <h3>Instagram</h3>
+                  <p>@<?= $setting['instagram']; ?></p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="info-box mt-4">
+                  <a href="https://www.facebook.com/<?= $setting['facebook']; ?>" target="_blank">
+                    <i class="bx bxl-facebook"></i>
+                  </a>
+                  <h3>Facebook</h3>
+                  <p>@<?= $setting['facebook']; ?></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <?php endforeach; ?>
+
 </main>
+
 <?= $this->endSection(); ?>

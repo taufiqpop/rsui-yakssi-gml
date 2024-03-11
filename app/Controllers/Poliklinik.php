@@ -23,7 +23,7 @@ class Poliklinik extends BaseController
             $poliklinik = $this->poliklinikModel;
         }
 
-        $poliklinik->orderBy('id', 'DESC');
+        $poliklinik->orderBy('id', 'ASC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | Poliklinik',
@@ -106,6 +106,7 @@ class Poliklinik extends BaseController
         }
 
         $input = [
+            'status'        => $this->request->getPost('status'),
             'poliklinik'    => $this->request->getPost('poliklinik'),
             'deskripsi'     => $this->request->getPost('deskripsi'),
             'konten'        => $this->request->getPost('konten'),
@@ -178,6 +179,7 @@ class Poliklinik extends BaseController
         }
 
         $input = [
+            'status'        => $this->request->getPost('status'),
             'poliklinik'    => $this->request->getPost('poliklinik'),
             'deskripsi'     => $this->request->getPost('deskripsi'),
             'konten'        => $this->request->getPost('konten'),

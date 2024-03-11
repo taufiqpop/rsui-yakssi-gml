@@ -65,11 +65,12 @@
                 <!-- Navbar -->
                 <nav id="navbar" class="navbar order-last order-lg-0">
                     <ul>
-                        <li><a class="nav-link scrollto" href="index#hero">Home</a></li>
-                        <li><a class="nav-link scrollto" href="index#about">About</a></li>
-                        <li><a class="nav-link scrollto" href="index#services">Pelayanan</a></li>
-                        <li><a class="nav-link scrollto" href="index#departments">Poliklinik</a></li>
-                        <li><a class="nav-link scrollto" href="index#doctors">Dokter</a></li>
+                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#about">About</a></li>
+                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#services">Pelayanan</a></li>
+                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#departments">Poliklinik</a></li>
+                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#doctors">Dokter</a></li>
+                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#faq">FAQ</a></li>
                         <li class="dropdown"><a href="#"><span>Berita</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li><a href="#">Umum</a></li>
@@ -78,11 +79,24 @@
                                 <li><a href="#">Kerja Sama</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>contact">Contact</a></li>
+                        <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#contact">Contact</a></li>
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav>
                 <a href="https://api.whatsapp.com/send?phone=<?= $setting['telepon']; ?>&text=Halo%20Admin%20Saya%20Mau%20Booking%20Daftar" target="_blank" class="appointment-btn scrollto"><span class="d-none d-md-inline"><strong>Booking</span> Online</strong></a>
+            </div>
+
+            <!-- Messages -->
+            <div class="container mt-4">
+                <div class="row">
+                    <center>
+                        <?php if (session()->getFlashdata('pesan')) : ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= session()->getFlashdata('pesan') ?>
+                            </div>
+                        <?php endif; ?>
+                    </center>
+                </div>
             </div>
         </header>
 

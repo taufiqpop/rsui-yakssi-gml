@@ -12,6 +12,7 @@ class Home extends BaseController
     protected $pagesModel;
     protected $pasienModel;
     protected $pelayananModel;
+    protected $pesanModel;
     protected $poliklinikModel;
     protected $postsModel;
     protected $settingsModel;
@@ -26,6 +27,7 @@ class Home extends BaseController
         $this->pagesModel       = new \App\Models\PagesModel();
         $this->pasienModel      = new \App\Models\PasienModel();
         $this->pelayananModel   = new \App\Models\PelayananModel();
+        $this->pesanModel       = new \App\Models\PesanModel();
         $this->poliklinikModel  = new \App\Models\PoliklinikModel();
         $this->postsModel       = new \App\Models\PostsModel();
         $this->settingsModel    = new \App\Models\SettingsModel();
@@ -54,14 +56,30 @@ class Home extends BaseController
         return view('home/index', $data);
     }
 
+    // List Dokter
     public function doctors()
     {
         $data = [
             'title'     => 'RSUI YAKSSI | Dokter',
-            'dokter'    => $this->dokterModel->paginate(4, 'dokter'),
+            'dokter'    => $this->dokterModel->paginate(100, 'dokter'),
             'settings'  => $this->settingsModel->paginate(5, 'settings'),
         ];
 
         return view('home/doctors', $data);
+    }
+
+    // Save Contact Data
+    public function contact()
+    {
+        $this->pesanModel->save([
+            'name'    => $this->request->getVar('name'),
+            'email'   => $this->request->getVar('email'),
+            'subject' => $this->request->getVar('subject'),
+            'message' => $this->request->getVar('message'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Pesan Berhasil Dikirim! Terima Kasih!');
+
+        return redirect('index');
     }
 }

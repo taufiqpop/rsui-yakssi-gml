@@ -14,6 +14,13 @@
                     <?= csrf_field(); ?>
                     <input type="hidden" name="imgLama" value="<?= $data->images ?>">
 
+                    <div class="form-group row">
+                        <label for="status" class="col-sm-2 col-form-label">Status</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="status" value="<?= $data->status ?>" required>
+                        </div>
+                    </div>
+
                     <!-- Poliklinik -->
                     <div class="form-group row">
                         <label for="poliklinik" class="col-sm-2 col-form-label">Poliklinik</label>
