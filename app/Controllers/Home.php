@@ -18,7 +18,7 @@ class Home extends BaseController
 
     public function __construct()
     {
-        $this->aboutModel     = new \App\Models\AboutModel();
+        $this->aboutModel       = new \App\Models\AboutModel();
         $this->berandaModel     = new \App\Models\BerandaModel();
         $this->dokterModel      = new \App\Models\DokterModel();
         $this->faqModel         = new \App\Models\FAQModel();
