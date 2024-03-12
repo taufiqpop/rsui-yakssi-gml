@@ -36,6 +36,12 @@ $routes->get('/index', 'Home::index');
 $routes->add('/contact/save', 'Home::contact');
 $routes->get('/doctors', 'Home::doctors');
 
+// Berita
+$routes->get('/berita/umum', 'Berita::umum');
+$routes->get('/berita/event', 'Berita::event');
+$routes->get('/berita/karir', 'Berita::karir');
+$routes->get('/berita/kerjasama', 'Berita::kerjasama');
+
 // Admin
 $routes->add('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/detail/(:segment)', 'Admin::detail/$1', ['filter' => 'role:admin']);
@@ -106,7 +112,7 @@ $routes->get('/control/dokter/edit/(:segment)', 'Dokter::edit/$1');
 $routes->add('/dokter/update/(:segment)', 'Dokter::update/$1');
 $routes->delete('/control/dokter/(:num)', 'Dokter::delete/$1');
 
-// LogoFA
+// Pelayanan
 $routes->add('/control/pelayanan', 'Pelayanan::index');
 $routes->get('/control/pelayanan/form', 'Pelayanan::form');
 $routes->add('/pelayanan/insert', 'Pelayanan::insert');

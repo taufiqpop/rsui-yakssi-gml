@@ -57,11 +57,11 @@
         </a>
     </li>
 
-    <!-- Pasien -->
+    <!-- Jenis Pasien -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>control/pasien">
             <i class="fas fa-child"></i>
-            <span>Pasien</span>
+            <span>Jenis Pasien</span>
         </a>
     </li>
 

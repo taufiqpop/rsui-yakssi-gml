@@ -73,10 +73,10 @@
                         <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#faq">FAQ</a></li>
                         <li class="dropdown"><a href="#"><span>Berita</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
-                                <li><a href="#">Umum</a></li>
-                                <li><a href="#">Event</a></li>
-                                <li><a href="#">Karir</a></li>
-                                <li><a href="#">Kerja Sama</a></li>
+                                <li><a href="<?= base_url(); ?>berita/umum">Umum</a></li>
+                                <li><a href="<?= base_url(); ?>berita/event">Event</a></li>
+                                <li><a href="<?= base_url(); ?>berita/karir">Karir</a></li>
+                                <li><a href="<?= base_url(); ?>berita/kerjasama">Kerja Sama</a></li>
                             </ul>
                         </li>
                         <li><a class="nav-link scrollto" href="<?= base_url(); ?>index#contact">Contact</a></li>
@@ -112,7 +112,7 @@
         <footer id="footer">
             <div class="container">
                 <div class="copyright">
-                    Copyright <strong><?= date('Y'); ?> <a href="<?= base_url(); ?>admin" style="color:black;" target="_blank">&copy;</a> <span><?= $setting['owner']; ?></span></strong>. All Rights Reserved
+                    Copyright <strong><?= date('Y'); ?> <a href="<?= base_url(); ?>user" style="color:black;" target="_blank">&copy;</a> <span><?= $setting['owner']; ?></span></strong>. All Rights Reserved
                 </div>
             </div>
         </footer>
