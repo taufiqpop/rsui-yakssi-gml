@@ -3,6 +3,7 @@
 
 <!-- Edit Posts -->
 <?php foreach ($posts as $post) : ?>
+    <?php $data = json_decode($post['value']) ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
@@ -11,13 +12,13 @@
                 <!-- Forms -->
                 <form action="<?= base_url(); ?>posts/update/<?= $post['id']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
-                    <input type="hidden" name="imgPostsLama" value="<?= $post['images']; ?>">
+                    <input type="hidden" name="imgLama" value="<?= $data->images; ?>">
 
                     <!-- Judul -->
                     <div class="form-group row">
                         <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="judul" value="<?= $post['judul']; ?>" autofocus required>
+                            <input type="text" class="form-control" name="judul" value="<?= $data->judul; ?>" autofocus required>
                         </div>
                     </div>
 
@@ -26,14 +27,6 @@
                         <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="kategori" value="<?= $post['kategori']; ?>" required>
-                        </div>
-                    </div>
-
-                    <!-- SEO -->
-                    <div class="form-group row">
-                        <label for="seo" class="col-sm-2 col-form-label">SEO</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="seo" value="<?= $post['seo']; ?>" required>
                         </div>
                     </div>
 
@@ -49,7 +42,7 @@
                     <div class="form-group row">
                         <label for="images" class="col-sm-2 col-form-label">Images</label>
                         <div class="col-sm-2">
-                            <img src="<?= base_url(); ?>img/posts/<?= $post['images']; ?>" class="img-thumbnail img-preview">
+                            <img src="<?= base_url(); ?>img/posts/<?= $data->images; ?>" class="img-thumbnail img-preview">
                         </div>
                         <div class="col-sm-8">
                             <div class="custom-file">
@@ -57,7 +50,7 @@
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('images'); ?>
                                 </div>
-                                <label class="custom-file-label" for="images"><?= $post['images']; ?></label>
+                                <label class="custom-file-label" for="images"><?= $data->images; ?></label>
                             </div>
                         </div>
                     </div>
@@ -66,7 +59,7 @@
                     <div class="form-group row">
                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi Foto</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="deskripsi" value="<?= $post['deskripsi']; ?>" required>
+                            <input type="text" class="form-control" name="deskripsi" value="<?= $data->deskripsi; ?>" required>
                         </div>
                     </div>
 
@@ -75,7 +68,7 @@
                         <label for="content" class="col-sm-2 col-form-label">Content</label>
                         <div class="col-sm-10">
                             <textarea class="tinymce" name="content">
-                                <?= $post['content']; ?>
+                                <?= $data->content; ?>
                             </textarea>
                         </div>
                     </div>

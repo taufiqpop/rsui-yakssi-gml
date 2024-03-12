@@ -55,7 +55,7 @@ class Posts extends BaseController
     }
 
     // Create Data
-    public function form($id = '')
+    public function form()
     {
         $data = [
             'title'      => 'RSUI YAKSSI | Form Posts',
@@ -64,7 +64,7 @@ class Posts extends BaseController
 
         $db      = \Config\Database::connect();
         $builder = $db->table('posts');
-        $builder->select('id, judul, kategori, seo, tag, images, deskripsi, content');
+        $builder->select('id, key, value, kategori, tag');
         $query   = $builder->get();
 
         $data['posts'] = $query->getResultArray();
@@ -73,7 +73,7 @@ class Posts extends BaseController
     }
 
     // Insert Data
-    public function insert()
+    public function insert($id = '')
     {
         // Validasi Input
         if (!$this->validate([
@@ -104,34 +104,39 @@ class Posts extends BaseController
             // Pindahkan Gambar
             $gambarPosts->move('img/posts', $namaGambar);
         }
-        $this->postsModel->save([
-            'judul'     => $this->request->getVar('judul'),
-            'kategori'  => $this->request->getVar('kategori'),
-            'seo'       => $this->request->getVar('seo'),
-            'tag'       => $this->request->getVar('tag'),
-            'deskripsi' => $this->request->getVar('deskripsi'),
-            'content'   => $this->request->getVar('content'),
-            'images'    => $namaGambar,
-        ]);
 
+        $input = [
+            'judul'        => $this->request->getPost('judul'),
+            'deskripsi'    => $this->request->getPost('deskripsi'),
+            'content'      => $this->request->getPost('content'),
+            'images'       => $namaGambar,
+        ];
+
+        $data = [
+            'key'       => $this->request->getPost('judul'),
+            'value'     => json_encode($input),
+            'kategori'  => $this->request->getPost('kategori'),
+            'tag'       => $this->request->getPost('tag'),
+        ];
+
+        $this->postsModel->save($data);
         session()->setFlashdata('pesan', 'Data Posts Berhasil Ditambahkan!');
+
         return redirect('control/posts');
     }
 
     // Edit Data
     public function edit($id)
     {
-        $postsMod = $this->postsModel->find($id);
-
         $data = [
-            'title'      => 'RSUI YAKKSI | Form Edit Data Posts',
-            'posts'      => $postsMod,
+            'title'      => 'RSUI YAKKSI | Edit Data Posts',
+            'posts' => $this->postsModel->find($id),
             'validation' => \Config\Services::validation()
         ];
 
         $db      = \Config\Database::connect();
         $builder = $db->table('posts');
-        $builder->select('id, judul, kategori, seo, tag, images, deskripsi, content');
+        $builder->select('id, key, value, kategori, tag, created_at, updated_at, deleted_at');
         $builder->where('id', $id);
         $query   = $builder->get();
 
@@ -162,7 +167,7 @@ class Posts extends BaseController
 
         // Cek Gambar, Apakah Tetap Gambar Lama
         if ($gambarPosts->getError() == 4) {
-            $namaGambar = $this->request->getVar('imgPostsLama');
+            $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
             $namaGambar = $gambarPosts->getRandomName();
@@ -171,20 +176,25 @@ class Posts extends BaseController
             $gambarPosts->move('img/posts', $namaGambar);
 
             // Hapus File Yang Lama
-            unlink('img/posts/' . $this->request->getVar('imgPostsLama'));
+            unlink('img/posts/' . $this->request->getVar('imgLama'));
         }
 
-        $this->postsModel->save([
-            'id'        => $id,
-            'judul'     => $this->request->getVar('judul'),
-            'kategori'  => $this->request->getVar('kategori'),
-            'seo'       => $this->request->getVar('seo'),
-            'tag'       => $this->request->getVar('tag'),
-            'deskripsi' => $this->request->getVar('deskripsi'),
-            'content'   => $this->request->getVar('content'),
-            'images'    => $namaGambar,
-        ]);
+        $input = [
+            'judul'        => $this->request->getPost('judul'),
+            'deskripsi'    => $this->request->getPost('deskripsi'),
+            'content'      => $this->request->getPost('content'),
+            'images'       => $namaGambar,
+        ];
 
+        $data = [
+            'id'        => $id,
+            'key'       => $this->request->getPost('judul'),
+            'value'     => json_encode($input),
+            'kategori'  => $this->request->getPost('kategori'),
+            'tag'       => $this->request->getPost('tag'),
+        ];
+
+        $this->postsModel->save($data);
         session()->setFlashdata('pesan', 'Data Posts Berhasil Diubah!');
 
         return redirect('control/posts');
@@ -194,13 +204,11 @@ class Posts extends BaseController
     public function delete($id)
     {
         // Cari Gambar Berdasarkan ID
-        $posts = $this->postsModel->find($id);
+        $posts     = $this->postsModel->find($id);
+        $postsJSON = json_decode($posts['value']);
 
-        // Cek Jika File Gambar default.svg
-        if ($posts['images'] != 'default.svg') {
-            // Hapus Gambar Permanen
-            unlink('img/posts' . $posts['images']);
-        }
+        // Hapus Gambar Permanen
+        unlink('img/posts/' . $postsJSON->images);
 
         $this->postsModel->delete($id);
         session()->setFlashdata('pesan', 'Data Posts Berhasil Dihapus!');

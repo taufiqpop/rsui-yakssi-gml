@@ -30,14 +30,6 @@
                     </div>
                 </div>
 
-                <!-- SEO -->
-                <div class="form-group row">
-                    <label for="seo" class="col-sm-2 col-form-label">SEO</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="SEO" name="seo" required>
-                    </div>
-                </div>
-
                 <!-- Tag -->
                 <div class="form-group row">
                     <label for="tag" class="col-sm-2 col-form-label">Tag</label>
