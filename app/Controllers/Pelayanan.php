@@ -29,7 +29,7 @@ class Pelayanan extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | Pelayanan',
-            'pelayanan'   => $pelayanan->paginate(5, 'pelayanan'),
+            'pelayanan'   => $pelayanan->paginate(100, 'pelayanan'),
             'pager'       => $pelayanan->pager,
             'currentPage' => $currentPage,
         ];

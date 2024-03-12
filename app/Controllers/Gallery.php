@@ -23,7 +23,7 @@ class Gallery extends BaseController
             $gallery = $this->galleryModel;
         }
 
-        $gallery->orderBy('id', 'DESC');
+        $gallery->orderBy('id', 'ASC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | Gallery',

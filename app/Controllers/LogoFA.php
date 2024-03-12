@@ -34,7 +34,7 @@ class LogoFA extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | Logo FA',
-            'logoFA'      => $logoFA->paginate(5, 'logofa'),
+            'logoFA'      => $logoFA->paginate(100, 'logofa'),
             'pager'       => $logoFA->pager,
             'currentPage' => $currentPage,
         ];

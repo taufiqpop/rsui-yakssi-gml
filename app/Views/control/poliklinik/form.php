@@ -16,8 +16,8 @@
                     <label for="status" class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
                         <select name="status" id="status">
-                            <option value=" active">Active</option>
                             <option value="">Not Active</option>
+                            <option value=" active">Active</option>
                         </select>
                     </div>
                 </div>

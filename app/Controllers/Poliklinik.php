@@ -27,7 +27,7 @@ class Poliklinik extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | Poliklinik',
-            'poliklinik'  => $poliklinik->paginate(5, 'poliklinik'),
+            'poliklinik'  => $poliklinik->paginate(10, 'poliklinik'),
             'pager'       => $poliklinik->pager,
             'currentPage' => $currentPage,
         ];
