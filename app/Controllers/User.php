@@ -63,7 +63,7 @@ class User extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKSSI | Form Edit Data',
+            'title'      => 'RSUI YAKSSI | Form Edit Data User',
             'users'      => $this->usersModel->find($id),
             'validation' => \Config\Services::validation()
         ];
@@ -117,14 +117,14 @@ class User extends BaseController
             }
         }
 
-        $this->usersModel->save([
-            'id'            => $id,
+        $data = [
             'email'         => $this->request->getVar('email'),
             'username'      => $this->request->getVar('username'),
             'fullname'      => $this->request->getVar('fullname'),
             'user_image'    => $namaImgUser,
-        ]);
+        ];
 
+        $this->usersModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data User Berhasil Diubah!');
 
         return redirect('profile');

@@ -27,7 +27,7 @@ class Pesan extends BaseController
 
         $data = [
             'title'         => 'RSUI YAKSSI | Pesan',
-            'pesan'         => $pesan->paginate(5, 'pesan'),
+            'pesan'         => $pesan->paginate(10, 'pesan'),
             'pager'         => $pesan->pager,
             'currentPage'   => $currentPage,
         ];

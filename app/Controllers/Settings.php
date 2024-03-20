@@ -15,7 +15,7 @@ class Settings extends BaseController
     {
         $data = [
             'title'       => 'RSUI YAKSSI | Settings',
-            'settings'    => $this->settingsModel->paginate(5, 'settings'),
+            'settings'    => $this->settingsModel->paginate(1, 'settings'),
         ];
 
         return view('control/settings/index', $data);
@@ -24,8 +24,7 @@ class Settings extends BaseController
     // Update Data
     public function update($id)
     {
-        $this->settingsModel->save([
-            'id'         => $id,
+        $data = [
             'nama'       => $this->request->getVar('nama'),
             'owner'      => $this->request->getVar('owner'),
             'telepon'    => $this->request->getVar('telepon'),
@@ -36,9 +35,11 @@ class Settings extends BaseController
             'facebook'   => $this->request->getVar('facebook'),
             'alamat'     => $this->request->getVar('alamat'),
             'jadwal'     => $this->request->getVar('jadwal'),
-        ]);
+        ];
 
+        $this->settingsModel->save($id, $data);
         session()->setFlashdata('pesan', 'Data Settings Berhasil Diubah!');
+
         return redirect('control/settings');
     }
 }

@@ -27,7 +27,7 @@ class Gallery extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | Gallery',
-            'gallery'  => $gallery->paginate(5, 'gallery'),
+            'gallery'     => $gallery->paginate(10, 'gallery'),
             'pager'       => $gallery->pager,
             'currentPage' => $currentPage,
         ];
@@ -43,18 +43,11 @@ class Gallery extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('gallery');
-        $builder->select('id, key, value');
-        $query   = $builder->get();
-
-        $data['gallery'] = $query->getResultArray();
-
         return view('control/gallery/form', $data);
     }
 
     // Insert Data
-    public function insert($id = '')
+    public function insert()
     {
         // Validasi Input
         if (!$this->validate([
@@ -73,17 +66,17 @@ class Gallery extends BaseController
         }
 
         // Ambil Gambar
-        $gambarGallery = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Apakah Tidak Ada Gambar Yang Diupload
-        if ($gambarGallery->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarGallery->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarGallery->move('img/gallery', $namaGambar);
+            $ambilGambar->move('img/gallery', $namaGambar);
         }
 
         $input = [
@@ -96,7 +89,7 @@ class Gallery extends BaseController
             'value' => json_encode($input),
         ];
 
-        $this->galleryModel->save($data);
+        $this->galleryModel->insert($data);
         session()->setFlashdata('pesan', 'Data Gallery Berhasil Ditambahkan!');
 
         return redirect('control/gallery');
@@ -106,8 +99,8 @@ class Gallery extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Gallery',
-            'gallery'      => $this->galleryModel->find($id),
+            'title'      => 'RSUI YAKSSI | Edit Data Gallery',
+            'gallery'    => $this->galleryModel->find($id),
             'validation' => \Config\Services::validation()
         ];
 
@@ -140,17 +133,17 @@ class Gallery extends BaseController
             return redirect()->to('control/gallery/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarGallery = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarGallery->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarGallery->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarGallery->move('img/gallery', $namaGambar);
+            $ambilGambar->move('img/gallery', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/gallery/' . $this->request->getVar('imgLama'));
@@ -162,12 +155,11 @@ class Gallery extends BaseController
         ];
 
         $data = [
-            'id'    => $id,
             'key'   => $this->request->getPost('deskripsi'),
             'value' => json_encode($input),
         ];
 
-        $this->galleryModel->save($data);
+        $this->galleryModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Gallery Berhasil Diubah!');
 
         return redirect('control/gallery');

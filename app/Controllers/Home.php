@@ -47,6 +47,8 @@ class Home extends BaseController
             'poliklinik'    => $this->poliklinikModel->paginate(100, 'poliklinik'),
             'posts'         => $this->postsModel->paginate(10000, 'posts'),
             'settings'      => $this->settingsModel->paginate(1, 'settings'),
+
+            // Jumlah
             'jmlDokter'     => $this->dokterModel->jumlahDokter(),
             'jmlPelayanan'  => $this->pelayananModel->jumlahPelayanan(),
             'jmlPoliklinik' => $this->poliklinikModel->jumlahPoliklinik(),
@@ -62,7 +64,7 @@ class Home extends BaseController
         $data = [
             'title'     => 'RSUI YAKSSI | Dokter',
             'dokter'    => $this->dokterModel->paginate(100, 'dokter'),
-            'settings'  => $this->settingsModel->paginate(5, 'settings'),
+            'settings'  => $this->settingsModel->paginate(1, 'settings'),
         ];
 
         return view('home/doctors', $data);
@@ -71,13 +73,14 @@ class Home extends BaseController
     // Save Contact Data
     public function contact()
     {
-        $this->pesanModel->save([
+        $data = [
             'name'    => $this->request->getVar('name'),
             'email'   => $this->request->getVar('email'),
             'subject' => $this->request->getVar('subject'),
             'message' => $this->request->getVar('message'),
-        ]);
+        ];
 
+        $this->pesanModel->insert($data);
         session()->setFlashdata('pesan', 'Pesan Berhasil Dikirim! Terima Kasih!');
 
         return redirect('index');

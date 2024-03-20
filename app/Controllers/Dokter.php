@@ -27,7 +27,7 @@ class Dokter extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | Dokter',
-            'dokter'      => $dokter->paginate(5, 'dokter'),
+            'dokter'      => $dokter->paginate(10, 'dokter'),
             'pager'       => $dokter->pager,
             'currentPage' => $currentPage,
         ];
@@ -43,18 +43,11 @@ class Dokter extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('dokter');
-        $builder->select('id, key, value');
-        $query   = $builder->get();
-
-        $data['dokter'] = $query->getResultArray();
-
         return view('control/dokter/form', $data);
     }
 
     // Insert Data
-    public function insert($id = '')
+    public function insert()
     {
         // Validasi Input
         if (!$this->validate([
@@ -73,17 +66,17 @@ class Dokter extends BaseController
         }
 
         // Ambil Gambar
-        $gambarDokter = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Apakah Tidak Ada Gambar Yang Diupload
-        if ($gambarDokter->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarDokter->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarDokter->move('img/doctors', $namaGambar);
+            $ambilGambar->move('img/doctors', $namaGambar);
         }
 
         $input = [
@@ -97,7 +90,7 @@ class Dokter extends BaseController
             'value' => json_encode($input),
         ];
 
-        $this->dokterModel->save($data);
+        $this->dokterModel->insert($data);
         session()->setFlashdata('pesan', 'Data Dokter Berhasil Ditambahkan!');
 
         return redirect('control/dokter');
@@ -107,8 +100,8 @@ class Dokter extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Dokter',
-            'dokter'      => $this->dokterModel->find($id),
+            'title'      => 'RSUI YAKSSI | Edit Data Dokter',
+            'dokter'     => $this->dokterModel->find($id),
             'validation' => \Config\Services::validation()
         ];
 
@@ -141,17 +134,17 @@ class Dokter extends BaseController
             return redirect()->to('control/dokter/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarDokter = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarDokter->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarDokter->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarDokter->move('img/doctors', $namaGambar);
+            $ambilGambar->move('img/doctors', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/doctors/' . $this->request->getVar('imgLama'));
@@ -164,12 +157,11 @@ class Dokter extends BaseController
         ];
 
         $data = [
-            'id'    => $id,
             'key'   => $this->request->getPost('nama'),
             'value' => json_encode($input),
         ];
 
-        $this->dokterModel->save($data);
+        $this->dokterModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Dokter Berhasil Diubah!');
 
         return redirect('control/dokter');

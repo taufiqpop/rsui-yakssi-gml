@@ -9,7 +9,7 @@ class Admin extends BaseController
 
     public function __construct()
     {
-        $this->userModel = new \Myth\Auth\Models\UserModel();
+        $this->userModel  = new \Myth\Auth\Models\UserModel();
         $this->usersModel = new \App\Models\UsersModel();
     }
 
@@ -29,7 +29,7 @@ class Admin extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | User List',
-            'users'       => $users->paginate(5, 'users'),
+            'users'       => $users->paginate(10, 'users'),
             'pager'       => $users->pager,
             'currentPage' => $currentPage,
         ];

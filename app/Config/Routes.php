@@ -64,24 +64,6 @@ $routes->add('/pesan', 'Pesan::index');
 $routes->get('/control/settings', 'Settings::index');
 $routes->add('/settings/update/(:segment)', 'Settings::update/$1');
 
-// Pages
-$routes->add('/control/pages', 'Pages::index');
-$routes->get('/control/pages/form', 'Pages::form');
-$routes->add('/pages/insert', 'Pages::insert');
-$routes->get('/control/pages/edit/(:segment)', 'Pages::edit/$1');
-$routes->add('/pages/update/(:segment)', 'Pages::update/$1');
-$routes->get('/control/pages/detail/(:segment)', 'Pages::detail/$1');
-$routes->delete('/control/pages/(:num)', 'Pages::delete/$1');
-
-// Posts
-$routes->add('/control/posts', 'Posts::index');
-$routes->get('/control/posts/form', 'Posts::form');
-$routes->add('/posts/insert', 'Posts::insert');
-$routes->get('/control/posts/edit/(:segment)', 'Posts::edit/$1');
-$routes->add('/posts/update/(:segment)', 'Posts::update/$1');
-$routes->get('/control/posts/detail/(:segment)', 'Posts::detail/$1');
-$routes->delete('/control/posts/(:num)', 'Posts::delete/$1');
-
 // Pasien
 $routes->add('/control/pasien', 'Pasien::index');
 $routes->get('/control/pasien/form', 'Pasien::form');

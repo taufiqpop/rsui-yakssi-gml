@@ -39,7 +39,7 @@ class Poliklinik extends BaseController
     public function detail($id)
     {
         $data = [
-            'title' => 'RSUI YAKSSI | Detail Poliklinik',
+            'title'      => 'RSUI YAKSSI | Detail Poliklinik',
             'poliklinik' => $this->poliklinikModel->find($id),
         ];
 
@@ -62,18 +62,11 @@ class Poliklinik extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('poliklinik');
-        $builder->select('id, key, value');
-        $query   = $builder->get();
-
-        $data['poliklinik'] = $query->getResultArray();
-
         return view('control/poliklinik/form', $data);
     }
 
     // Insert Data
-    public function insert($id = '')
+    public function insert()
     {
         // Validasi Input
         if (!$this->validate([
@@ -92,17 +85,17 @@ class Poliklinik extends BaseController
         }
 
         // Ambil Gambar
-        $gambarPoliklinik = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Apakah Tidak Ada Gambar Yang Diupload
-        if ($gambarPoliklinik->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarPoliklinik->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPoliklinik->move('img/poliklinik', $namaGambar);
+            $ambilGambar->move('img/poliklinik', $namaGambar);
         }
 
         $input = [
@@ -118,7 +111,7 @@ class Poliklinik extends BaseController
             'value' => json_encode($input),
         ];
 
-        $this->poliklinikModel->save($data);
+        $this->poliklinikModel->insert($data);
         session()->setFlashdata('pesan', 'Data Poliklinik Berhasil Ditambahkan!');
 
         return redirect('control/poliklinik');
@@ -128,7 +121,7 @@ class Poliklinik extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Poliklinik',
+            'title'      => 'RSUI YAKSSI | Edit Data Poliklinik',
             'poliklinik' => $this->poliklinikModel->find($id),
             'validation' => \Config\Services::validation()
         ];
@@ -162,17 +155,17 @@ class Poliklinik extends BaseController
             return redirect()->to('control/poliklinik/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarPoliklinik = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarPoliklinik->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarPoliklinik->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPoliklinik->move('img/poliklinik', $namaGambar);
+            $ambilGambar->move('img/poliklinik', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/poliklinik/' . $this->request->getVar('imgLama'));
@@ -187,12 +180,11 @@ class Poliklinik extends BaseController
         ];
 
         $data = [
-            'id'    => $id,
             'key'   => $this->request->getPost('poliklinik'),
             'value' => json_encode($input),
         ];
 
-        $this->poliklinikModel->save($data);
+        $this->poliklinikModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Poliklinik Berhasil Diubah!');
 
         return redirect('control/poliklinik');

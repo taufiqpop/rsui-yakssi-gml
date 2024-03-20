@@ -62,18 +62,11 @@ class Beranda extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('beranda');
-        $builder->select('id, key, value');
-        $query   = $builder->get();
-
-        $data['beranda'] = $query->getResultArray();
-
         return view('control/beranda/form', $data);
     }
 
     // Insert Data
-    public function insert($id = '')
+    public function insert()
     {
         // Validasi Input
         if (!$this->validate([
@@ -92,17 +85,17 @@ class Beranda extends BaseController
         }
 
         // Ambil Gambar
-        $gambarBeranda = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Apakah Tidak Ada Gambar Yang Diupload
-        if ($gambarBeranda->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarBeranda->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarBeranda->move('img/beranda', $namaGambar);
+            $ambilGambar->move('img/beranda', $namaGambar);
         }
 
         $input = [
@@ -117,7 +110,7 @@ class Beranda extends BaseController
             'value' => json_encode($input),
         ];
 
-        $this->berandaModel->save($data);
+        $this->berandaModel->insert($data);
         session()->setFlashdata('pesan', 'Data Beranda Berhasil Ditambahkan!');
 
         return redirect('control/beranda');
@@ -127,8 +120,8 @@ class Beranda extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Beranda',
-            'beranda'      => $this->berandaModel->find($id),
+            'title'      => 'RSUI YAKSSI | Edit Data Beranda',
+            'beranda'    => $this->berandaModel->find($id),
             'validation' => \Config\Services::validation()
         ];
 
@@ -161,17 +154,17 @@ class Beranda extends BaseController
             return redirect()->to('control/beranda/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarBeranda = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarBeranda->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarBeranda->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarBeranda->move('img/beranda', $namaGambar);
+            $ambilGambar->move('img/beranda', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/beranda/' . $this->request->getVar('imgLama'));
@@ -180,17 +173,16 @@ class Beranda extends BaseController
         $input = [
             'status'      => $this->request->getPost('status'),
             'header'      => $this->request->getPost('header'),
-            'deskripsi' => $this->request->getPost('deskripsi'),
-            'images'    => $namaGambar,
+            'deskripsi'   => $this->request->getPost('deskripsi'),
+            'images'      => $namaGambar,
         ];
 
         $data = [
-            'id'    => $id,
             'key'   => $this->request->getPost('header'),
             'value' => json_encode($input),
         ];
 
-        $this->berandaModel->save($data);
+        $this->berandaModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Beranda Berhasil Diubah!');
 
         return redirect('control/beranda');

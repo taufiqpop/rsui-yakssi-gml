@@ -14,18 +14,16 @@ class About extends BaseController
     // About
     public function index()
     {
-        $data = [
-            'title'      => 'RSUI YAKKSI | About',
-            'about'      => $this->aboutModel->paginate(5, 'about'),
-            'validation' => \Config\Services::validation()
-        ];
-
         $db      = \Config\Database::connect();
         $builder = $db->table('about');
         $builder->select('id, key, value, created_at, updated_at, deleted_at');
         $query   = $builder->get();
 
-        $data['about'] = $query->getResultArray();
+        $data = [
+            'title'      => 'RSUI YAKSSI | About',
+            'about'      => $query->getResultArray(),
+            'validation' => \Config\Services::validation()
+        ];
 
         return view('control/about/index', $data);
     }
@@ -48,17 +46,17 @@ class About extends BaseController
             return redirect()->to('control/about/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarAbout = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarAbout->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarAbout->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarAbout->move('img/about', $namaGambar);
+            $ambilGambar->move('img/about', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/about/' . $this->request->getVar('imgLama'));
@@ -72,12 +70,11 @@ class About extends BaseController
         ];
 
         $data = [
-            'id'    => $id,
             'key'   => $this->request->getPost('header'),
             'value' => json_encode($input),
         ];
 
-        $this->aboutModel->save($data);
+        $this->aboutModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data About Berhasil Diubah!');
 
         return redirect('control/about');

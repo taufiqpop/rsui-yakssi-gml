@@ -26,9 +26,6 @@ class LogoFA extends BaseController
         $db      = \Config\Database::connect();
         $builder = $db->table('logoFA');
         $builder->select('id, value');
-        $query   = $builder->get();
-
-        $data['logoFA'] = $query->getResultArray();
 
         $logoFA->orderBy('id', 'DESC');
 
@@ -43,7 +40,7 @@ class LogoFA extends BaseController
     }
 
     // Insert Data
-    public function insert($id = '')
+    public function insert()
     {
         $input = [
             'logo'      => $this->request->getPost('logo'),
@@ -51,11 +48,11 @@ class LogoFA extends BaseController
         ];
 
         $data = [
-            'value' => json_encode($input),
+            'value'     => json_encode($input),
         ];
 
-        $this->logoFAModel->save($data);
-        session()->setFlashdata('pesan', 'Data Logo Berhasil Ditambahkan!');
+        $this->logoFAModel->insert($data);
+        session()->setFlashdata('pesan', 'Data Logo FA Berhasil Ditambahkan!');
 
         return redirect('control/logofa');
     }
@@ -64,13 +61,13 @@ class LogoFA extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Logo FA',
+            'title'      => 'RSUI YAKSSI | Edit Data Logo FA',
             'logoFA'     => $this->logoFAModel->find($id),
         ];
 
         $db      = \Config\Database::connect();
         $builder = $db->table('logoFA');
-        $builder->select('id, value');
+        $builder->select('id, value', 'created_at', 'updated_at', 'deleted_at');
         $builder->where('id', $id);
         $query   = $builder->get();
 
@@ -88,12 +85,11 @@ class LogoFA extends BaseController
         ];
 
         $data = [
-            'id'    => $id,
-            'value' => json_encode($input),
+            'value'     => json_encode($input),
         ];
 
-        $this->logoFAModel->save($data);
-        session()->setFlashdata('pesan', 'Data Logo Berhasil Diubah!');
+        $this->logoFAModel->update($id, $data);
+        session()->setFlashdata('pesan', 'Data Logo FA Berhasil Diubah!');
 
         return redirect('control/logofa');
     }
@@ -102,7 +98,7 @@ class LogoFA extends BaseController
     public function delete($id)
     {
         $this->logoFAModel->delete($id);
-        session()->setFlashdata('pesan', 'Data Logo Berhasil Dihapus!');
+        session()->setFlashdata('pesan', 'Data Logo FA Berhasil Dihapus!');
 
         return redirect('control/logofa');
     }

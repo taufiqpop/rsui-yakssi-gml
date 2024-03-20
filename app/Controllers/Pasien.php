@@ -23,7 +23,7 @@ class Pasien extends BaseController
             $pasien = $this->pasienModel;
         }
 
-        $pasien->orderBy('id', 'DESC');
+        $pasien->orderBy('id', 'ASC');
 
         $data = [
             'title'       => 'RSUI YAKSSI | Pasien',
@@ -39,7 +39,7 @@ class Pasien extends BaseController
     public function detail($id)
     {
         $data = [
-            'title' => 'RSUI YAKSSI | Detail Pasien',
+            'title'  => 'RSUI YAKSSI | Detail Pasien',
             'pasien' => $this->pasienModel->find($id),
         ];
 
@@ -62,18 +62,11 @@ class Pasien extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        $db      = \Config\Database::connect();
-        $builder = $db->table('pasien');
-        $builder->select('id, key, value');
-        $query   = $builder->get();
-
-        $data['pasien'] = $query->getResultArray();
-
         return view('control/pasien/form', $data);
     }
 
     // Insert Data
-    public function insert($id = '')
+    public function insert()
     {
         // Validasi Input
         if (!$this->validate([
@@ -92,17 +85,17 @@ class Pasien extends BaseController
         }
 
         // Ambil Gambar
-        $gambarPasien = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Apakah Tidak Ada Gambar Yang Diupload
-        if ($gambarPasien->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = 'default.svg';
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarPasien->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPasien->move('img/pasien', $namaGambar);
+            $ambilGambar->move('img/pasien', $namaGambar);
         }
 
         $input = [
@@ -112,11 +105,11 @@ class Pasien extends BaseController
         ];
 
         $data = [
-            'key'   => $this->request->getPost('jenis'),
-            'value' => json_encode($input),
+            'key'       => $this->request->getPost('jenis'),
+            'value'     => json_encode($input),
         ];
 
-        $this->pasienModel->save($data);
+        $this->pasienModel->insert($data);
         session()->setFlashdata('pesan', 'Data Pasien Berhasil Ditambahkan!');
 
         return redirect('control/pasien');
@@ -126,8 +119,8 @@ class Pasien extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Pasien',
-            'pasien'      => $this->pasienModel->find($id),
+            'title'      => 'RSUI YAKSSI | Edit Data Pasien',
+            'pasien'     => $this->pasienModel->find($id),
             'validation' => \Config\Services::validation()
         ];
 
@@ -160,17 +153,17 @@ class Pasien extends BaseController
             return redirect()->to('control/pasien/edit')->withInput()->with('validation', $validation);
         }
 
-        $gambarPasien = $this->request->getFile('images');
+        $ambilGambar = $this->request->getFile('images');
 
         // Cek Gambar, Apakah Tetap Gambar Lama
-        if ($gambarPasien->getError() == 4) {
+        if ($ambilGambar->getError() == 4) {
             $namaGambar = $this->request->getVar('imgLama');
         } else {
             // Generate Nama File Random
-            $namaGambar = $gambarPasien->getRandomName();
+            $namaGambar = $ambilGambar->getRandomName();
 
             // Pindahkan Gambar
-            $gambarPasien->move('img/pasien', $namaGambar);
+            $ambilGambar->move('img/pasien', $namaGambar);
 
             // Hapus File Yang Lama
             unlink('img/pasien/' . $this->request->getVar('imgLama'));
@@ -183,12 +176,11 @@ class Pasien extends BaseController
         ];
 
         $data = [
-            'id'    => $id,
             'key'   => $this->request->getPost('jenis'),
             'value' => json_encode($input),
         ];
 
-        $this->pasienModel->save($data);
+        $this->pasienModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Pasien Berhasil Diubah!');
 
         return redirect('control/pasien');

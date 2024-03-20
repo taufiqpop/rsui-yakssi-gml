@@ -10,7 +10,7 @@ class Pelayanan extends BaseController
     public function __construct()
     {
         $this->pelayananModel = new \App\Models\PelayananModel();
-        $this->logoFAModel = new \App\Models\LogoFAModel();
+        $this->logoFAModel    = new \App\Models\LogoFAModel();
     }
 
     // List Pelayanan
@@ -29,7 +29,7 @@ class Pelayanan extends BaseController
 
         $data = [
             'title'       => 'RSUI YAKSSI | Pelayanan',
-            'pelayanan'   => $pelayanan->paginate(100, 'pelayanan'),
+            'pelayanan'   => $pelayanan->paginate(10, 'pelayanan'),
             'pager'       => $pelayanan->pager,
             'currentPage' => $currentPage,
         ];
@@ -61,22 +61,15 @@ class Pelayanan extends BaseController
     {
         $data = [
             'title'      => 'RSUI YAKSSI | Form Pelayanan',
-            'logoFA'     => $this->logoFAModel->paginate(5, 'logoFA'),
+            'logoFA'     => $this->logoFAModel->paginate(200, 'logoFA'),
             'validation' => \Config\Services::validation()
         ];
-
-        $db      = \Config\Database::connect();
-        $builder = $db->table('pelayanan');
-        $builder->select('id, key, value');
-        $query   = $builder->get();
-
-        $data['pelayanan'] = $query->getResultArray();
 
         return view('control/pelayanan/form', $data);
     }
 
     // Insert Data
-    public function insert($id = '')
+    public function insert()
     {
         $input = [
             'jenis'     => $this->request->getPost('jenis'),
@@ -85,11 +78,11 @@ class Pelayanan extends BaseController
         ];
 
         $data = [
-            'key'   => $this->request->getPost('jenis'),
-            'value' => json_encode($input),
+            'key'       => $this->request->getPost('jenis'),
+            'value'     => json_encode($input),
         ];
 
-        $this->pelayananModel->save($data);
+        $this->pelayananModel->insert($data);
         session()->setFlashdata('pesan', 'Data Pelayanan Berhasil Ditambahkan!');
 
         return redirect('control/pelayanan');
@@ -99,7 +92,7 @@ class Pelayanan extends BaseController
     public function edit($id)
     {
         $data = [
-            'title'      => 'RSUI YAKKSI | Edit Data Pelayanan',
+            'title'      => 'RSUI YAKSSI | Edit Data Pelayanan',
             'pelayanan'  => $this->pelayananModel->find($id),
             'validation' => \Config\Services::validation()
         ];
@@ -125,12 +118,11 @@ class Pelayanan extends BaseController
         ];
 
         $data = [
-            'id'    => $id,
             'key'   => $this->request->getPost('jenis'),
             'value' => json_encode($input),
         ];
 
-        $this->pelayananModel->save($data);
+        $this->pelayananModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Pelayanan Berhasil Diubah!');
 
         return redirect('control/pelayanan');
