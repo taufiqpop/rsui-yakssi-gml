@@ -9,12 +9,10 @@ class Home extends BaseController
     protected $dokterModel;
     protected $faqModel;
     protected $galleryModel;
-    protected $pagesModel;
     protected $pasienModel;
     protected $pelayananModel;
     protected $pesanModel;
     protected $poliklinikModel;
-    protected $postsModel;
     protected $settingsModel;
 
     public function __construct()
@@ -24,12 +22,10 @@ class Home extends BaseController
         $this->dokterModel      = new \App\Models\DokterModel();
         $this->faqModel         = new \App\Models\FAQModel();
         $this->galleryModel     = new \App\Models\GalleryModel();
-        $this->pagesModel       = new \App\Models\PagesModel();
         $this->pasienModel      = new \App\Models\PasienModel();
         $this->pelayananModel   = new \App\Models\PelayananModel();
         $this->pesanModel       = new \App\Models\PesanModel();
         $this->poliklinikModel  = new \App\Models\PoliklinikModel();
-        $this->postsModel       = new \App\Models\PostsModel();
         $this->settingsModel    = new \App\Models\SettingsModel();
     }
 
@@ -45,14 +41,13 @@ class Home extends BaseController
             'pasien'        => $this->pasienModel->paginate(4, 'pasien'),
             'pelayanan'     => $this->pelayananModel->paginate(100, 'pelayanan'),
             'poliklinik'    => $this->poliklinikModel->paginate(100, 'poliklinik'),
-            'posts'         => $this->postsModel->paginate(10000, 'posts'),
             'settings'      => $this->settingsModel->paginate(1, 'settings'),
 
             // Jumlah
             'jmlDokter'     => $this->dokterModel->jumlahDokter(),
             'jmlPelayanan'  => $this->pelayananModel->jumlahPelayanan(),
             'jmlPoliklinik' => $this->poliklinikModel->jumlahPoliklinik(),
-            'jmlPosts'      => $this->postsModel->jumlahPosts(),
+            'jmlGallery'    => $this->galleryModel->jumlahGallery(),
         ];
 
         return view('home/index', $data);

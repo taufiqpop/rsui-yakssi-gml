@@ -103,22 +103,6 @@
         </a>
     </li>
 
-    <!-- Pages -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/pages">
-            <i class="far fa-file-alt"></i>
-            <span>Pages</span>
-        </a>
-    </li>
-
-    <!-- Posts -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/posts">
-            <i class="fas fa-newspaper"></i>
-            <span>Post</span>
-        </a>
-    </li>
-
     <!-- Gallery -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>control/gallery">

@@ -59,7 +59,9 @@
     <div class="container" data-aos="zoom-in">
       <div class="text-center">
         <h3>In an Emergency? Need Help?</h3>
-        <a class="cta-btn scrollto" href="#">CLICK HERE NOW !!</a>
+        <?php foreach ($settings as $nowa) : ?>
+          <a class="cta-btn scrollto" target="_blank" href="https://wa.me/<?= $nowa['telepon']; ?>">CLICK HERE NOW !!</a>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -109,7 +111,7 @@
 
         <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
-            <i class="fas fa-flask"></i>
+            <i class="fas fa-clinic-medical"></i>
             <span data-purecounter-start="0" data-purecounter-end="<?= $jmlPoliklinik; ?>" data-purecounter-duration="1" class="purecounter"></span>
             <p><strong>Poliklinik</strong></p>
             <a href="#departments">Info Lebih Lengkap &raquo;</a>
@@ -118,10 +120,10 @@
 
         <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
           <div class="count-box">
-            <i class="fas fa-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="<?= $jmlPosts; ?>" data-purecounter-duration="1" class="purecounter"></span>
-            <p><strong>Penghargaan</strong></p>
-            <a href="#">Info Lebih Lengkap &raquo;</a>
+            <i class="fas fa-images"></i>
+            <span data-purecounter-start="0" data-purecounter-end="<?= $jmlGallery; ?>" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Gallery</strong></p>
+            <a href="#gallery">Info Lebih Lengkap &raquo;</a>
           </div>
         </div>
       </div>
@@ -200,10 +202,7 @@
               <div class="member-img">
                 <img src="<?= base_url(); ?>img/doctors/<?= $data->photo; ?>" class="img-fluid">
                 <div class="social">
-                  <a href="#"><i class="bi bi-twitter"></i></a>
-                  <a href="#"><i class="bi bi-facebook"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-link"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -373,7 +372,6 @@
       </div>
     </section>
   <?php endforeach; ?>
-
 </main>
 
 <?= $this->endSection(); ?>
