@@ -136,6 +136,9 @@ $routes->add('/gallery/update/(:segment)', 'Gallery::update/$1');
 $routes->get('/control/gallery/detail/(:segment)', 'Gallery::detail/$1');
 $routes->delete('/control/gallery/(:num)', 'Gallery::delete/$1');
 
+// Flmngr
+$routes->add('/flmngr', 'Flmngr:flmngr');;
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
