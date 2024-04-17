@@ -8,12 +8,10 @@ class User extends BaseController
     protected $dokterModel;
     protected $faqModel;
     protected $galleryModel;
-    protected $pagesModel;
     protected $pasienModel;
     protected $pelayananModel;
     protected $pesanModel;
     protected $poliklinikModel;
-    protected $postsModel;
 
     public function __construct()
     {
@@ -21,12 +19,10 @@ class User extends BaseController
         $this->dokterModel      = new \App\Models\DokterModel();
         $this->faqModel         = new \App\Models\FAQModel();
         $this->galleryModel     = new \App\Models\GalleryModel();
-        $this->pagesModel       = new \App\Models\PagesModel();
         $this->pasienModel      = new \App\Models\PasienModel();
         $this->pelayananModel   = new \App\Models\PelayananModel();
         $this->pesanModel       = new \App\Models\PesanModel();
         $this->poliklinikModel  = new \App\Models\PoliklinikModel();
-        $this->postsModel       = new \App\Models\PostsModel();
     }
 
     // Dashboard
@@ -38,12 +34,10 @@ class User extends BaseController
             'jmlDokter'     => $this->dokterModel->jumlahDokter(),
             'jmlFAQ'        => $this->faqModel->jumlahFAQ(),
             'jmlGallery'    => $this->galleryModel->jumlahGallery(),
-            'jmlPages'      => $this->pagesModel->jumlahPages(),
             'jmlPasien'     => $this->pasienModel->jumlahPasien(),
             'jmlPelayanan'  => $this->pelayananModel->jumlahPelayanan(),
             'jmlPesan'      => $this->pesanModel->jumlahPesan(),
             'jmlPoliklinik' => $this->poliklinikModel->jumlahPoliklinik(),
-            'jmlPosts'      => $this->postsModel->jumlahPosts(),
         ];
 
         return view('user/index', $data);
@@ -118,13 +112,14 @@ class User extends BaseController
         }
 
         $data = [
+            'id'            => $id,
             'email'         => $this->request->getVar('email'),
             'username'      => $this->request->getVar('username'),
             'fullname'      => $this->request->getVar('fullname'),
             'user_image'    => $namaImgUser,
         ];
 
-        $this->usersModel->update($id, $data);
+        $this->usersModel->save($data);
         session()->setFlashdata('pesan', 'Data User Berhasil Diubah!');
 
         return redirect('profile');

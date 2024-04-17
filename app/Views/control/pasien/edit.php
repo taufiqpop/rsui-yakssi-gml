@@ -17,7 +17,7 @@
                     <!-- Jenis Pasien -->
                     <div class="form-group row">
                         <label for="jenis" class="col-sm-2 col-form-label">Jenis Pasien</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                             <input type="text" class="form-control" name="jenis" value="<?= $data->jenis ?>" autofocus required>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('images'); ?>
                                 </div>

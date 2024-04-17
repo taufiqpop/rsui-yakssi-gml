@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
-                <h1 class="h3 mb-4 text-gray-800">Form Edit Data LogoFA</h1>
+                <h1 class="h3 mb-4 text-gray-800">Form Edit Data Logo</h1>
 
                 <!-- Forms -->
                 <form action="<?= base_url(); ?>logofa/update/<?= $logo['id']; ?>" method="post" enctype="multipart/form-data">

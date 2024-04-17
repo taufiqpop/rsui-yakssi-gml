@@ -23,6 +23,8 @@
     <!-- My CSS Backend -->
     <link href="<?= base_url(); ?>css/my-style.css" rel="stylesheet">
 
+    <!-- TRIX Editor -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
 </head>
 
 <body id="page-top">
@@ -97,9 +99,11 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-
     <!-- My JavaScript Backend -->
     <script src="<?= base_url(); ?>js/my-script.js"></script>
+
+    <!-- TRIX Editor -->
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 </body>
 
 </html>

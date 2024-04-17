@@ -16,8 +16,8 @@
                     <label for="status" class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
                         <select name="status" id="status">
-                            <option value=" active">Active</option>
-                            <option value="">Not Active</option>
+                            <option value="">inactive</option>
+                            <option value=" active">active</option>
                         </select>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <!-- Header -->
                 <div class="form-group row">
                     <label for="header" class="col-sm-2 col-form-label">Header</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-7">
                         <input type="text" class="form-control" placeholder="Header" name="header" required autofocus>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('images'); ?>
                             </div>

@@ -14,7 +14,7 @@
                 <!-- Jenis Pasien -->
                 <div class="form-group row">
                     <label for="jenis" class="col-sm-2 col-form-label">Jenis Pasien</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" placeholder="Jenis Pasien" name="jenis" required autofocus>
                     </div>
                 </div>
@@ -33,9 +33,9 @@
                     <div class="col-sm-2">
                         <img src="<?= base_url(); ?>img/default.svg" class="img-thumbnail img-preview">
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-4">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('images'); ?>
                             </div>
@@ -46,7 +46,7 @@
 
                 <!-- Button -->
                 <div class="form-group row">
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
                         <a href="<?= base_url(); ?>control/pasien" class="btn btn-dark mb-1">Back</a>
                         <button type="submit" class="btn btn-primary mb-1">Publish</button>
                     </div>

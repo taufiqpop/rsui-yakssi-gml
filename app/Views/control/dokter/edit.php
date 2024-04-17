@@ -17,7 +17,7 @@
                     <!-- Jenis Dokter -->
                     <div class="form-group row">
                         <label for="nama" class="col-sm-2 col-form-label">Nama Dokter</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-7">
                             <input type="text" class="form-control" name="nama" value="<?= $data->nama ?>" autofocus required>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                     <!-- Deskripsi -->
                     <div class="form-group row">
                         <label for="spesialis" class="col-sm-2 col-form-label">Spesialis Dokter</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-7">
                             <input type="text" class="form-control" name="spesialis" value="<?= $data->spesialis ?>" required>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('images'); ?>
                                 </div>
@@ -49,7 +49,7 @@
 
                     <!-- Button -->
                     <div class="form-group row">
-                        <div class="col-sm-10">
+                        <div class="col-sm-7">
                             <a href="<?= base_url(); ?>control/dokter" class="btn btn-dark mb-1">Back</a>
                             <button type="submit" class="btn btn-primary mb-1">Confirm Changes</button>
                         </div>

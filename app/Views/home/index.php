@@ -73,7 +73,7 @@
         <?php $data = json_decode($tentang['value']) ?>
         <div class="section-title">
           <h2><?= $data->header; ?></h2>
-          <div><?= $data->deskripsi; ?></div>
+          <div style="text-align: justify;"><?= $data->deskripsi; ?></div>
         </div>
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
@@ -141,7 +141,7 @@
           <?php $data = json_decode($service['value']) ?>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon"><i class="<?= $data->logo; ?>"></i></div>
-            <h4 class="title"><a href=""><?= $data->jenis; ?></a></h4>
+            <h4 class="title"><?= $data->jenis; ?></h4>
           </div>
         <?php endforeach; ?>
       </div>
@@ -248,8 +248,8 @@
         <?php foreach ($faq as $question) : ?>
           <?php $data = json_decode($question['value']) ?>
           <li>
-            <div data-bs-toggle="collapse" class="collapsed question" href="#<?= $data->href; ?>"><?= $data->pertanyaan; ?><i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="<?= $data->href; ?>" class="collapse" data-bs-parent=".faq-list">
+            <div data-bs-toggle="collapse" class="collapsed question" href="#faq-<?= $question['id']; ?>"><?= $data->pertanyaan; ?><i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div id="faq-<?= $question['id']; ?>" class="collapse" data-bs-parent=".faq-list">
               <p><?= $data->jawaban; ?></p>
             </div>
           </li>

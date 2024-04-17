@@ -14,7 +14,7 @@
                 <!-- Jenis Pelayanan -->
                 <div class="form-group row">
                     <label for="jenis" class="col-sm-2 col-form-label">Jenis Pelayanan</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-7">
                         <input type="text" class="form-control" placeholder="Jenis Pelayanan" name="jenis" required autofocus>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <!-- Deskripsi -->
                 <div class="form-group row">
                     <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-8">
                         <input type="text" class="form-control" placeholder="Deskripsi" name="deskripsi" required>
                     </div>
                 </div>

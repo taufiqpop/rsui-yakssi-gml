@@ -17,7 +17,11 @@
                     <div class="form-group row">
                         <label for="status" class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="status" value="<?= $data->status ?>" required>
+                            <select name="status" id="status">
+                                <option value="<?= $data->status; ?>" selected><?= $data->status; ?></option>
+                                <option value="">inactive</option>
+                                <option value=" active">active</option>
+                            </select>
                         </div>
                     </div>
 
@@ -45,7 +49,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('images'); ?>
                                 </div>
@@ -57,8 +61,9 @@
                     <!-- Konten -->
                     <div class="form-group row">
                         <label for="konten" class="col-sm-2 col-form-label">Konten</label>
-                        <div class="col-sm-10">
-                            <textarea class="tinymce" name="konten"><?= $data->konten; ?></textarea>
+                        <div class="col-sm-9">
+                            <input id="konten" type="hidden" name="konten" value="<?= $data->konten; ?>" required>
+                            <trix-editor input="konten"></trix-editor>
                         </div>
                     </div>
 

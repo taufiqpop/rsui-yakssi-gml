@@ -16,8 +16,8 @@
                     <label for="status" class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
                         <select name="status" id="status">
-                            <option value="">Not Active</option>
-                            <option value=" active">Active</option>
+                            <option value="">inactive</option>
+                            <option value=" active">active</option>
                         </select>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <!-- Poliklinik -->
                 <div class="form-group row">
                     <label for="poliklinik" class="col-sm-2 col-form-label">Poliklinik</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-7">
                         <input type="text" class="form-control" placeholder="Poliklinik" name="poliklinik" required autofocus>
                     </div>
                 </div>
@@ -44,9 +44,9 @@
                     <div class="col-sm-2">
                         <img src="<?= base_url(); ?>img/default.svg" class="img-thumbnail img-preview">
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-4">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('images'); ?>
                             </div>
@@ -58,8 +58,9 @@
                 <!-- Konten -->
                 <div class="form-group row">
                     <label for="konten" class="col-sm-2 col-form-label">Konten</label>
-                    <div class="col-sm-10">
-                        <textarea class="tinymce" name="konten"></textarea>
+                    <div class="col-sm-9">
+                        <input id="konten" type="hidden" name="konten" required>
+                        <trix-editor input="konten"></trix-editor>
                     </div>
                 </div>
 

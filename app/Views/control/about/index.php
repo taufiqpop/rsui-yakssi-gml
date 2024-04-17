@@ -29,14 +29,6 @@
                         </div>
                     </div>
 
-                    <!-- Deskripsi -->
-                    <div class="form-group row">
-                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
-                        <div class="col-sm-10">
-                            <textarea name="deskripsi"><?= $data->deskripsi; ?></textarea>
-                        </div>
-                    </div>
-
                     <!-- Photo -->
                     <div class="form-group row">
                         <label for="images" class="col-sm-2 col-form-label">Photo</label>
@@ -45,7 +37,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('images'); ?>
                                 </div>
@@ -54,11 +46,21 @@
                         </div>
                     </div>
 
+                    <!-- Deskripsi -->
+                    <div class="form-group row">
+                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <div class="col-sm-9">
+                            <input id="deskripsi" type="hidden" name="deskripsi" value="<?= $data->deskripsi; ?>" required>
+                            <trix-editor input="deskripsi"></trix-editor>
+                        </div>
+                    </div>
+
                     <!-- Content -->
                     <div class="form-group row">
                         <label for="konten" class="col-sm-2 col-form-label">Content</label>
-                        <div class="col-sm-10">
-                            <textarea class="tinymce" name="konten"><?= $data->konten; ?></textarea>
+                        <div class="col-sm-9">
+                            <input id="konten" type="hidden" name="konten" value="<?= $data->konten; ?>" required>
+                            <trix-editor input="konten"></trix-editor>
                         </div>
                     </div>
 

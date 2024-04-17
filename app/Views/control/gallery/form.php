@@ -14,7 +14,7 @@
                 <!-- Deskripsi -->
                 <div class="form-group row">
                     <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-7">
                         <input type="text" class="form-control" placeholder="Deskripsi" name="deskripsi" required>
                     </div>
                 </div>
@@ -25,9 +25,9 @@
                     <div class="col-sm-2">
                         <img src="<?= base_url(); ?>img/default.svg" class="img-thumbnail img-preview">
                     </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-4">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                            <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('images'); ?>
                             </div>

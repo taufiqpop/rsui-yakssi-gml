@@ -64,3 +64,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* TRIX Editor */
+trix-editor {
+    background-color: white;
+}

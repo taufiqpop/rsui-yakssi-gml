@@ -18,14 +18,18 @@
                     <div class="form-group row">
                         <label for="status" class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="status" value="<?= $data->status ?>" required>
+                            <select name="status" id="status">
+                                <option value="<?= $data->status; ?>" selected><?= $data->status; ?></option>
+                                <option value=" active">active</option>
+                                <option value="">inactive</option>
+                            </select>
                         </div>
                     </div>
 
                     <!-- Header -->
                     <div class="form-group row">
                         <label for="header" class="col-sm-2 col-form-label">Header</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-7">
                             <input type="text" class="form-control" name="header" value="<?= $data->header ?>" autofocus required>
                         </div>
                     </div>
@@ -46,7 +50,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgPasien" name="images" onchange="previewImgPasien()">
+                                <input type="file" class="custom-file-input <?= ($validation->hasError('images')) ? 'is invalid' : ''; ?>" id="imgContent" name="images" onchange="previewImgContent()">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('images'); ?>
                                 </div>
