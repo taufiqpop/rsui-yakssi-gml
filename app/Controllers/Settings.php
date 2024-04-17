@@ -37,7 +37,7 @@ class Settings extends BaseController
             'jadwal'     => $this->request->getVar('jadwal'),
         ];
 
-        $this->settingsModel->save($id, $data);
+        $this->settingsModel->update($id, $data);
         session()->setFlashdata('pesan', 'Data Settings Berhasil Diubah!');
 
         return redirect('control/settings');

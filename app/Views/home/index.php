@@ -202,7 +202,7 @@
               <div class="member-img">
                 <img src="<?= base_url(); ?>img/doctors/<?= $data->photo; ?>" class="img-fluid">
                 <div class="social">
-                  <a href="#"><i class="bi bi-link"></i></a>
+                  <i class="bi bi-plus"></i>
                 </div>
               </div>
               <div class="member-info">
