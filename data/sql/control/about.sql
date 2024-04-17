@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2024 at 03:31 AM
+-- Generation Time: Apr 17, 2024 at 07:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `key`, `value`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'About Us', '{\"header\":\"About Us\",\"deskripsi\":\"<p style=\\\"text-align: justify;\\\">&nbsp; &nbsp; &nbsp; RSUI YAKSSI Gemolong merupakan salah satu rumah sakit umum di wilayah Sragen yang berkedudukan di Jl Raya Solo-Purwodadi Km 20 Gemolong. RSUI YAKSSI Gemolong merupakan Rumah Sakit yang berada dibawah PT. YAKSSI. Berawal mula dari sebuah klinik kesehatan di Gemolong, Rumah Sakit Umum YAKSSI selalu mengalami perubahan besar maupun kecil dalam upayanya melayani masyarakat. Berbagai tantangan dan halangan berhasil dilewati dalam keberlangsungan rumah sakit. RSUI YAKSSI masih sadar bahwasanya pelayanan kepada masyarakat tiada hentinya, dan selamanya RSUI YAKSSI tidak bisa sempurna. Namun, itu tidak menghentikan upaya RSUI YAKSSI untuk selalu berbenah diri.<\\/p>\",\"konten\":\"<p><img class=\\\"n1ed--selected\\\" src=\\\"https:\\/\\/fm.n1ed.com\\/files\\/all-england-2024-1779367935.jpg\\\" alt=\\\"\\\"><\\/p><script src=\\\"\\/\\/cdn.public.flmngr.com\\/FLMNFLMN\\/widgets.js\\\"><\\/script>\",\"images\":\"1709958696_e7203875ac4a76bee20a.png\"}', '2024-03-09 05:12:51', '2024-03-20 02:00:02', '2024-03-09 05:12:51');
+(1, 'About Us', '{\"header\":\"About Us\",\"deskripsi\":\"<div>&nbsp; &nbsp; &nbsp;RSUI YAKSSI Gemolong merupakan salah satu rumah sakit umum di wilayah Sragen yang berkedudukan di Jl Raya Solo-Purwodadi Km 20 Gemolong. RSUI YAKSSI Gemolong merupakan Rumah Sakit yang berada dibawah PT. YAKSSI. Berawal mula dari sebuah klinik kesehatan di Gemolong, Rumah Sakit Umum YAKSSI selalu mengalami perubahan besar maupun kecil dalam upayanya melayani masyarakat. Berbagai tantangan dan halangan berhasil dilewati dalam keberlangsungan rumah sakit. RSUI YAKSSI masih sadar bahwasanya pelayanan kepada masyarakat tiada hentinya, dan selamanya RSUI YAKSSI tidak bisa sempurna. Namun, itu tidak menghentikan upaya RSUI YAKSSI untuk selalu berbenah diri.<\\/div>\",\"konten\":\"\",\"images\":\"1709958696_e7203875ac4a76bee20a.png\"}', '2024-03-09 05:12:51', '2024-04-17 05:02:31', '2024-03-09 05:12:51');
 
 --
 -- Indexes for dumped tables

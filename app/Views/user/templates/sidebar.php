@@ -57,11 +57,11 @@
         </a>
     </li>
 
-    <!-- Jenis Pasien -->
+    <!-- Pelayanan -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/pasien">
-            <i class="fas fa-child"></i>
-            <span>Jenis Pasien</span>
+        <a class="nav-link" href="<?= base_url(); ?>control/pelayanan">
+            <i class="fas fa-file-medical"></i>
+            <span>Pelayanan</span>
         </a>
     </li>
 
@@ -70,14 +70,6 @@
         <a class="nav-link" href="<?= base_url(); ?>control/poliklinik">
             <i class="fas fa-clinic-medical"></i>
             <span>Poliklinik</span>
-        </a>
-    </li>
-
-    <!-- Pelayanan -->
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/pelayanan">
-            <i class="fas fa-file-medical"></i>
-            <span>Pelayanan</span>
         </a>
     </li>
 
@@ -95,11 +87,11 @@
         </a>
     </li>
 
-    <!-- About -->
+    <!-- Jenis Pasien -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>control/about">
-            <i class="fab fa-amazon"></i>
-            <span>About</span>
+        <a class="nav-link" href="<?= base_url(); ?>control/pasien">
+            <i class="fas fa-child"></i>
+            <span>Jenis Pasien</span>
         </a>
     </li>
 

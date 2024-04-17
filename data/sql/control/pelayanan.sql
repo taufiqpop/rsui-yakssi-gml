@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2024 at 03:35 AM
+-- Generation Time: Apr 17, 2024 at 07:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,8 +51,8 @@ INSERT INTO `pelayanan` (`id`, `key`, `value`, `created_at`, `updated_at`, `dele
 (8, 'Kamar Operasi', '{\"jenis\":\"Kamar Operasi\",\"logo\":\"fas fa-clinic-medical\",\"deskripsi\":\"Kamar Operasi\"}', '2024-03-09 04:42:38', '2024-03-12 01:52:52', '0000-00-00 00:00:00'),
 (9, 'Rawat Inap', '{\"jenis\":\"Rawat Inap\",\"logo\":\"fas fa-procedures\",\"deskripsi\":\"Rawat Inap\"}', '2024-03-09 04:42:45', '2024-03-12 02:05:20', '0000-00-00 00:00:00'),
 (10, 'USG', '{\"jenis\":\"USG\",\"logo\":\"fas fa-baby-carriage\",\"deskripsi\":\"USG\"}', '2024-03-09 04:42:50', '2024-03-12 01:50:57', '0000-00-00 00:00:00'),
-(12, 'Layanan Bank Darah', '{\"jenis\":\"Layanan Bank Darah\",\"logo\":\"fab fa-medrt\",\"deskripsi\":\"Layanan Bank Darah\"}', '2024-03-09 04:42:58', '2024-03-12 01:52:21', '0000-00-00 00:00:00'),
-(13, 'Endoskopi THT', '{\"jenis\":\"Endoskopi THT\",\"logo\":\"fas fa-head-side-cough\",\"deskripsi\":\"Endoskopi THT\"}', '2024-03-09 04:43:06', '2024-03-12 01:52:31', '0000-00-00 00:00:00');
+(11, 'Layanan Bank Darah', '{\"jenis\":\"Layanan Bank Darah\",\"logo\":\"fab fa-medrt\",\"deskripsi\":\"Layanan Bank Darah\"}', '2024-03-09 04:42:58', '2024-03-12 01:52:21', '0000-00-00 00:00:00'),
+(12, 'Endoskopi THT', '{\"jenis\":\"Endoskopi THT\",\"logo\":\"fas fa-head-side-cough\",\"deskripsi\":\"Endoskopi THT\"}', '2024-03-09 04:43:06', '2024-03-12 01:52:31', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables

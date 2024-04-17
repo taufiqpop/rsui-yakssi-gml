@@ -42,93 +42,93 @@ $routes->get('/admin/detail/(:segment)', 'Admin::detail/$1', ['filter' => 'role:
 $routes->delete('/user/admin/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
 
 // User
-$routes->get('/user', 'User::index');
-$routes->get('/profile', 'User::profile');
-$routes->get('/user/edit/(:segment)', 'User::edit/$1');
-$routes->add('/user/update/(:segment)', 'User::update/$1');
+$routes->get('/user', 'User::index', ['filter' => 'role:admin, user']);
+$routes->get('/profile', 'User::profile', ['filter' => 'role:admin, user']);
+$routes->get('/user/edit/(:segment)', 'User::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/user/update/(:segment)', 'User::update/$1', ['filter' => 'role:admin, user']);
 
 // Password
-$routes->get('/password/(:num)', 'ChangePassword::index/$1');
-$routes->add('/password/setPassword/(:num)', 'ChangePassword::setPassword/$1');
+$routes->get('/password/(:num)', 'ChangePassword::index/$1', ['filter' => 'role:admin, user']);
+$routes->add('/password/setPassword/(:num)', 'ChangePassword::setPassword/$1', ['filter' => 'role:admin, user']);
 
 // Pesan
-$routes->add('/pesan', 'Pesan::index');
+$routes->add('/pesan', 'Pesan::index', ['filter' => 'role:admin, user']);
 
 // Settings
-$routes->get('/control/settings', 'Settings::index');
-$routes->add('/settings/update/(:segment)', 'Settings::update/$1');
+$routes->get('/control/settings', 'Settings::index', ['filter' => 'role:admin, user']);
+$routes->add('/settings/update/(:segment)', 'Settings::update/$1', ['filter' => 'role:admin']);
 
 // Pasien
-$routes->add('/control/pasien', 'Pasien::index');
-$routes->get('/control/pasien/form', 'Pasien::form');
-$routes->add('/pasien/insert', 'Pasien::insert');
-$routes->get('/control/pasien/edit/(:segment)', 'Pasien::edit/$1');
-$routes->add('/pasien/update/(:segment)', 'Pasien::update/$1');
-$routes->get('/control/pasien/detail/(:segment)', 'Pasien::detail/$1');
-$routes->delete('/control/pasien/(:num)', 'Pasien::delete/$1');
+$routes->add('/control/pasien', 'Pasien::index', ['filter' => 'role:admin, user']);
+$routes->get('/control/pasien/form', 'Pasien::form', ['filter' => 'role:admin, user']);
+$routes->add('/pasien/insert', 'Pasien::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/pasien/edit/(:segment)', 'Pasien::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/pasien/update/(:segment)', 'Pasien::update/$1', ['filter' => 'role:admin, user']);
+$routes->get('/control/pasien/detail/(:segment)', 'Pasien::detail/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/pasien/(:num)', 'Pasien::delete/$1', ['filter' => 'role:admin, user']);
 
 // About
-$routes->add('/control/about', 'About::index');
-$routes->add('/about/update/(:segment)', 'About::update/$1');
+$routes->add('/control/about', 'About::index', ['filter' => 'role:admin, user']);
+$routes->add('/about/update/(:segment)', 'About::update/$1', ['filter' => 'role:admin, user']);
 
 // Beranda
-$routes->add('/control/beranda', 'Beranda::index');
-$routes->get('/control/beranda/form', 'Beranda::form');
-$routes->add('/beranda/insert', 'Beranda::insert');
-$routes->get('/control/beranda/edit/(:segment)', 'Beranda::edit/$1');
-$routes->add('/beranda/update/(:segment)', 'Beranda::update/$1');
-$routes->get('/control/beranda/detail/(:segment)', 'Beranda::detail/$1');
-$routes->delete('/control/beranda/(:num)', 'Beranda::delete/$1');
+$routes->add('/control/beranda', 'Beranda::index', ['filter' => 'role:admin, user']);
+$routes->get('/control/beranda/form', 'Beranda::form', ['filter' => 'role:admin, user']);
+$routes->add('/beranda/insert', 'Beranda::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/beranda/edit/(:segment)', 'Beranda::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/beranda/update/(:segment)', 'Beranda::update/$1', ['filter' => 'role:admin, user']);
+$routes->get('/control/beranda/detail/(:segment)', 'Beranda::detail/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/beranda/(:num)', 'Beranda::delete/$1', ['filter' => 'role:admin, user']);
 
 // Dokter
-$routes->add('/control/dokter', 'Dokter::index');
-$routes->get('/control/dokter/form', 'Dokter::form');
-$routes->add('/dokter/insert', 'Dokter::insert');
-$routes->get('/control/dokter/edit/(:segment)', 'Dokter::edit/$1');
-$routes->add('/dokter/update/(:segment)', 'Dokter::update/$1');
-$routes->delete('/control/dokter/(:num)', 'Dokter::delete/$1');
+$routes->add('/control/dokter', 'Dokter::index', ['filter' => 'role:admin, user']);
+$routes->get('/control/dokter/form', 'Dokter::form', ['filter' => 'role:admin, user']);
+$routes->add('/dokter/insert', 'Dokter::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/dokter/edit/(:segment)', 'Dokter::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/dokter/update/(:segment)', 'Dokter::update/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/dokter/(:num)', 'Dokter::delete/$1', ['filter' => 'role:admin, user']);
 
 // Pelayanan
-$routes->add('/control/pelayanan', 'Pelayanan::index');
-$routes->get('/control/pelayanan/form', 'Pelayanan::form');
-$routes->add('/pelayanan/insert', 'Pelayanan::insert');
-$routes->get('/control/pelayanan/edit/(:segment)', 'Pelayanan::edit/$1');
-$routes->add('/pelayanan/update/(:segment)', 'Pelayanan::update/$1');
-$routes->get('/control/pelayanan/detail/(:segment)', 'Pelayanan::detail/$1');
-$routes->delete('/control/pelayanan/(:num)', 'Pelayanan::delete/$1');
+$routes->add('/control/pelayanan', 'Pelayanan::index', ['filter' => 'role:admin, user']);
+$routes->get('/control/pelayanan/form', 'Pelayanan::form', ['filter' => 'role:admin, user']);
+$routes->add('/pelayanan/insert', 'Pelayanan::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/pelayanan/edit/(:segment)', 'Pelayanan::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/pelayanan/update/(:segment)', 'Pelayanan::update/$1', ['filter' => 'role:admin, user']);
+$routes->get('/control/pelayanan/detail/(:segment)', 'Pelayanan::detail/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/pelayanan/(:num)', 'Pelayanan::delete/$1', ['filter' => 'role:admin, user']);
 
 // LogoFA
-$routes->add('/control/logofa', 'LogoFA::index');
-$routes->add('/logofa/insert', 'LogoFA::insert');
-$routes->get('/control/logofa/edit/(:segment)', 'LogoFA::edit/$1');
-$routes->add('/logofa/update/(:segment)', 'LogoFA::update/$1');
-$routes->delete('/control/logofa/(:num)', 'LogoFA::delete/$1');
+$routes->add('/control/logofa', 'LogoFA::index', ['filter' => 'role:admin, user']);
+$routes->add('/logofa/insert', 'LogoFA::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/logofa/edit/(:segment)', 'LogoFA::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/logofa/update/(:segment)', 'LogoFA::update/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/logofa/(:num)', 'LogoFA::delete/$1', ['filter' => 'role:admin, user']);
 
 // Poliklinik
-$routes->add('/control/poliklinik', 'Poliklinik::index');
-$routes->get('/control/poliklinik/form', 'Poliklinik::form');
-$routes->add('/poliklinik/insert', 'Poliklinik::insert');
-$routes->get('/control/poliklinik/edit/(:segment)', 'Poliklinik::edit/$1');
-$routes->add('/poliklinik/update/(:segment)', 'Poliklinik::update/$1');
-$routes->get('/control/poliklinik/detail/(:segment)', 'Poliklinik::detail/$1');
-$routes->delete('/control/poliklinik/(:num)', 'Poliklinik::delete/$1');
+$routes->add('/control/poliklinik', 'Poliklinik::index', ['filter' => 'role:admin, user']);
+$routes->get('/control/poliklinik/form', 'Poliklinik::form', ['filter' => 'role:admin, user']);
+$routes->add('/poliklinik/insert', 'Poliklinik::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/poliklinik/edit/(:segment)', 'Poliklinik::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/poliklinik/update/(:segment)', 'Poliklinik::update/$1', ['filter' => 'role:admin, user']);
+$routes->get('/control/poliklinik/detail/(:segment)', 'Poliklinik::detail/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/poliklinik/(:num)', 'Poliklinik::delete/$1', ['filter' => 'role:admin, user']);
 
 // FAQ
-$routes->add('/control/faq', 'FAQ::index');
-$routes->get('/control/faq/form', 'FAQ::form');
-$routes->add('/faq/insert', 'FAQ::insert');
-$routes->get('/control/faq/edit/(:segment)', 'FAQ::edit/$1');
-$routes->add('/faq/update/(:segment)', 'FAQ::update/$1');
-$routes->delete('/control/faq/(:num)', 'FAQ::delete/$1');
+$routes->add('/control/faq', 'FAQ::index', ['filter' => 'role:admin, user']);
+$routes->get('/control/faq/form', 'FAQ::form', ['filter' => 'role:admin, user']);
+$routes->add('/faq/insert', 'FAQ::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/faq/edit/(:segment)', 'FAQ::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/faq/update/(:segment)', 'FAQ::update/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/faq/(:num)', 'FAQ::delete/$1', ['filter' => 'role:admin, user']);
 
 // Gallery
-$routes->add('/control/gallery', 'Gallery::index');
-$routes->get('/control/gallery/form', 'Gallery::form');
-$routes->add('/gallery/insert', 'Gallery::insert');
-$routes->get('/control/gallery/edit/(:segment)', 'Gallery::edit/$1');
-$routes->add('/gallery/update/(:segment)', 'Gallery::update/$1');
-$routes->get('/control/gallery/detail/(:segment)', 'Gallery::detail/$1');
-$routes->delete('/control/gallery/(:num)', 'Gallery::delete/$1');
+$routes->add('/control/gallery', 'Gallery::index', ['filter' => 'role:admin, user']);
+$routes->get('/control/gallery/form', 'Gallery::form', ['filter' => 'role:admin, user']);
+$routes->add('/gallery/insert', 'Gallery::insert', ['filter' => 'role:admin, user']);
+$routes->get('/control/gallery/edit/(:segment)', 'Gallery::edit/$1', ['filter' => 'role:admin, user']);
+$routes->add('/gallery/update/(:segment)', 'Gallery::update/$1', ['filter' => 'role:admin, user']);
+$routes->get('/control/gallery/detail/(:segment)', 'Gallery::detail/$1', ['filter' => 'role:admin, user']);
+$routes->delete('/control/gallery/(:num)', 'Gallery::delete/$1', ['filter' => 'role:admin, user']);
 
 // Flmngr
 $routes->add('/flmngr', 'Flmngr:flmngr');;

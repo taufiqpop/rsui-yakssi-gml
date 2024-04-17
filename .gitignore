@@ -61,6 +61,7 @@ writable/uploads/*
 !writable/uploads/index.html
 
 writable/debugbar/*
+!writable/debugbar/.gitkeep
 
 php_errors.log
 
@@ -79,6 +80,26 @@ tests/coverage*
 
 # Don't save phpunit under version control.
 phpunit
+
+#-------------------------
+# Composer
+#-------------------------
+vendor/bin
+vendor/codeigniter4
+vendor/composer
+vendor/doctrine
+vendor/fakerphp
+vendor/laminas
+vendor/mikey179
+vendor/myclabs
+vendor/nikic
+vendor/phar-io
+vendor/psr
+vendor/sebastian
+vendor/symfony
+vendor/theseer
+vendor/autoload.php
+vendor/bin
 
 #-------------------------
 # IDE / Development Files

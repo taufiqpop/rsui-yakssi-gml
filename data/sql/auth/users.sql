@@ -52,7 +52,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `user_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'taufiqpop999@gmail.com', 'taufiqpop99', 'Taufiq Pop', '1709691471_130157a4b6030fe9b13d.png', '$2y$10$G.P6YFt.BmMUpJpSSJ2m7eY4rzySMUysqOr76WvQaChOR69GN3JSa', NULL, NULL, NULL, 'd3cab9085bec3782c87c9b61064773dc', NULL, NULL, 1, 0, '2024-03-02 02:23:51', '2024-03-12 02:41:52', NULL);
+(1, 'taufiqpop@gmail.com', 'taufiqpop', 'Taufiq Pop', '1709691471_130157a4b6030fe9b13d.png', '$2y$10$0PU2PnhC.c0nzWosmdVwQefb7MePnm.wDDgkVM.MdKBeyGGiDla4u', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2024-03-07 14:40:37', '2024-03-07 14:43:17', '0000-00-00 00:00:00'),
 
 --
 -- Indexes for dumped tables

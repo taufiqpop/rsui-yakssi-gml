@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2024 at 03:30 AM
+-- Generation Time: Apr 17, 2024 at 07:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,15 +42,14 @@ CREATE TABLE `settings` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT current_timestamp(),
-  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `nama`, `owner`, `telepon`, `author`, `alamat`, `jadwal`, `email`, `fax`, `instagram`, `facebook`, `created_at`, `updated_at`, `deleted_at`, `status`) VALUES
-(1, 'RSUI YAKSSI', 'RSUI YAKSSI Gemolong', '+622716811336', 'RSUI YAKSSI', 'Jl. Raya Solo - Purwodadi KM. 20, Gemolong, Kabayanan II, Kragilan, Kec. Gemolong, Kabupaten Sragen, Jawa Tengah (57274)', 'Senin - Sabtu : 07:00 - 20:00 WIB || UGD 24 Jam', 'rsuiyakssi_gml@yahoo.co.id', '+62 271 6811 336', 'rsuiyakssi', 'rsuiyakssi.gml', '2024-03-06 11:01:02', '2024-03-12 02:43:26', '2024-03-06 11:01:02', 0);
+INSERT INTO `settings` (`id`, `nama`, `owner`, `telepon`, `author`, `alamat`, `jadwal`, `email`, `fax`, `instagram`, `facebook`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'RSUI YAKSSI', 'RSUI YAKSSI Gemolong', '+622716811336', 'RSUI YAKSSI', 'Jl. Raya Solo - Purwodadi KM. 20, Gemolong, Kabayanan II, Kragilan, Kec. Gemolong, Kabupaten Sragen, Jawa Tengah (57274)', 'Senin - Sabtu : 07:00 - 20:00 WIB || UGD 24 Jam', 'rsuiyakssi_gml@yahoo.co.id', '+62 271 6811 336', 'rsuiyakssi', 'rsuiyakssi.gml', '2024-03-06 11:01:02', '2024-03-12 02:43:26', '2024-03-06 11:01:02');
 
 --
 -- Indexes for dumped tables

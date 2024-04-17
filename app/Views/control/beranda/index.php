@@ -7,6 +7,7 @@
         <div class="col-11">
             <h1 class="h3 mb-4 text-gray-800">Daftar Beranda</h1>
             <a href="<?= base_url(); ?>control/beranda/form" class="btn btn-primary">Add Beranda</a>
+            <a href="<?= base_url(); ?>control/about" class="btn btn-info">About</a>
             <br><br>
 
             <!-- Search Bar -->
